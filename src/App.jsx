@@ -1,346 +1,359 @@
 import React, { useState } from 'react';
-
-// Manually created SVG Icons to bypass lucide-react bundler issues
-const IconWrapper = ({ size=24, className="", children }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    {children}
-  </svg>
-);
-const BrainCircuit = (p) => <IconWrapper {...p}><path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z"/><path d="M16 8V5c0-1.1.9-2 2-2"/><path d="M12 13h4"/><path d="M12 18h6a2 2 0 0 1 2 2v1"/><path d="M12 8h8"/></IconWrapper>;
-const Trophy = (p) => <IconWrapper {...p}><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 1.1-.9 2-2 2H4"/><path d="M14 14.66V17c0 1.1.9 2 2 2h4"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></IconWrapper>;
-const ArrowRight = (p) => <IconWrapper {...p}><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></IconWrapper>;
-const RotateCcw = (p) => <IconWrapper {...p}><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></IconWrapper>;
-const Check = (p) => <IconWrapper {...p}><path d="M20 6 9 17l-5-5"/></IconWrapper>;
-const X = (p) => <IconWrapper {...p}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></IconWrapper>;
-const Home = (p) => <IconWrapper {...p}><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></IconWrapper>;
-const Globe = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></IconWrapper>;
-const Database = (p) => <IconWrapper {...p}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></IconWrapper>;
-const Cpu = (p) => <IconWrapper {...p}><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></IconWrapper>;
-const Code = (p) => <IconWrapper {...p}><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></IconWrapper>;
-const BookOpen = (p) => <IconWrapper {...p}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></IconWrapper>;
-const ChevronLeft = (p) => <IconWrapper {...p}><path d="m15 18-6-6 6-6"/></IconWrapper>;
-const AlertCircle = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></IconWrapper>;
+import { 
+  BrainCircuit, Trophy, ArrowRight, RotateCcw, 
+  Check, X, Home, Globe, 
+  Database, Cpu, Code, BookOpen, ChevronLeft, AlertCircle
+} from 'lucide-react';
 
 // Data structure containing courses and their specific questions
 const courseData = {
   web_tech: {
     id: 'web_tech',
     title: "Web Technology",
-    description: "HTML, CSS, XML & Advanced Web Architecture",
+    description: "HTML Forms, CSS Layouts, Responsive Design & XML",
     icon: Globe,
     gradient: "from-cyan-500 to-blue-600",
     questions: [
       {
         type: "mcq",
-        question: "What does HTML stand for?",
-        options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Markup Language"],
-        correctAnswer: "Hyper Text Markup Language"
-      },
-      {
-        type: "mcq",
-        question: "Who is making the Web standards?",
-        options: ["Mozilla", "Google", "The World Wide Web Consortium", "Microsoft"],
-        correctAnswer: "The World Wide Web Consortium"
-      },
-      {
-        type: "mcq",
-        question: "Choose the correct HTML element for the largest heading:",
-        options: ["<h6>", "<head>", "<heading>", "<h1>"],
-        correctAnswer: "<h1>"
+        question: "Which of the following best describes how the Internet fundamentally works?",
+        options: ["A single massive central computer", "A global network of interconnected computer networks using TCP/IP", "A local software application for browsing", "A satellite broadcasting system"],
+        correctAnswer: "A global network of interconnected computer networks using TCP/IP"
       },
       {
         type: "text",
-        question: "Fill in the blank to insert a line break: <____>",
-        correctAnswer: ["br", "br/", "br /"]
+        question: "Fill in the blank. HTTP stands for Hypertext Transfer ________.",
+        correctAnswer: ["Protocol", "protocol"]
       },
       {
         type: "mcq",
-        question: "What is the correct HTML for adding a background color?",
-        options: ["<background>yellow</background>", "<body bg=\"yellow\">", "<body style=\"background-color:yellow;\">", "<body style=\"bg-color:yellow;\">"],
-        correctAnswer: "<body style=\"background-color:yellow;\">"
+        question: "What is the primary function of DNS (Domain Name System) on the internet?",
+        options: ["To style web pages", "To translate human-readable domain names into IP addresses", "To encrypt passwords", "To run server-side scripts"],
+        correctAnswer: "To translate human-readable domain names into IP addresses"
       },
       {
         type: "mcq",
-        question: "Choose the correct HTML element to define important text.",
-        options: ["<b>", "<i>", "<important>", "<strong>"],
-        correctAnswer: "<strong>"
-      },
-      {
-        type: "mcq",
-        question: "Choose the correct HTML element to define emphasized text.",
-        options: ["<em>", "<italic>", "<i>", "<strong>"],
-        correctAnswer: "<em>"
-      },
-      {
-        type: "mcq",
-        question: "What is the correct HTML for creating a hyperlink?",
-        options: ["<a href=\"http://www.w3schools.com\">W3Schools</a>", "<a name=\"http://www.w3schools.com\">W3Schools</a>", "<a url=\"http://www.w3schools.com\">W3Schools</a>", "<a>http://www.w3schools.com</a>"],
-        correctAnswer: "<a href=\"http://www.w3schools.com\">W3Schools</a>"
+        question: "Which of the following is a standard piece of software found in a Web Programmer's Toolbox?",
+        options: ["Microsoft Word", "A code editor like VS Code", "Adobe Premiere Pro", "A 3D modeling engine"],
+        correctAnswer: "A code editor like VS Code"
       },
       {
         type: "text",
-        question: "Fill in the blank to indicate an end tag: <____p>",
-        correctAnswer: ["/", "\\"]
+        question: "Fill in the blank. A software application used to access and display websites is called a web ________.",
+        correctAnswer: ["browser", "Browser"]
       },
       {
         type: "mcq",
-        question: "How can you open a link in a new tab/browser window?",
-        options: ["<a href=\"url\" new>", "<a href=\"url\" target=\"_blank\">", "<a href=\"url\" target=\"new\">", "<a href=\"url\" window=\"_blank\">"],
-        correctAnswer: "<a href=\"url\" target=\"_blank\">"
+        question: "In HTML forms, what does the 'action' attribute do?",
+        options: ["Styles the form button", "Specifies where to send the form-data when a form is submitted", "Validates the user input", "Hides the form from the user"],
+        correctAnswer: "Specifies where to send the form-data when a form is submitted"
       },
       {
         type: "mcq",
-        question: "Which of these elements are all <table> elements?",
-        options: ["<table><tr><tt>", "<table><tr><td>", "<table><head><tfoot>", "<thead><body><tr>"],
-        correctAnswer: "<table><tr><td>"
-      },
-      {
-        type: "mcq",
-        question: "Inline elements are normally displayed without starting a new line.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        type: "mcq",
-        question: "How can you make a numbered list?",
-        options: ["<ol>", "<ul>", "<dl>", "<list>"],
-        correctAnswer: "<ol>"
-      },
-      {
-        type: "mcq",
-        question: "How can you make a bulleted list?",
-        options: ["<list>", "<ol>", "<ul>", "<dl>"],
-        correctAnswer: "<ul>"
-      },
-      {
-        type: "mcq",
-        question: "What is the correct HTML for making a checkbox?",
-        options: ["<checkbox>", "<input type=\"check\">", "<check>", "<input type=\"checkbox\">"],
-        correctAnswer: "<input type=\"checkbox\">"
+        question: "Which form method appends the form data to the URL, making it visible to everyone?",
+        options: ["POST", "GET", "SEND", "URL"],
+        correctAnswer: "GET"
       },
       {
         type: "text",
-        question: "Fill in the blank to define a text input field: <input type=\"____\">",
+        question: "Fill in the blank to create a standard single-line text input field: <input type=\"____\">",
         correctAnswer: ["text", "TEXT"]
       },
       {
         type: "mcq",
-        question: "What is the correct HTML for making a drop-down list?",
-        options: ["<input type=\"list\">", "<list>", "<select>", "<input type=\"dropdown\">"],
-        correctAnswer: "<select>"
+        question: "Which HTML input type defines a field where characters are masked (shown as asterisks or dots)?",
+        options: ["type=\"hidden\"", "type=\"secret\"", "type=\"password\"", "type=\"mask\""],
+        correctAnswer: "type=\"password\""
       },
       {
         type: "mcq",
-        question: "What is the correct HTML for making a text area?",
-        options: ["<textarea>", "<input type=\"textbox\">", "<input type=\"textarea\">", "<text>"],
-        correctAnswer: "<textarea>"
-      },
-      {
-        type: "mcq",
-        question: "What is the correct HTML for inserting an image?",
-        options: ["<image src=\"image.gif\" alt=\"MyImage\">", "<img src=\"image.gif\" alt=\"MyImage\">", "<img alt=\"MyImage\">image.gif</img>", "<img href=\"image.gif\" alt=\"MyImage\">"],
-        correctAnswer: "<img src=\"image.gif\" alt=\"MyImage\">"
-      },
-      {
-        type: "mcq",
-        question: "Which HTML5 element is used to specify a footer for a document or section?",
-        options: ["<bottom>", "<footer>", "<section>", "<foot>"],
-        correctAnswer: "<footer>"
-      },
-      {
-        type: "mcq",
-        question: "Which HTML element is used to play video files?",
-        options: ["<media>", "<video>", "<movie>", "<audio>"],
-        correctAnswer: "<video>"
-      },
-      {
-        type: "mcq",
-        question: "Which HTML element is used to play audio files?",
-        options: ["<sound>", "<audio>", "<mp3>", "<music>"],
-        correctAnswer: "<audio>"
+        question: "Which input type defines a button for submitting form data to a form-handler?",
+        options: ["type=\"button\"", "type=\"submit\"", "type=\"send\"", "type=\"action\""],
+        correctAnswer: "type=\"submit\""
       },
       {
         type: "text",
-        question: "Fill in the blank. The HTML global attribute, \"content____\" is used to specify whether the content of an element should be editable.",
-        correctAnswer: ["editable"]
+        question: "Fill in the blank. The ________ attribute specifies a short hint that describes the expected value of an input field.",
+        correctAnswer: ["placeholder", "Placeholder"]
       },
       {
         type: "mcq",
-        question: "Graphics defined by SVG is in which format?",
-        options: ["HTML", "XML", "CSS", "JSON"],
-        correctAnswer: "XML"
+        question: "What does the 'required' attribute do when added to an HTML input tag?",
+        options: ["It makes the input field larger", "It specifies that an input field must be filled out before submitting the form", "It requires the user to log in", "It highlights the field in red"],
+        correctAnswer: "It specifies that an input field must be filled out before submitting the form"
+      },
+      {
+        type: "mcq",
+        question: "Which HTML tag represents the most important (largest) heading?",
+        options: ["<header>", "<head>", "<h1>", "<h6>"],
+        correctAnswer: "<h1>"
       },
       {
         type: "text",
-        question: "Fill in the blank. CSS stands for ________ Style Sheets.",
-        correctAnswer: ["Cascading", "cascading"]
+        question: "Fill in the blank. To create a hyperlink in HTML, you use the ________ tag.",
+        correctAnswer: ["a", "A", "<a>"]
       },
       {
         type: "mcq",
-        question: "What is the correct HTML for referring to an external style sheet?",
-        options: ["<style src=\"mystyle.css\">", "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">", "<stylesheet>mystyle.css</stylesheet>", "<style href=\"mystyle.css\">"],
-        correctAnswer: "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">"
+        question: "Which attribute provides alternative text for an image, if the image cannot be displayed?",
+        options: ["title", "src", "alt", "href"],
+        correctAnswer: "alt"
       },
       {
         type: "mcq",
-        question: "Where in an HTML document is the correct place to refer to an external style sheet?",
-        options: ["In the <body> section", "At the end of the document", "In the <head> section", "Before the <html> tag"],
-        correctAnswer: "In the <head> section"
-      },
-      {
-        type: "mcq",
-        question: "Which HTML tag is used to define an internal style sheet?",
-        options: ["<script>", "<style>", "<css>", "<link>"],
-        correctAnswer: "<style>"
-      },
-      {
-        type: "mcq",
-        question: "Which HTML attribute is used to define inline styles?",
-        options: ["styles", "font", "style", "class"],
-        correctAnswer: "style"
+        question: "Which attribute is used to specify the destination address of a hyperlink?",
+        options: ["src", "link", "url", "href"],
+        correctAnswer: "href"
       },
       {
         type: "text",
-        question: "Fill in the blank for the correct CSS syntax to change text color: body {____: black;}",
+        question: "Fill in the blank to specify the image file path: <img ____=\"image.jpg\">",
+        correctAnswer: ["src", "SRC"]
+      },
+      {
+        type: "mcq",
+        question: "What does CSS stand for?",
+        options: ["Cascading Style Sheets", "Creative Style System", "Computer Style Sheets", "Colorful Style Sheets"],
+        correctAnswer: "Cascading Style Sheets"
+      },
+      {
+        type: "mcq",
+        question: "What are the three common ways to insert CSS into an HTML document?",
+        options: ["Top, Bottom, Middle", "Inline, Internal, External", "Local, Global, Universal", "Primary, Secondary, Tertiary"],
+        correctAnswer: "Inline, Internal, External"
+      },
+      {
+        type: "text",
+        question: "Fill in the blank. ________ CSS is used to define styles for a single HTML page inside the <head> section.",
+        correctAnswer: ["Internal", "internal"]
+      },
+      {
+        type: "mcq",
+        question: "Which type of CSS is applied directly to a single HTML element using the 'style' attribute?",
+        options: ["Inline CSS", "Internal CSS", "External CSS", "Imported CSS"],
+        correctAnswer: "Inline CSS"
+      },
+      {
+        type: "mcq",
+        question: "External CSS files should ideally be saved with which file extension?",
+        options: [".html", ".css", ".style", ".js"],
+        correctAnswer: ".css"
+      },
+      {
+        type: "text",
+        question: "Fill in the blank. To connect an external CSS file, you use the <____> tag in the HTML head.",
+        correctAnswer: ["link", "LINK"]
+      },
+      {
+        type: "mcq",
+        question: "The CSS Box Model is fundamentally composed of four areas. They are Margins, Borders, Padding, and...?",
+        options: ["Spacing", "Content", "Shadow", "Outline"],
+        correctAnswer: "Content"
+      },
+      {
+        type: "mcq",
+        question: "In the CSS Box Model, which property clears the space directly around the content (inside the border)?",
+        options: ["Margin", "Padding", "Spacing", "Float"],
+        correctAnswer: "Padding"
+      },
+      {
+        type: "text",
+        question: "Fill in the blank. In the Box Model, the ________ property clears an area outside the border (spacing between elements).",
+        correctAnswer: ["margin", "Margin"]
+      },
+      {
+        type: "mcq",
+        question: "Which CSS layout property specifies if/how an element is displayed on the screen (e.g., block, inline)?",
+        options: ["position", "visibility", "display", "float"],
+        correctAnswer: "display"
+      },
+      {
+        type: "mcq",
+        question: "Which CSS property is used to push an element to the left or right, allowing text to wrap around it?",
+        options: ["align", "float", "position", "clear"],
+        correctAnswer: "float"
+      },
+      {
+        type: "text",
+        question: "Fill in the blank. In the CSS box model, the ________ goes directly between the padding and the margin.",
+        correctAnswer: ["border", "Border"]
+      },
+      {
+        type: "mcq",
+        question: "Which modern CSS layout module provides a 1-dimensional layout system designed to align and distribute space among items in a row or column?",
+        options: ["CSS Grid", "CSS Float", "CSS Flexbox", "CSS Position"],
+        correctAnswer: "CSS Flexbox"
+      },
+      {
+        type: "mcq",
+        question: "Which modern CSS layout module excels at dividing a page into 2-dimensional major regions (rows AND columns)?",
+        options: ["CSS Grid", "CSS Flexbox", "CSS Tables", "CSS Block"],
+        correctAnswer: "CSS Grid"
+      },
+      {
+        type: "mcq",
+        question: "In Flexbox, which property aligns items along the main axis (e.g., horizontally in a default row)?",
+        options: ["align-items", "justify-content", "flex-direction", "align-content"],
+        correctAnswer: "justify-content"
+      },
+      {
+        type: "text",
+        question: "Fill in the blank to change the text color in CSS: ____: blue;",
         correctAnswer: ["color", "Color"]
       },
       {
         type: "mcq",
-        question: "How do you insert a comment in a CSS file?",
-        options: ["// this is a comment", "/* this is a comment */", "' this is a comment", "<!-- this is a comment -->"],
-        correctAnswer: "/* this is a comment */"
+        question: "What is the primary goal of Responsive Web Design (RWD)?",
+        options: ["To make websites load faster on servers", "To make web pages render well on a variety of devices and window or screen sizes", "To secure the website from hackers", "To ensure the site works without JavaScript"],
+        correctAnswer: "To make web pages render well on a variety of devices and window or screen sizes"
       },
       {
         type: "mcq",
-        question: "Which property is used to change the background color?",
-        options: ["color", "bgcolor", "background-color", "bg-color"],
-        correctAnswer: "background-color"
+        question: "Why do we use the `<meta name=\"viewport\">` tag in HTML5?",
+        options: ["To connect to a database", "To instruct the browser how to control the page's dimensions and scaling on mobile devices", "To load external CSS files", "To enable media queries"],
+        correctAnswer: "To instruct the browser how to control the page's dimensions and scaling on mobile devices"
       },
       {
         type: "text",
-        question: "Fill in the blank to add a background color for all <h1> elements: h1 {____:#FFFFFF;}",
-        correctAnswer: ["background-color", "background"]
+        question: "Fill in the blank to complete the viewport tag: <meta name=\"____\" content=\"width=device-width, initial-scale=1.0\">",
+        correctAnswer: ["viewport", "Viewport"]
       },
       {
         type: "mcq",
-        question: "Which CSS property is used to change the text color of an element?",
-        options: ["fgcolor", "color", "text-color", "font-color"],
-        correctAnswer: "color"
+        question: "What CSS technique allows you to apply different style rules for different media types/devices (like phones vs desktops)?",
+        options: ["CSS Grid", "Media Queries", "Bootstrap Framework", "Fluid Typography"],
+        correctAnswer: "Media Queries"
       },
       {
         type: "mcq",
-        question: "Which CSS property controls the text size?",
-        options: ["text-style", "font-style", "text-size", "font-size"],
-        correctAnswer: "font-size"
-      },
-      {
-        type: "mcq",
-        question: "What is the correct CSS syntax for making all the <p> elements bold?",
-        options: ["p {text-size:bold;}", "p {font-weight:bold;}", "<p style=\"text-size:bold;\">", "p {font-style:bold;}"],
-        correctAnswer: "p {font-weight:bold;}"
-      },
-      {
-        type: "mcq",
-        question: "How do you display hyperlinks without an underline?",
-        options: ["a {text-decoration:none;}", "a {underline:none;}", "a {decoration:no-underline;}", "a {text-decoration:no-underline;}"],
-        correctAnswer: "a {text-decoration:none;}"
-      },
-      {
-        type: "mcq",
-        question: "How do you make each word in a text start with a capital letter?",
-        options: ["text-transform:capitalize", "text-style:capitalize", "transform:capitalize", "font-transform:capitalize"],
-        correctAnswer: "text-transform:capitalize"
+        question: "Which of the following is the correct syntax for a media query that targets screens 600px wide or smaller?",
+        options: ["@media (max-width: 600px)", "@media screen and (min-width: 600px)", "@media max(600px)", "@media size < 600px"],
+        correctAnswer: "@media (max-width: 600px)"
       },
       {
         type: "text",
-        question: "Fill in the blank to change the font of an element: ____: Arial;",
-        correctAnswer: ["font-family", "font family"]
+        question: "Fill in the blank. In CSS, the @________ rule is used to include a block of CSS properties only if a certain condition is true.",
+        correctAnswer: ["media", "Media"]
       },
       {
         type: "mcq",
-        question: "How do you make the text bold?",
-        options: ["style:bold;", "font:bold;", "font-weight:bold;", "text-weight:bold;"],
-        correctAnswer: "font-weight:bold;"
+        question: "Responsive web design relies heavily on using what type of units for widths?",
+        options: ["Absolute units like pixels (px)", "Relative units like percentages (%) or viewport width (vw)", "Points (pt)", "Picas (pc)"],
+        correctAnswer: "Relative units like percentages (%) or viewport width (vw)"
       },
       {
         type: "mcq",
-        question: "How do you display a border like this: The top border = 10px, bottom = 5px, left = 20px, right = 1px?",
-        options: ["border-width:10px 1px 5px 20px;", "border-width:10px 20px 5px 1px;", "border-width:5px 20px 10px 1px;", "border-width:10px 5px 20px 1px;"],
-        correctAnswer: "border-width:10px 1px 5px 20px;"
+        question: "What exactly is Bootstrap?",
+        options: ["A backend database system", "A free front-end framework for faster and easier web development", "A JavaScript compiler", "A premium web hosting service"],
+        correctAnswer: "A free front-end framework for faster and easier web development"
       },
       {
         type: "mcq",
-        question: "Which property is used to change the left margin of an element?",
-        options: ["margin-left", "padding-left", "indent", "left-margin"],
-        correctAnswer: "margin-left"
-      },
-      {
-        type: "mcq",
-        question: "When using the padding property; are you allowed to use negative values?",
-        options: ["Yes", "No"],
-        correctAnswer: "No"
-      },
-      {
-        type: "mcq",
-        question: "How do you make a list that lists its items with squares?",
-        options: ["list: square;", "list-type: square;", "list-style-type: square;", "ul {square;}"],
-        correctAnswer: "list-style-type: square;"
+        question: "What is a major advantage of using Bootstrap?",
+        options: ["It removes the need for HTML entirely", "It provides a responsive grid system and pre-styled components out of the box", "It writes PHP code automatically", "It is the only way to make a website secure"],
+        correctAnswer: "It provides a responsive grid system and pre-styled components out of the box"
       },
       {
         type: "text",
-        question: "Fill in the blank to select an element with id 'demo' in CSS: ____demo { color: red; }",
-        correctAnswer: ["#"]
+        question: "Fill in the blank. Bootstrap's responsive grid system is built on a layout of ________ columns.",
+        correctAnswer: ["12", "twelve"]
+      },
+      {
+        type: "mcq",
+        question: "In Bootstrap, which class provides a responsive fixed-width container?",
+        options: [".container", ".container-fluid", ".wrapper", ".box"],
+        correctAnswer: ".container"
+      },
+      {
+        type: "mcq",
+        question: "In Bootstrap's grid system, columns must be placed immediately inside a...",
+        options: [".grid", ".row", ".container", ".layout"],
+        correctAnswer: ".row"
+      },
+      {
+        type: "mcq",
+        question: "Which Bootstrap class prefix is specifically designed to target medium devices (like tablets)?",
+        options: [".col-sm-", ".col-md-", ".col-lg-", ".col-xl-"],
+        correctAnswer: ".col-md-"
       },
       {
         type: "text",
-        question: "Fill in the blank to select elements with class name 'test' in CSS: ____test { color: red; }",
-        correctAnswer: ["."]
+        question: "Fill in the blank. To style an element as a basic Bootstrap button, you use the class: class=\"____ btn-primary\"",
+        correctAnswer: ["btn", "BTN"]
       },
       {
         type: "mcq",
-        question: "How do you select all p elements inside a div element?",
-        options: ["div + p", "div p", "div.p", "div>p"],
-        correctAnswer: "div p"
+        question: "What does XML stand for?",
+        options: ["eXtra Modern Link", "eXtensible Markup Language", "eXecutable Multiple Language", "X-Markup Language"],
+        correctAnswer: "eXtensible Markup Language"
       },
       {
         type: "mcq",
-        question: "How do you group selectors?",
-        options: ["Separate each selector with a space", "Separate each selector with a plus sign", "Separate each selector with a comma", "Separate each selector with a semi-colon"],
-        correctAnswer: "Separate each selector with a comma"
+        question: "What is the primary difference in purpose between HTML and XML?",
+        options: ["HTML is for formatting data, XML is for displaying data", "XML was designed to carry and structure data, HTML was designed to display data", "XML replaces HTML in modern browsers", "There is no difference"],
+        correctAnswer: "XML was designed to carry and structure data, HTML was designed to display data"
       },
       {
         type: "text",
-        question: "Fill in the blank. XML stands for ________ Markup Language.",
-        correctAnswer: ["eXtensible", "Extensible"]
+        question: "Fill in the blank. Unlike HTML, XML tags are strictly case ________.",
+        correctAnswer: ["sensitive", "Sensitive"]
       },
       {
         type: "mcq",
-        question: "There is a way of describing XML data, how?",
-        options: ["XML uses a description node", "XML uses a DTD or XML Schema to describe the data", "XML uses XSLT to describe data", "XML uses CSS"],
-        correctAnswer: "XML uses a DTD or XML Schema to describe the data"
+        question: "Which of the following is a strict requirement for a 'well-formed' XML document?",
+        options: ["It must have a single root element containing all other elements", "It must use lowercase tags only", "It does not require closing tags", "It must use predefined HTML tags"],
+        correctAnswer: "It must have a single root element containing all other elements"
       },
       {
         type: "mcq",
-        question: "What does DTD stand for?",
-        options: ["Direct Type Definition", "Document Type Definition", "Dynamic Type Definition", "Data Type Definition"],
-        correctAnswer: "Document Type Definition"
+        question: "In XML, is it acceptable to leave a tag open (like <br> in old HTML)?",
+        options: ["Yes, for certain empty elements", "No, all XML elements MUST have a closing tag", "Only if specified in the CSS", "Yes, if the browser allows it"],
+        correctAnswer: "No, all XML elements MUST have a closing tag"
       },
       {
         type: "mcq",
-        question: "Which statement is true?",
-        options: ["All XML elements must have a closing tag", "XML tags are not case sensitive", "XML documents must have a DTD", "All XML elements must be lower case"],
-        correctAnswer: "All XML elements must have a closing tag"
-      },
-      {
-        type: "mcq",
-        question: "XML tags are case sensitive.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "How must attributes be formatted in XML?",
+        options: ["Attribute values must always be enclosed in quotes", "Quotes are optional for numbers", "Attributes do not use equal signs", "Attributes must be written in ALL CAPS"],
+        correctAnswer: "Attribute values must always be enclosed in quotes"
       },
       {
         type: "text",
-        question: "Fill in the blank. In XML, what is the exact string used to begin a CDATA section? <![____[",
-        correctAnswer: ["CDATA"]
+        question: "Fill in the blank. DTD is used to validate XML structure. DTD stands for Document ________ Definition.",
+        correctAnswer: ["Type", "type"]
+      },
+      {
+        type: "mcq",
+        question: "What is the relationship between the Internet and the World Wide Web (WWW)?",
+        options: ["They are exactly the same thing", "The WWW is an information system built on top of the physical infrastructure of the Internet", "The Internet is built on top of the WWW", "The WWW is hardware, the Internet is software"],
+        correctAnswer: "The WWW is an information system built on top of the physical infrastructure of the Internet"
+      },
+      {
+        type: "mcq",
+        question: "In modern browsers (Chrome, Firefox), what tool helps a programmer instantly inspect HTML/CSS and debug JavaScript?",
+        options: ["Control Panel", "Developer Tools (DevTools)", "Task Manager", "Terminal"],
+        correctAnswer: "Developer Tools (DevTools)"
+      },
+      {
+        type: "text",
+        question: "Fill in the blank. The unique address used to locate a specific resource on the web is called a ________.",
+        correctAnswer: ["URL", "url", "Uniform Resource Locator"]
+      },
+      {
+        type: "mcq",
+        question: "In HTML forms, which attribute is essentially used as a variable name to identify the data when it is sent to the server?",
+        options: ["id", "class", "name", "value"],
+        correctAnswer: "name"
+      },
+      {
+        type: "mcq",
+        question: "Which CSS rule ensures that padding and borders are included in an element's total width and height, preventing layout breaks?",
+        options: ["box-sizing: content-box;", "box-sizing: border-box;", "layout: fixed;", "overflow: hidden;"],
+        correctAnswer: "box-sizing: border-box;"
+      },
+      {
+        type: "text",
+        question: "Fill in the blank. The ________ attribute in the <form> tag specifies the HTTP method (GET or POST) to be used.",
+        correctAnswer: ["method", "Method"]
       }
     ]
   },
@@ -626,316 +639,369 @@ const courseData = {
   comp_arch: {
     id: 'comp_arch',
     title: "Computer Architecture",
-    description: "Instruction Sets, Assembly, & Pipelining",
+    description: "Pipeline, Cache, DMA, ILP & Architectures",
     icon: Cpu,
     gradient: "from-purple-500 to-indigo-600",
     questions: [
       {
-        type: "text",
-        question: "Fill in the blank. Computer Architecture refers to those attributes of a system visible to a ________.",
-        correctAnswer: ["programmer", "Programmer"]
+        type: "mcq",
+        question: "What is the key defining feature of the Von Neumann architecture?",
+        options: ["Stored-program concept", "Separate memory for data and instructions", "Multiple processors", "Out-of-order execution"],
+        correctAnswer: "Stored-program concept"
       },
       {
         type: "mcq",
-        question: "Computer Organization is primarily concerned with:",
-        options: ["Instruction set design", "Operational units and their interconnections", "Data representation", "Software development"],
-        correctAnswer: "Operational units and their interconnections"
+        question: "In the Von Neumann architecture, what acts as the primary bottleneck?",
+        options: ["Lack of cache memory", "The shared bus for both data and instructions", "Slow ALU speed", "Limited register size"],
+        correctAnswer: "The shared bus for both data and instructions"
       },
       {
         type: "mcq",
-        question: "The basic instruction cycle consists of which two main phases?",
-        options: ["Fetch and Execute", "Read and Write", "Load and Store", "Encode and Decode"],
-        correctAnswer: "Fetch and Execute"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The ____ register contains the address of the next instruction to be fetched.",
-        correctAnswer: ["PC", "Program Counter", "pc"]
+        question: "Which of these is NOT one of the three main components of a classic Von Neumann CPU?",
+        options: ["Control Unit", "ALU", "Registers", "DMA Controller"],
+        correctAnswer: "DMA Controller"
       },
       {
         type: "mcq",
-        question: "What does CPU stand for?",
-        options: ["Computer Processing Unit", "Central Processing Unit", "Core Performance Unit", "Central Programming Unit"],
-        correctAnswer: "Central Processing Unit"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The MBR (Memory ________ Register) holds the data to be written into memory or the data most recently read.",
-        correctAnswer: ["Buffer", "buffer"]
+        question: "In a computer system, what is a register?",
+        options: ["A large capacity magnetic disk", "A small, extremely fast storage location within the CPU", "A printed circuit board", "An external flash drive"],
+        correctAnswer: "A small, extremely fast storage location within the CPU"
       },
       {
         type: "mcq",
-        question: "Which component is responsible for performing arithmetic and logical operations?",
-        options: ["Control Unit", "Registers", "ALU", "System Bus"],
-        correctAnswer: "ALU"
+        question: "Which specific register holds the memory address of the next instruction to be fetched?",
+        options: ["Accumulator (AC)", "Instruction Register (IR)", "Program Counter (PC)", "Memory Address Register (MAR)"],
+        correctAnswer: "Program Counter (PC)"
       },
       {
         type: "mcq",
-        question: "Which of the following is NOT one of the 4 main structural components of a computer?",
-        options: ["CPU", "Main Memory", "I/O", "Operating System"],
-        correctAnswer: "Operating System"
+        question: "Which register stores the actual instruction that is currently being decoded and executed?",
+        options: ["Instruction Register (IR)", "Program Counter (PC)", "Memory Buffer Register (MBR)", "Stack Pointer (SP)"],
+        correctAnswer: "Instruction Register (IR)"
       },
       {
         type: "mcq",
-        question: "An interrupt is a mechanism by which other modules may...",
-        options: ["Halt the CPU forever", "Interrupt the normal sequencing of the processor", "Bypass memory", "Format the hard drive"],
-        correctAnswer: "Interrupt the normal sequencing of the processor"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The ____ bus carries data between the processor and memory.",
-        correctAnswer: ["data", "Data"]
+        question: "What is the primary function of the Accumulator (AC) register?",
+        options: ["To store the operating system kernel", "To count the number of instructions executed", "To store intermediate arithmetic and logical results", "To manage network traffic"],
+        correctAnswer: "To store intermediate arithmetic and logical results"
       },
       {
         type: "mcq",
-        question: "In a top-level view of a computer, memory is typically divided into...",
-        options: ["Sectors and tracks", "Words or bytes", "Packets", "Frames"],
-        correctAnswer: "Words or bytes"
+        question: "Which register holds the data fetched from memory, or data that is waiting to be written to memory?",
+        options: ["Program Counter", "Memory Buffer Register (MBR)", "Status Register", "Instruction Register"],
+        correctAnswer: "Memory Buffer Register (MBR)"
       },
       {
         type: "mcq",
-        question: "What are the core elements of a machine instruction?",
-        options: ["Opcode, Source operand ref, Result operand ref, Next instruction ref", "Registers, Cache, Memory, ALU", "Fetch, Decode, Execute, Store", "Syntax, Semantics, Logic, Grammar"],
-        correctAnswer: "Opcode, Source operand ref, Result operand ref, Next instruction ref"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The operation to be performed by an instruction is specified by the ________.",
-        correctAnswer: ["opcode", "Opcode", "operation code"]
+        question: "Which register holds the exact memory address from which data will be fetched or to which data will be stored?",
+        options: ["Memory Buffer Register (MBR)", "Accumulator", "Memory Address Register (MAR)", "Instruction Register"],
+        correctAnswer: "Memory Address Register (MAR)"
       },
       {
         type: "mcq",
-        question: "Which of the following is a common type of operand?",
-        options: ["Addresses", "Numbers", "Characters", "All of the above"],
-        correctAnswer: "All of the above"
+        question: "General-purpose registers can be directly utilized by programmers to temporarily store variables and data.",
+        options: ["True", "False"],
+        correctAnswer: "True"
       },
       {
         type: "mcq",
-        question: "In Intel x86 architecture, what is a 32-bit integer called?",
-        options: ["Word", "Doubleword", "Quadword", "Byte"],
-        correctAnswer: "Doubleword"
-      },
-      {
-        type: "mcq",
-        question: "ARM architecture primarily uses what kind of instruction set design?",
-        options: ["CISC", "RISC", "VLIW", "EPIC"],
-        correctAnswer: "RISC"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. In instruction characteristics, RISC stands for ________ Instruction Set Computer.",
-        correctAnswer: ["Reduced", "reduced"]
-      },
-      {
-        type: "mcq",
-        question: "Which type of operation involves moving data from one location to another?",
-        options: ["Arithmetic", "Logical", "Data transfer", "Control"],
-        correctAnswer: "Data transfer"
-      },
-      {
-        type: "mcq",
-        question: "Operations that alter the sequence of execution are known as...",
-        options: ["Logical operations", "Control transfer operations", "I/O operations", "System operations"],
-        correctAnswer: "Control transfer operations"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. A ________ instruction transfers control unconditionally to another address.",
-        correctAnswer: ["jump", "branch", "Jump", "Branch"]
-      },
-      {
-        type: "mcq",
-        question: "Packed decimal is a format used to represent...",
-        options: ["Floating point numbers", "ASCII strings", "BCD digits", "Hexadecimal arrays"],
-        correctAnswer: "BCD digits"
-      },
-      {
-        type: "mcq",
-        question: "SIMD stands for...",
-        options: ["Single Instruction Multiple Data", "System Interrupt Memory Direct", "Synchronous Input Multiple Devices", "Single Integer Memory Data"],
-        correctAnswer: "Single Instruction Multiple Data"
-      },
-      {
-        type: "mcq",
-        question: "Which addressing mode puts the operand explicitly in the instruction itself?",
-        options: ["Direct", "Indirect", "Immediate", "Register"],
-        correctAnswer: "Immediate"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. In ________ addressing, the address field contains the exact effective address of the operand in memory.",
-        correctAnswer: ["Direct", "direct"]
-      },
-      {
-        type: "mcq",
-        question: "In Indirect Addressing, the address field refers to...",
-        options: ["The actual value", "A register", "The address of a word in memory, which contains the full-length address of the operand", "An I/O port"],
-        correctAnswer: "The address of a word in memory, which contains the full-length address of the operand"
-      },
-      {
-        type: "mcq",
-        question: "Register Addressing is similar to Direct Addressing, except...",
-        options: ["It is much slower", "The address field refers to a register rather than a main memory address", "It uses two memory references", "It can only be used for addition"],
-        correctAnswer: "The address field refers to a register rather than a main memory address"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. Displacement addressing combines the capabilities of direct addressing and register ________ addressing.",
-        correctAnswer: ["indirect", "Indirect"]
-      },
-      {
-        type: "mcq",
-        question: "Which of the following is a variation of displacement addressing?",
-        options: ["Relative addressing", "Base-register addressing", "Indexing", "All of the above"],
-        correctAnswer: "All of the above"
-      },
-      {
-        type: "mcq",
-        question: "The length of an instruction format is typically determined by...",
-        options: ["The speed of the CPU clock", "The size of the cache", "The number of bits needed to specify the opcode and operand addresses", "The operating system version"],
-        correctAnswer: "The number of bits needed to specify the opcode and operand addresses"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. An instruction format must include an ________ and, implicitly or explicitly, zero or more operands.",
-        correctAnswer: ["opcode", "Opcode"]
-      },
-      {
-        type: "mcq",
-        question: "ARM addressing modes generally rely heavily on...",
-        options: ["A stack architecture", "A Load/Store architecture", "A memory-to-memory architecture", "Complex CISC decoding"],
-        correctAnswer: "A Load/Store architecture"
-      },
-      {
-        type: "mcq",
-        question: "What is a main motivation for Assembly Language programming today?",
-        options: ["It is easier to learn than Python", "To gain deeper control over hardware and execution speed", "It is required for web design", "To create graphical user interfaces easily"],
-        correctAnswer: "To gain deeper control over hardware and execution speed"
-      },
-      {
-        type: "mcq",
-        question: "A symbolic representation of machine instructions is called...",
-        options: ["Machine language", "Assembly language", "High-level language", "Microcode"],
-        correctAnswer: "Assembly language"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The program that translates assembly language into machine code is called an ________.",
-        correctAnswer: ["assembler", "Assembler"]
-      },
-      {
-        type: "mcq",
-        question: "Which of the following is an element of a typical assembly language statement?",
-        options: ["Label", "Mnemonic", "Operand", "All of the above"],
-        correctAnswer: "All of the above"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. In assembly language, a ________ is a recognizable name representing a memory address.",
-        correctAnswer: ["label", "Label"]
-      },
-      {
-        type: "mcq",
-        question: "Pseudo-instructions (or directives) in assembly language...",
-        options: ["Are executed directly by the ALU", "Are instructions to the assembler, not translated into machine code", "Are syntax errors", "Slow down the processor"],
-        correctAnswer: "Are instructions to the assembler, not translated into machine code"
-      },
-      {
-        type: "mcq",
-        question: "What is the function of a Linker?",
-        options: ["Combines multiple object files into a single executable file", "Translates high-level code to assembly", "Executes the program in memory", "Debugs logical errors"],
-        correctAnswer: "Combines multiple object files into a single executable file"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. A ________ places the executable program into main memory so it can be executed.",
-        correctAnswer: ["loader", "Loader"]
-      },
-      {
-        type: "mcq",
-        question: "A One-Pass Assembler...",
-        options: ["Requires two reads of the source code", "Reads the source code once and generates object code, resolving forward references immediately if possible", "Only works for 8-bit processors", "Is another name for a compiler"],
-        correctAnswer: "Reads the source code once and generates object code, resolving forward references immediately if possible"
-      },
-      {
-        type: "mcq",
-        question: "The CPU component responsible for managing the execution of instructions is the...",
-        options: ["ALU", "Control Unit", "Cache", "System Bus"],
-        correctAnswer: "Control Unit"
-      },
-      {
-        type: "mcq",
-        question: "Registers that are accessible to the programmer are called...",
-        options: ["Control registers", "Status registers", "User-visible registers", "Hidden registers"],
-        correctAnswer: "User-visible registers"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The ________ register contains the most recently fetched instruction.",
-        correctAnswer: ["IR", "Instruction Register", "ir"]
-      },
-      {
-        type: "mcq",
-        question: "Condition Codes (or flags) are typically stored in the...",
-        options: ["Accumulator", "Program Status Word (PSW)", "Instruction Register", "Program Counter"],
+        question: "Which register stores status flags like Zero, Carry, Overflow, and Sign after an ALU operation?",
+        options: ["Program Status Word (PSW)", "Program Counter", "Memory Address Register", "Instruction Register"],
         correctAnswer: "Program Status Word (PSW)"
       },
       {
         type: "mcq",
-        question: "The full instruction cycle generally includes which sub-cycles?",
-        options: ["Fetch, Indirect, Execute, Interrupt", "Read, Write, Jump, Halt", "Input, Output, Process, Storage", "Add, Subtract, Multiply, Divide"],
-        correctAnswer: "Fetch, Indirect, Execute, Interrupt"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. Pipelining improves processor performance by overlapping the ________ of multiple instructions.",
-        correctAnswer: ["execution", "Execution", "processing"]
+        question: "What is the main architectural purpose of cache memory?",
+        options: ["To permanently store the operating system", "To bridge the speed gap between the fast CPU and slower Main Memory", "To handle all graphical processing", "To replace hard disk drives entirely"],
+        correctAnswer: "To bridge the speed gap between the fast CPU and slower Main Memory"
       },
       {
         type: "mcq",
-        question: "A hazard in an instruction pipeline refers to...",
-        options: ["A physical short circuit in the CPU", "A situation that prevents the next instruction from executing during its designated clock cycle", "A corrupted memory sector", "An infinite loop in the code"],
-        correctAnswer: "A situation that prevents the next instruction from executing during its designated clock cycle"
+        question: "Which statement about memory hierarchy speed is correct?",
+        options: ["Cache is faster than Registers", "Main Memory is faster than Cache", "Registers are faster than Cache, which is faster than Main Memory", "Hard disks are faster than Cache"],
+        correctAnswer: "Registers are faster than Cache, which is faster than Main Memory"
       },
       {
         type: "mcq",
-        question: "Which of the following is a type of pipeline hazard?",
-        options: ["Data hazard", "Control hazard", "Structural hazard", "All of the above"],
-        correctAnswer: "All of the above"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. A control hazard is also commonly known as a ________ hazard.",
-        correctAnswer: ["branch", "Branch"]
+        question: "The effectiveness of cache memory heavily relies on the principle of:",
+        options: ["Direct Memory Access", "Locality of Reference", "Virtual Memory", "Pipelining"],
+        correctAnswer: "Locality of Reference"
       },
       {
         type: "mcq",
-        question: "Branch Prediction is a technique used to minimize the penalty of...",
-        options: ["Data hazards", "Control hazards", "Structural hazards", "Cache misses"],
-        correctAnswer: "Control hazards"
+        question: "Which type of locality refers to the tendency of a processor to access the same memory location repeatedly in a short time?",
+        options: ["Spatial locality", "Temporal locality", "Geographical locality", "Instruction locality"],
+        correctAnswer: "Temporal locality"
       },
       {
         type: "mcq",
-        question: "Which of the following pipeline stages involves reading operands from registers?",
-        options: ["Instruction Fetch", "Decode / Register Fetch", "Execute", "Write Back"],
-        correctAnswer: "Decode / Register Fetch"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. In a pipeline, stalling the pipeline to resolve a hazard is often called inserting a ________.",
-        correctAnswer: ["bubble", "Bubble", "stall"]
+        question: "Which type of locality assumes that if a memory location is accessed, nearby memory locations will be accessed soon?",
+        options: ["Spatial locality", "Temporal locality", "Virtual locality", "Vector locality"],
+        correctAnswer: "Spatial locality"
       },
       {
         type: "mcq",
-        question: "Processor organization for pipelining often involves splitting the cache into...",
-        options: ["L1 and L2 caches", "Instruction cache and Data cache", "Read cache and Write cache", "SRAM and DRAM"],
-        correctAnswer: "Instruction cache and Data cache"
+        question: "What happens during a cache 'hit'?",
+        options: ["The CPU crashes", "The requested data is found directly in the cache memory", "Data is written to the hard drive", "The DMA controller takes over the bus"],
+        correctAnswer: "The requested data is found directly in the cache memory"
       },
       {
         type: "mcq",
-        question: "Multiple Issue processors (like Superscalar architectures) differ from basic pipelined processors because they...",
-        options: ["Do not use clocks", "Can initiate the execution of multiple instructions in the same clock cycle", "Use vacuum tubes instead of transistors", "Run slower to save power"],
-        correctAnswer: "Can initiate the execution of multiple instructions in the same clock cycle"
+        question: "What is a cache 'miss'?",
+        options: ["When the CPU requests data that is not currently stored in the cache", "When a cache memory chip physically fails", "When two registers collide", "When the ALU performs a wrong calculation"],
+        correctAnswer: "When the CPU requests data that is not currently stored in the cache"
+      },
+      {
+        type: "mcq",
+        question: "Where is Level 1 (L1) cache typically located?",
+        options: ["On the motherboard", "Inside the hard drive", "Directly on the CPU chip", "Inside the RAM sticks"],
+        correctAnswer: "Directly on the CPU chip"
+      },
+      {
+        type: "mcq",
+        question: "Write-through and write-back are policies related specifically to:",
+        options: ["Pipeline hazards", "How cache memory updates Main Memory", "DMA transfer speeds", "Vector table processing"],
+        correctAnswer: "How cache memory updates Main Memory"
+      },
+      {
+        type: "mcq",
+        question: "What is pipelining in computer architecture?",
+        options: ["A technique of executing multiple instructions sequentially without overlap", "A technique of overlapping the execution stages of multiple instructions to increase throughput", "Cooling the CPU with liquid pipes", "Bypassing the cache memory"],
+        correctAnswer: "A technique of overlapping the execution stages of multiple instructions to increase throughput"
+      },
+      {
+        type: "mcq",
+        question: "Pipelining decreases the execution time of an individual instruction.",
+        options: ["True", "False"],
+        correctAnswer: "False"
+      },
+      {
+        type: "mcq",
+        question: "In a classic 5-stage RISC pipeline, what stage immediately follows the Instruction Fetch (IF) stage?",
+        options: ["Execute (EX)", "Memory Access (MEM)", "Instruction Decode (ID)", "Write Back (WB)"],
+        correctAnswer: "Instruction Decode (ID)"
+      },
+      {
+        type: "mcq",
+        question: "Which pipeline stage is responsible for writing the final result back into the register file?",
+        options: ["Instruction Fetch (IF)", "Execute (EX)", "Instruction Decode (ID)", "Write Back (WB)"],
+        correctAnswer: "Write Back (WB)"
+      },
+      {
+        type: "mcq",
+        question: "What is an instruction pipeline hazard?",
+        options: ["A physical short circuit in the CPU core", "A situation that prevents the next instruction from executing in its designated clock cycle", "A corrupted memory sector", "An intentional pause by the OS"],
+        correctAnswer: "A situation that prevents the next instruction from executing in its designated clock cycle"
+      },
+      {
+        type: "mcq",
+        question: "A data hazard occurs when:",
+        options: ["Two instructions need the same hardware unit", "A branch instruction is encountered", "An instruction depends on the result of a previous instruction that has not yet completed", "The cache memory is full"],
+        correctAnswer: "An instruction depends on the result of a previous instruction that has not yet completed"
+      },
+      {
+        type: "mcq",
+        question: "How are control hazards (branch hazards) typically mitigated in modern pipelines?",
+        options: ["Data forwarding", "Branch prediction techniques", "Increasing L1 cache size", "Stopping the CPU"],
+        correctAnswer: "Branch prediction techniques"
+      },
+      {
+        type: "mcq",
+        question: "Forwarding (or bypassing) is a hardware technique primarily used to resolve which type of pipeline hazard?",
+        options: ["Structural hazards", "Control hazards", "Data hazards", "Voltage hazards"],
+        correctAnswer: "Data hazards"
+      },
+      {
+        type: "mcq",
+        question: "In pipelining, what is the term for inserting a delay or 'no-operation' to safely resolve a hazard?",
+        options: ["Stalling / Inserting a Bubble", "Overclocking", "Branching", "Vectoring"],
+        correctAnswer: "Stalling / Inserting a Bubble"
+      },
+      {
+        type: "mcq",
+        question: "What defines a superscalar architecture?",
+        options: ["It runs at a super high clock frequency", "It can dynamically issue and execute multiple instructions per clock cycle using multiple execution units", "It uses exclusively scalar variables", "It does not use cache memory"],
+        correctAnswer: "It can dynamically issue and execute multiple instructions per clock cycle using multiple execution units"
+      },
+      {
+        type: "mcq",
+        question: "Superscalar processors implement Instruction Level Parallelism (ILP) dynamically in hardware.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "A superscalar pipeline typically features multiple parallel execution units for integer, floating-point, and memory operations.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "What is the primary difference between standard pipelining and superscalar execution?",
+        options: ["Pipelining overlaps stages of 1 instruction per cycle; superscalar issues multiple instructions simultaneously per cycle", "Pipelining is software-based; superscalar is hardware-based", "Pipelining is faster than superscalar", "There is no difference"],
+        correctAnswer: "Pipelining overlaps stages of 1 instruction per cycle; superscalar issues multiple instructions simultaneously per cycle"
+      },
+      {
+        type: "mcq",
+        question: "In order execution is strictly required in all modern superscalar processors.",
+        options: ["True", "False"],
+        correctAnswer: "False"
+      },
+      {
+        type: "mcq",
+        question: "What does 'Out-of-order execution' allow a superscalar processor to do?",
+        options: ["Bypass stalled instructions and execute independent instructions waiting in the queue", "Execute programs backward", "Ignore data hazards completely", "Turn off unused pipeline stages"],
+        correctAnswer: "Bypass stalled instructions and execute independent instructions waiting in the queue"
+      },
+      {
+        type: "mcq",
+        question: "To achieve maximum performance, superscalar processors rely heavily on complex hardware to detect instruction dependencies on the fly.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "What does ILP stand for in computer architecture?",
+        options: ["Instruction Level Processing", "Instruction Level Parallelism", "Internal Logic Pipeline", "Integrated Loop Prediction"],
+        correctAnswer: "Instruction Level Parallelism"
+      },
+      {
+        type: "mcq",
+        question: "ILP refers to the hardware and software design techniques used to execute multiple independent instructions simultaneously.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "Which of the following severely limits the amount of ILP a processor can exploit?",
+        options: ["Large cache size", "High clock speed", "True data dependencies between instructions", "Too many registers"],
+        correctAnswer: "True data dependencies between instructions"
+      },
+      {
+        type: "mcq",
+        question: "Loop unrolling is a software compiler technique used primarily to:",
+        options: ["Save hard drive space", "Reduce power consumption", "Expose more ILP by reducing loop overhead and increasing independent instructions", "Prevent cache misses"],
+        correctAnswer: "Expose more ILP by reducing loop overhead and increasing independent instructions"
+      },
+      {
+        type: "mcq",
+        question: "Unlike thread-level parallelism, ILP is primarily concerned with finding parallelism within a single sequential thread.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "Very Long Instruction Word (VLIW) architectures rely on the hardware at runtime to find ILP.",
+        options: ["True", "False"],
+        correctAnswer: "False"
+      },
+      {
+        type: "mcq",
+        question: "What does RISC stand for?",
+        options: ["Rapid Instruction Standard Computer", "Reduced Instruction Set Computer", "Reorganized Instruction Set Computer", "Reliable Instruction System Code"],
+        correctAnswer: "Reduced Instruction Set Computer"
+      },
+      {
+        type: "mcq",
+        question: "What does CISC stand for?",
+        options: ["Complex Instruction Set Computer", "Computed Instruction Sequence Code", "Centralized Instruction Set Computer", "Compiled Instruction Set Code"],
+        correctAnswer: "Complex Instruction Set Computer"
+      },
+      {
+        type: "mcq",
+        question: "Which CPU architecture typically utilizes highly uniform, fixed-length instructions?",
+        options: ["CISC", "RISC", "Both", "Neither"],
+        correctAnswer: "RISC"
+      },
+      {
+        type: "mcq",
+        question: "Which architecture is characterized by a large number of complex, variable-length instructions?",
+        options: ["RISC", "CISC", "VLIW", "ARM"],
+        correctAnswer: "CISC"
+      },
+      {
+        type: "mcq",
+        question: "RISC processors rely heavily on which architectural features to achieve high performance?",
+        options: ["Complex microcode and few registers", "Pipelining and a large bank of general-purpose registers", "Direct memory-to-memory operations", "Slow clock speeds"],
+        correctAnswer: "Pipelining and a large bank of general-purpose registers"
+      },
+      {
+        type: "mcq",
+        question: "In a pure RISC architecture, accessing memory is typically restricted to which specific types of instructions?",
+        options: ["Add and Subtract", "Multiply and Divide", "Load and Store", "Push and Pop"],
+        correctAnswer: "Load and Store"
+      },
+      {
+        type: "mcq",
+        question: "CISC processors emphasize doing more work per instruction, while RISC emphasizes executing simpler instructions at a faster rate.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "Intel's classic x86 architecture is traditionally classified as:",
+        options: ["RISC", "CISC", "VLIW", "EPIC"],
+        correctAnswer: "CISC"
+      },
+      {
+        type: "mcq",
+        question: "Modern ARM processors, used in most smartphones, are fundamentally based on which architecture?",
+        options: ["CISC", "RISC", "x86", "Quantum"],
+        correctAnswer: "RISC"
+      },
+      {
+        type: "mcq",
+        question: "What is the primary function of Direct Memory Access (DMA)?",
+        options: ["To increase CPU clock speed", "To allow I/O devices to transfer data directly to/from memory without continuous CPU intervention", "To manage cache misses", "To predict pipeline branches"],
+        correctAnswer: "To allow I/O devices to transfer data directly to/from memory without continuous CPU intervention"
+      },
+      {
+        type: "mcq",
+        question: "DMA significantly improves overall system performance by freeing up the CPU to do other work during large data transfers.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "During an active DMA transfer, the CPU must actively execute the individual data transfer instructions.",
+        options: ["True", "False"],
+        correctAnswer: "False"
+      },
+      {
+        type: "mcq",
+        question: "Which hardware component acts as the bridge that manages the bus logic between an I/O device and memory during a DMA transfer?",
+        options: ["The ALU", "The DMA Controller (DMAC)", "The Program Counter", "The Cache Controller"],
+        correctAnswer: "The DMA Controller (DMAC)"
+      },
+      {
+        type: "mcq",
+        question: "What is 'Cycle Stealing' in the context of DMA?",
+        options: ["The CPU stealing cycles from the OS", "A hacker stealing CPU processing time", "The DMA controller taking over the system bus for one or more clock cycles to transfer data", "Deleting old cache data"],
+        correctAnswer: "The DMA controller taking over the system bus for one or more clock cycles to transfer data"
+      },
+      {
+        type: "mcq",
+        question: "In the context of hardware interrupts, what is an Interrupt Vector Table?",
+        options: ["A graphical table displaying CPU usage", "A memory structure that stores the starting addresses of specific Interrupt Service Routines (ISRs)", "A list of running applications", "A database of all CPU registers"],
+        correctAnswer: "A memory structure that stores the starting addresses of specific Interrupt Service Routines (ISRs)"
+      },
+      {
+        type: "mcq",
+        question: "When a hardware interrupt occurs, the CPU uses the unique interrupt vector number to look up the correct handler routine address in the vector table.",
+        options: ["True", "False"],
+        correctAnswer: "True"
+      },
+      {
+        type: "mcq",
+        question: "What is the main advantage of using a Vector Table for interrupts?",
+        options: ["It compresses the size of the operating system", "It allows the CPU to quickly branch to the correct handler without polling multiple devices to see who interrupted", "It prevents all pipeline hazards", "It increases cache hits"],
+        correctAnswer: "It allows the CPU to quickly branch to the correct handler without polling multiple devices to see who interrupted"
+      },
+      {
+        type: "mcq",
+        question: "Which of the following processors typically utilizes a highly complex Instruction Decode pipeline stage to translate instructions into smaller micro-operations?",
+        options: ["A pure early RISC processor", "A modern x86 CISC processor", "A basic DMA controller", "An ALU"],
+        correctAnswer: "A modern x86 CISC processor"
       }
     ]
   },
@@ -1373,7 +1439,7 @@ export default function App() {
     <div className="p-6 sm:p-8 animate-in fade-in duration-500">
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Select a Course</h2>
-        <p className="text-slate-400 text-sm sm:text-base">Choose a course to begin your quiz</p>
+        <p className="text-slate-400 text-sm sm:text-base">Choose a subject to begin your quiz</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
