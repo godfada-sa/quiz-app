@@ -820,307 +820,307 @@ const courseData = {
       {
         type: "mcq",
         question: "Pipeline overlap means:",
-        options: ["Instructions execute sequentially", "Instructions execute simultaneously in stages", "Only one instruction executes", "Instructions are ignored"],
+        options: ["Instructions execute sequentially", "Only one instruction executes", "Instructions execute simultaneously in stages", "Instructions are ignored"],
         correctAnswer: "Instructions execute simultaneously in stages"
       },
       {
         type: "mcq",
         question: "RAW hazards occur when:",
-        options: ["A later instruction reads a value before it is written", "A later instruction writes before read", "Two instructions write same register", "Two instructions fetch memory"],
+        options: ["Two instructions write same register", "A later instruction writes before read", "A later instruction reads a value before it is written", "Two instructions fetch memory"],
         correctAnswer: "A later instruction reads a value before it is written"
       },
       {
         type: "mcq",
         question: "WAR hazards occur when:",
-        options: ["Write occurs before read", "Read occurs before write", "Write occurs twice", "Read occurs twice"],
+        options: ["Read occurs twice", "Write occurs before read", "Read occurs before write", "Write occurs twice"],
         correctAnswer: "Write occurs before read"
       },
       {
         type: "mcq",
         question: "WAW hazards occur when:",
-        options: ["Two writes occur in wrong order", "Two reads occur", "Memory fails", "Cache fails"],
+        options: ["Memory fails", "Two reads occur", "Cache fails", "Two writes occur in wrong order"],
         correctAnswer: "Two writes occur in wrong order"
       },
       {
         type: "mcq",
         question: "Which hazard type represents true dependency?",
-        options: ["RAW", "WAR", "WAW", "Structural"],
+        options: ["WAR", "Structural", "WAW", "RAW"],
         correctAnswer: "RAW"
       },
       {
         type: "mcq",
         question: "Register renaming helps resolve:",
-        options: ["WAW and WAR hazards", "RAW hazards", "Interrupts", "Branch hazards"],
+        options: ["RAW hazards", "WAW and WAR hazards", "Interrupts", "Branch hazards"],
         correctAnswer: "WAW and WAR hazards"
       },
       {
         type: "mcq",
         question: "Data forwarding reduces:",
-        options: ["Structural hazards", "Data hazards", "Interrupts", "Exceptions"],
+        options: ["Structural hazards", "Interrupts", "Data hazards", "Exceptions"],
         correctAnswer: "Data hazards"
       },
       {
         type: "mcq",
         question: "Data hazards mainly occur when:",
-        options: ["Instructions share data dependencies", "Memory is full", "Registers overflow", "Cache misses"],
+        options: ["Memory is full", "Instructions share data dependencies", "Registers overflow", "Cache misses"],
         correctAnswer: "Instructions share data dependencies"
       },
       {
         type: "mcq",
         question: "Pipeline interlocking is used to:",
-        options: ["Prevent hazards", "Increase cache size", "Reduce registers", "Increase interrupts"],
+        options: ["Increase cache size", "Reduce registers", "Prevent hazards", "Increase interrupts"],
         correctAnswer: "Prevent hazards"
       },
       {
         type: "mcq",
         question: "Forwarding sends data directly from:",
-        options: ["ALU output to next stage", "Memory to disk", "Cache to disk", "Register to keyboard"],
+        options: ["Memory to disk", "Cache to disk", "ALU output to next stage", "Register to keyboard"],
         correctAnswer: "ALU output to next stage"
       },
       {
         type: "mcq",
         question: "RAW hazards are the most common in:",
-        options: ["Pipelined processors", "Disk controllers", "Memory modules", "Interrupt controllers"],
+        options: ["Memory modules", "Pipelined processors", "Disk controllers", "Interrupt controllers"],
         correctAnswer: "Pipelined processors"
       },
       {
         type: "mcq",
         question: "Branch hazards arise from:",
-        options: ["Data dependency", "Control dependency", "Memory dependency", "Disk dependency"],
+        options: ["Data dependency", "Memory dependency", "Disk dependency", "Control dependency"],
         correctAnswer: "Control dependency"
       },
       {
         type: "mcq",
         question: "A branch instruction changes:",
-        options: ["Data register", "PC value", "MAR value", "MDR value"],
+        options: ["Data register", "MAR value", "PC value", "MDR value"],
         correctAnswer: "PC value"
       },
       {
         type: "mcq",
         question: "Branch prediction attempts to:",
-        options: ["Predict instruction results", "Predict next instruction path", "Predict register values", "Predict memory access"],
+        options: ["Predict instruction results", "Predict register values", "Predict next instruction path", "Predict memory access"],
         correctAnswer: "Predict next instruction path"
       },
       {
         type: "mcq",
         question: "Branch penalty refers to:",
-        options: ["Delay caused by branch instructions", "Register overflow", "Memory failure", "Cache miss"],
+        options: ["Register overflow", "Memory failure", "Delay caused by branch instructions", "Cache miss"],
         correctAnswer: "Delay caused by branch instructions"
       },
       {
         type: "mcq",
         question: "Which method executes the instruction immediately after a branch?",
-        options: ["Delayed branch", "Branch stall", "Forwarding", "Prediction"],
+        options: ["Branch stall", "Forwarding", "Delayed branch", "Prediction"],
         correctAnswer: "Delayed branch"
       },
       {
         type: "mcq",
         question: "Branch Target Buffer stores:",
-        options: ["Previous branch targets", "Memory blocks", "Registers", "Interrupts"],
+        options: ["Memory blocks", "Previous branch targets", "Registers", "Interrupts"],
         correctAnswer: "Previous branch targets"
       },
       {
         type: "mcq",
         question: "Speculative execution works with:",
-        options: ["Branch prediction", "Interrupts", "Exceptions", "Cache"],
+        options: ["Interrupts", "Exceptions", "Cache", "Branch prediction"],
         correctAnswer: "Branch prediction"
       },
       {
         type: "mcq",
         question: "Control hazards mainly affect:",
-        options: ["Instruction fetch stage", "Memory stage", "Write-back stage", "Decode stage"],
+        options: ["Write-back stage", "Instruction fetch stage", "Memory stage", "Decode stage"],
         correctAnswer: "Instruction fetch stage"
       },
       {
         type: "mcq",
         question: "Branch misprediction results in:",
-        options: ["Pipeline flush", "Memory reset", "Cache clear", "Register reset"],
+        options: ["Memory reset", "Cache clear", "Pipeline flush", "Register reset"],
         correctAnswer: "Pipeline flush"
       },
       {
         type: "mcq",
         question: "Flushing a pipeline means:",
-        options: ["Clearing incorrect instructions", "Clearing registers", "Clearing memory", "Clearing disk"],
+        options: ["Clearing registers", "Clearing incorrect instructions", "Clearing memory", "Clearing disk"],
         correctAnswer: "Clearing incorrect instructions"
       },
       {
         type: "mcq",
         question: "Static prediction does NOT rely on:",
-        options: ["Runtime information", "Compiler hints", "Fixed rules", "Instruction structure"],
+        options: ["Compiler hints", "Fixed rules", "Instruction structure", "Runtime information"],
         correctAnswer: "Runtime information"
       },
       {
         type: "mcq",
         question: "Dynamic prediction uses:",
-        options: ["Hardware tables", "Compiler rules", "Fixed assumptions", "Manual prediction"],
+        options: ["Compiler rules", "Hardware tables", "Fixed assumptions", "Manual prediction"],
         correctAnswer: "Hardware tables"
       },
       {
         type: "mcq",
         question: "Two-bit predictors are used in:",
-        options: ["Dynamic branch prediction", "Static prediction", "Interrupt systems", "Cache systems"],
+        options: ["Static prediction", "Interrupt systems", "Dynamic branch prediction", "Cache systems"],
         correctAnswer: "Dynamic branch prediction"
       },
       {
         type: "mcq",
         question: "Branch history tables store:",
-        options: ["Past branch outcomes", "Memory addresses", "Register values", "Cache lines"],
+        options: ["Memory addresses", "Register values", "Past branch outcomes", "Cache lines"],
         correctAnswer: "Past branch outcomes"
       },
       {
         type: "mcq",
         question: "Dynamic predictors improve:",
-        options: ["Accuracy of branch guesses", "Cache size", "Register count", "Memory capacity"],
+        options: ["Cache size", "Accuracy of branch guesses", "Register count", "Memory capacity"],
         correctAnswer: "Accuracy of branch guesses"
       },
       {
         type: "mcq",
         question: "Static prediction is usually decided:",
-        options: ["At compile time", "During execution", "After execution", "At runtime hardware"],
+        options: ["During execution", "After execution", "At compile time", "At runtime hardware"],
         correctAnswer: "At compile time"
       },
       {
         type: "mcq",
         question: "Dynamic prediction requires:",
-        options: ["Extra hardware logic", "No hardware", "Only software", "Disk storage"],
+        options: ["No hardware", "Extra hardware logic", "Only software", "Disk storage"],
         correctAnswer: "Extra hardware logic"
       },
       {
         type: "mcq",
         question: "Branch prediction reduces:",
-        options: ["Control hazards", "Data hazards", "Structural hazards", "Memory hazards"],
+        options: ["Data hazards", "Structural hazards", "Control hazards", "Memory hazards"],
         correctAnswer: "Control hazards"
       },
       {
         type: "mcq",
         question: "Dynamic prediction adapts to:",
-        options: ["Program behavior", "Memory size", "Disk usage", "Register count"],
+        options: ["Memory size", "Disk usage", "Program behavior", "Register count"],
         correctAnswer: "Program behavior"
       },
       {
         type: "mcq",
         question: "Prediction accuracy directly affects:",
-        options: ["Pipeline performance", "Memory capacity", "Disk speed", "Register size"],
+        options: ["Memory capacity", "Pipeline performance", "Disk speed", "Register size"],
         correctAnswer: "Pipeline performance"
       },
       {
         type: "mcq",
         question: "Loop buffers store:",
-        options: ["Frequently repeated instructions", "Memory data", "Interrupts", "Registers"],
+        options: ["Memory data", "Interrupts", "Frequently repeated instructions", "Registers"],
         correctAnswer: "Frequently repeated instructions"
       },
       {
         type: "mcq",
         question: "Loop buffers reduce:",
-        options: ["Instruction fetch delay", "Register usage", "Disk usage", "Interrupt handling"],
+        options: ["Register usage", "Instruction fetch delay", "Disk usage", "Interrupt handling"],
         correctAnswer: "Instruction fetch delay"
       },
       {
         type: "mcq",
         question: "Interrupts are generated by:",
-        options: ["External devices", "ALU", "Registers", "Cache"],
+        options: ["ALU", "Registers", "Cache", "External devices"],
         correctAnswer: "External devices"
       },
       {
         type: "mcq",
         question: "Exceptions are generated by:",
-        options: ["CPU execution errors", "Keyboard input", "Mouse movement", "Disk access"],
+        options: ["Keyboard input", "Mouse movement", "Disk access", "CPU execution errors"],
         correctAnswer: "CPU execution errors"
       },
       {
         type: "mcq",
         question: "An interrupt causes the CPU to:",
-        options: ["Temporarily stop current program", "Shut down", "Reset memory", "Clear registers"],
+        options: ["Shut down", "Reset memory", "Temporarily stop current program", "Clear registers"],
         correctAnswer: "Temporarily stop current program"
       },
       {
         type: "mcq",
         question: "ARM processors follow which architecture?",
-        options: ["RISC", "CISC", "VLIW", "Superscalar only"],
+        options: ["CISC", "VLIW", "RISC", "Superscalar only"],
         correctAnswer: "RISC"
       },
       {
         type: "mcq",
         question: "A key RISC principle is:",
-        options: ["Simple instructions", "Complex instructions", "Variable instructions only", "Random instructions"],
+        options: ["Complex instructions", "Simple instructions", "Variable instructions only", "Random instructions"],
         correctAnswer: "Simple instructions"
       },
       {
         type: "mcq",
         question: "Load/store architecture means:",
-        options: ["Only load/store access memory", "All instructions access memory", "Arithmetic instructions access memory", "Cache handles memory"],
+        options: ["All instructions access memory", "Arithmetic instructions access memory", "Only load/store access memory", "Cache handles memory"],
         correctAnswer: "Only load/store access memory"
       },
       {
         type: "mcq",
         question: "RISC processors typically have:",
-        options: ["Many registers", "Few registers", "No registers", "External registers"],
+        options: ["Few registers", "Many registers", "No registers", "External registers"],
         correctAnswer: "Many registers"
       },
       {
         type: "mcq",
         question: "ARM instructions are typically:",
-        options: ["Fixed length", "Variable length", "Random length", "No length"],
+        options: ["Variable length", "Random length", "Fixed length", "No length"],
         correctAnswer: "Fixed length"
       },
       {
         type: "mcq",
         question: "An interrupt vector table contains:",
-        options: ["Addresses of interrupt handlers", "Memory blocks", "Registers", "Cache lines"],
+        options: ["Memory blocks", "Addresses of interrupt handlers", "Registers", "Cache lines"],
         correctAnswer: "Addresses of interrupt handlers"
       },
       {
         type: "mcq",
         question: "Each interrupt vector corresponds to:",
-        options: ["A specific interrupt type", "A memory block", "A register", "A pipeline stage"],
+        options: ["A memory block", "A register", "A pipeline stage", "A specific interrupt type"],
         correctAnswer: "A specific interrupt type"
       },
       {
         type: "mcq",
         question: "When an interrupt occurs, the CPU:",
-        options: ["Looks up the vector table entry", "Clears memory", "Resets registers", "Stops execution"],
+        options: ["Clears memory", "Looks up the vector table entry", "Resets registers", "Stops execution"],
         correctAnswer: "Looks up the vector table entry"
       },
       {
         type: "mcq",
         question: "Interrupt service routines are stored in:",
-        options: ["Memory", "Registers", "Cache only", "Disk"],
+        options: ["Registers", "Cache only", "Disk", "Memory"],
         correctAnswer: "Memory"
       },
       {
         type: "mcq",
         question: "After servicing an interrupt, the CPU:",
-        options: ["Returns to the interrupted program", "Resets the system", "Clears registers", "Stops program"],
+        options: ["Resets the system", "Clears registers", "Returns to the interrupted program", "Stops program"],
         correctAnswer: "Returns to the interrupted program"
       },
       {
         type: "mcq",
         question: "The interrupt vector number identifies:",
-        options: ["Interrupt handler address", "Register index", "Memory block", "Cache line"],
+        options: ["Register index", "Interrupt handler address", "Memory block", "Cache line"],
         correctAnswer: "Interrupt handler address"
       },
       {
         type: "mcq",
         question: "The vector table enables:",
-        options: ["Fast interrupt handling", "Memory expansion", "Register expansion", "Cache optimization"],
+        options: ["Memory expansion", "Register expansion", "Fast interrupt handling", "Cache optimization"],
         correctAnswer: "Fast interrupt handling"
       },
       {
         type: "mcq",
         question: "Interrupt vector tables are usually stored in:",
-        options: ["Main memory", "Disk", "Registers", "Cache"],
+        options: ["Disk", "Registers", "Main memory", "Cache"],
         correctAnswer: "Main memory"
       },
       {
         type: "mcq",
         question: "Interrupt handling typically saves:",
-        options: ["CPU state", "Disk data", "Cache lines", "Keyboard buffer"],
+        options: ["Disk data", "CPU state", "Cache lines", "Keyboard buffer"],
         correctAnswer: "CPU state"
       },
       {
         type: "mcq",
         question: "The main advantage of interrupt vectors is:",
-        options: ["Direct jump to handler", "Reduced memory", "Increased disk speed", "Reduced registers"],
+        options: ["Reduced memory", "Increased disk speed", "Reduced registers", "Direct jump to handler"],
         correctAnswer: "Direct jump to handler"
       }
     ]
@@ -1579,7 +1579,7 @@ export default function App() {
     <div className="p-6 sm:p-8 animate-in fade-in duration-500">
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Select a Course</h2>
-        <p className="text-slate-400 text-sm sm:text-base">Choose a course to begin your quiz</p>
+        <p className="text-slate-400 text-sm sm:text-base">Choose a subject to begin your quiz</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
