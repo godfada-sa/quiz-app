@@ -1445,11 +1445,31 @@ export default function App() {
   const [isAnswered, setIsAnswered] = useState(false);
   const [warning, setWarning] = useState("");
 
+  // ChatGPT Modal State
+  const [isGptModalOpen, setIsGptModalOpen] = useState(false);
+  const [copiedField, setCopiedField] = useState(null);
+
   // Derived state for the active course and its questions
   const activeCourse = activeCourseId ? courseData[activeCourseId] : null;
   const currentQuestion = activeCourse ? activeCourse.questions[currentQuestionIndex] : null;
 
   // --- Actions ---
+
+  const handleCopy = (text, field) => {
+    // Using document.execCommand for iframe compatibility
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000); // Reset text after 2 seconds
+    } catch (err) {
+      console.error('Copy failed', err);
+    }
+    document.body.removeChild(textArea);
+  };
 
   const handleStartCourse = (courseId) => {
     setActiveCourseId(courseId);
@@ -1795,8 +1815,8 @@ export default function App() {
         <div className="bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 text-center border-b border-slate-700/50 flex items-center justify-between sticky top-0 z-10">
           
           {/* Left: Back Button or Spacer */}
-          <div className="w-10">
-            {currentScreen !== 'dashboard' && (
+          <div className="w-24 sm:w-32 flex justify-start">
+            {currentScreen !== 'dashboard' ? (
               <button 
                 onClick={handleReturnToDashboard}
                 className="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 transition-colors"
@@ -1804,6 +1824,18 @@ export default function App() {
               >
                 <ChevronLeft size={20} />
               </button>
+            ) : (
+              <a 
+                href="https://www.canva.com/brand/join?token=kMt3BN0TaL2FRGUA5n6NBA&brandingVariant=edu&referrer=team-invite"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 text-xs sm:text-sm font-medium transition-all duration-300 border border-purple-500/30 hover:border-purple-500/50 hover:shadow-[0_0_12px_rgba(168,85,247,0.2)] whitespace-nowrap"
+              >
+                <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-purple-500/20 group-hover:bg-gradient-to-r group-hover:from-[#00C4CC] group-hover:to-[#7D2AE8] flex items-center justify-center shrink-0 transition-all duration-300">
+                  <span className="text-purple-200 group-hover:text-white text-[9px] sm:text-[10px] font-bold">C</span>
+                </div>
+                <span>Canva Pro</span>
+              </a>
             )}
           </div>
           
@@ -1817,8 +1849,21 @@ export default function App() {
             </h1>
           </div>
           
-          {/* Right: Spacer to maintain centering */}
-          <div className="w-10"></div>
+          {/* Right: ChatGPT Pro Button */}
+          <div className="w-24 sm:w-32 flex justify-end">
+            {currentScreen === 'dashboard' && (
+              <button 
+                onClick={() => setIsGptModalOpen(true)}
+                className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-200 text-xs sm:text-sm font-medium transition-all duration-300 border border-teal-500/30 hover:border-teal-500/50 hover:shadow-[0_0_12px_rgba(20,184,166,0.2)] whitespace-nowrap"
+              >
+                <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-teal-500/20 group-hover:bg-[#10A37F] flex items-center justify-center shrink-0 transition-all duration-300">
+                  <BrainCircuit size={10} className="text-teal-200 group-hover:text-white" />
+                </div>
+                <span className="hidden sm:inline">ChatGPT Pro</span>
+                <span className="sm:hidden">GPT Pro</span>
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Scrollable Content Area */}
@@ -1839,6 +1884,71 @@ export default function App() {
         />
         <span className="font-semibold tracking-wider text-sm">s_afful</span>
       </footer>
+
+      {/* ChatGPT Credentials Modal */}
+      {isGptModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-sm shadow-2xl shadow-teal-900/20 animate-in zoom-in-95 duration-200 relative">
+            <div className="flex justify-between items-center mb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-[#10A37F]/20 rounded-lg border border-[#10A37F]/30">
+                  <BrainCircuit className="text-[#10A37F]" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-white">ChatGPT Premium</h3>
+              </div>
+              <button 
+                onClick={() => setIsGptModalOpen(false)} 
+                className="text-slate-400 hover:text-white p-1 rounded-md hover:bg-slate-700 transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700/50 hover:border-slate-600 transition-colors">
+                <p className="text-xs text-slate-400 mb-2 font-semibold uppercase tracking-wider">Email Address</p>
+                <div className="flex justify-between items-center gap-3">
+                  <code className="text-sm sm:text-base text-slate-200 truncate font-mono select-all">premiumgpt1@outlook.com</code>
+                  <button
+                    onClick={() => handleCopy("premiumgpt1@outlook.com", "email")}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all shrink-0 ${
+                      copiedField === 'email' 
+                        ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-white border border-slate-600'
+                    }`}
+                  >
+                    {copiedField === 'email' ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+              </div>
+
+              <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700/50 hover:border-slate-600 transition-colors">
+                <p className="text-xs text-slate-400 mb-2 font-semibold uppercase tracking-wider">Password</p>
+                <div className="flex justify-between items-center gap-3">
+                  <code className="text-sm sm:text-base text-slate-200 truncate font-mono select-all">SaffulmadeIt</code>
+                  <button
+                    onClick={() => handleCopy("SaffulmadeIt", "password")}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all shrink-0 ${
+                      copiedField === 'password' 
+                        ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-white border border-slate-600'
+                    }`}
+                  >
+                    {copiedField === 'password' ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 text-center space-y-3">
+              <p className="text-[11px] sm:text-xs font-semibold text-red-400 bg-red-500/10 p-2.5 rounded-lg border border-red-500/20">
+                ⚠️ Do not share, multiple logins at different locations might cause a permanent ban
+              </p>
+              <p className="text-xs text-slate-500">Access provided for study purposes only.</p>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
