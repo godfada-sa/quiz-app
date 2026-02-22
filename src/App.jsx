@@ -639,369 +639,489 @@ const courseData = {
   comp_arch: {
     id: 'comp_arch',
     title: "Computer Architecture",
-    description: "Pipeline, Cache, DMA, ILP & Architectures",
+    description: "Instruction Cycle, Pipelining, Hazards, & Interrupts",
     icon: Cpu,
     gradient: "from-purple-500 to-indigo-600",
     questions: [
       {
         type: "mcq",
-        question: "What is the key defining feature of the Von Neumann architecture?",
-        options: ["Stored-program concept", "Separate memory for data and instructions", "Multiple processors", "Out-of-order execution"],
-        correctAnswer: "Stored-program concept"
+        question: "During the instruction cycle, the Program Counter (PC) is updated:",
+        options: ["During execution", "During instruction fetch", "During write back", "During interrupt handling"],
+        correctAnswer: "During instruction fetch"
       },
       {
         type: "mcq",
-        question: "In the Von Neumann architecture, what acts as the primary bottleneck?",
-        options: ["Lack of cache memory", "The shared bus for both data and instructions", "Slow ALU speed", "Limited register size"],
-        correctAnswer: "The shared bus for both data and instructions"
+        question: "Which component sends control signals to coordinate CPU operations?",
+        options: ["ALU", "Control Unit", "Cache", "MAR"],
+        correctAnswer: "Control Unit"
       },
       {
         type: "mcq",
-        question: "Which of these is NOT one of the three main components of a classic Von Neumann CPU?",
-        options: ["Control Unit", "ALU", "Registers", "DMA Controller"],
-        correctAnswer: "DMA Controller"
+        question: "Which register temporarily stores the instruction fetched from memory?",
+        options: ["MAR", "PC", "IR", "MDR"],
+        correctAnswer: "IR"
       },
       {
         type: "mcq",
-        question: "In a computer system, what is a register?",
-        options: ["A large capacity magnetic disk", "A small, extremely fast storage location within the CPU", "A printed circuit board", "An external flash drive"],
-        correctAnswer: "A small, extremely fast storage location within the CPU"
+        question: "If the PC contains address 400, the next instruction fetched will be from:",
+        options: ["Register 400", "Memory location 400", "Cache location 400", "ALU register 400"],
+        correctAnswer: "Memory location 400"
       },
       {
         type: "mcq",
-        question: "Which specific register holds the memory address of the next instruction to be fetched?",
-        options: ["Accumulator (AC)", "Instruction Register (IR)", "Program Counter (PC)", "Memory Address Register (MAR)"],
-        correctAnswer: "Program Counter (PC)"
+        question: "The Decode stage mainly involves:",
+        options: ["Executing arithmetic operations", "Interpreting opcode and operands", "Writing data to memory", "Clearing registers"],
+        correctAnswer: "Interpreting opcode and operands"
       },
       {
         type: "mcq",
-        question: "Which register stores the actual instruction that is currently being decoded and executed?",
-        options: ["Instruction Register (IR)", "Program Counter (PC)", "Memory Buffer Register (MBR)", "Stack Pointer (SP)"],
-        correctAnswer: "Instruction Register (IR)"
+        question: "Which register holds data read from memory before execution?",
+        options: ["MAR", "MDR", "IR", "PC"],
+        correctAnswer: "MDR"
       },
       {
         type: "mcq",
-        question: "What is the primary function of the Accumulator (AC) register?",
-        options: ["To store the operating system kernel", "To count the number of instructions executed", "To store intermediate arithmetic and logical results", "To manage network traffic"],
-        correctAnswer: "To store intermediate arithmetic and logical results"
+        question: "The instruction cycle repeats until:",
+        options: ["Memory becomes full", "CPU overheats", "Program execution finishes", "Interrupt occurs"],
+        correctAnswer: "Program execution finishes"
       },
       {
         type: "mcq",
-        question: "Which register holds the data fetched from memory, or data that is waiting to be written to memory?",
-        options: ["Program Counter", "Memory Buffer Register (MBR)", "Status Register", "Instruction Register"],
-        correctAnswer: "Memory Buffer Register (MBR)"
+        question: "The instruction cycle is controlled primarily by:",
+        options: ["ALU", "Control Unit", "Cache controller", "Bus controller"],
+        correctAnswer: "Control Unit"
       },
       {
         type: "mcq",
-        question: "Which register holds the exact memory address from which data will be fetched or to which data will be stored?",
-        options: ["Memory Buffer Register (MBR)", "Accumulator", "Memory Address Register (MAR)", "Instruction Register"],
-        correctAnswer: "Memory Address Register (MAR)"
+        question: "Which bus carries memory addresses?",
+        options: ["Data bus", "Control bus", "Address bus", "Register bus"],
+        correctAnswer: "Address bus"
       },
       {
         type: "mcq",
-        question: "General-purpose registers can be directly utilized by programmers to temporarily store variables and data.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "The CPU fetches instructions sequentially unless modified by:",
+        options: ["Arithmetic instruction", "Branch instruction", "Load instruction", "Store instruction"],
+        correctAnswer: "Branch instruction"
       },
       {
         type: "mcq",
-        question: "Which register stores status flags like Zero, Carry, Overflow, and Sign after an ALU operation?",
-        options: ["Program Status Word (PSW)", "Program Counter", "Memory Address Register", "Instruction Register"],
-        correctAnswer: "Program Status Word (PSW)"
+        question: "Which register is directly connected to the address bus?",
+        options: ["MDR", "MAR", "IR", "PC"],
+        correctAnswer: "MAR"
       },
       {
         type: "mcq",
-        question: "What is the main architectural purpose of cache memory?",
-        options: ["To permanently store the operating system", "To bridge the speed gap between the fast CPU and slower Main Memory", "To handle all graphical processing", "To replace hard disk drives entirely"],
-        correctAnswer: "To bridge the speed gap between the fast CPU and slower Main Memory"
+        question: "Which register interacts with the data bus?",
+        options: ["MDR", "PC", "IR", "MAR"],
+        correctAnswer: "MDR"
       },
       {
         type: "mcq",
-        question: "Which statement about memory hierarchy speed is correct?",
-        options: ["Cache is faster than Registers", "Main Memory is faster than Cache", "Registers are faster than Cache, which is faster than Main Memory", "Hard disks are faster than Cache"],
-        correctAnswer: "Registers are faster than Cache, which is faster than Main Memory"
+        question: "The PC is incremented:",
+        options: ["Before instruction fetch", "After instruction fetch", "During decode", "During interrupt"],
+        correctAnswer: "After instruction fetch"
       },
       {
         type: "mcq",
-        question: "The effectiveness of cache memory heavily relies on the principle of:",
-        options: ["Direct Memory Access", "Locality of Reference", "Virtual Memory", "Pipelining"],
-        correctAnswer: "Locality of Reference"
+        question: "Which register contains status flags such as zero and carry?",
+        options: ["Status register", "PC", "MAR", "IR"],
+        correctAnswer: "Status register"
       },
       {
         type: "mcq",
-        question: "Which type of locality refers to the tendency of a processor to access the same memory location repeatedly in a short time?",
-        options: ["Spatial locality", "Temporal locality", "Geographical locality", "Instruction locality"],
-        correctAnswer: "Temporal locality"
+        question: "User-visible registers mainly support:",
+        options: ["Interrupt control", "Program execution", "Memory mapping", "Pipeline control"],
+        correctAnswer: "Program execution"
       },
       {
         type: "mcq",
-        question: "Which type of locality assumes that if a memory location is accessed, nearby memory locations will be accessed soon?",
-        options: ["Spatial locality", "Temporal locality", "Virtual locality", "Vector locality"],
-        correctAnswer: "Spatial locality"
+        question: "Control registers are primarily used by:",
+        options: ["Application programs", "CPU internal control logic", "Keyboard devices", "Cache controllers"],
+        correctAnswer: "CPU internal control logic"
       },
       {
         type: "mcq",
-        question: "What happens during a cache 'hit'?",
-        options: ["The CPU crashes", "The requested data is found directly in the cache memory", "Data is written to the hard drive", "The DMA controller takes over the bus"],
-        correctAnswer: "The requested data is found directly in the cache memory"
+        question: "Which register is involved in both read and write memory operations?",
+        options: ["MAR", "MDR", "PC", "IR"],
+        correctAnswer: "MDR"
       },
       {
         type: "mcq",
-        question: "What is a cache 'miss'?",
-        options: ["When the CPU requests data that is not currently stored in the cache", "When a cache memory chip physically fails", "When two registers collide", "When the ALU performs a wrong calculation"],
-        correctAnswer: "When the CPU requests data that is not currently stored in the cache"
+        question: "Which register stores the address of the instruction currently executing?",
+        options: ["IR", "PC", "MAR", "MDR"],
+        correctAnswer: "PC"
       },
       {
         type: "mcq",
-        question: "Where is Level 1 (L1) cache typically located?",
-        options: ["On the motherboard", "Inside the hard drive", "Directly on the CPU chip", "Inside the RAM sticks"],
-        correctAnswer: "Directly on the CPU chip"
+        question: "Which register holds the opcode of an instruction?",
+        options: ["MAR", "IR", "PC", "MDR"],
+        correctAnswer: "IR"
       },
       {
         type: "mcq",
-        question: "Write-through and write-back are policies related specifically to:",
-        options: ["Pipeline hazards", "How cache memory updates Main Memory", "DMA transfer speeds", "Vector table processing"],
-        correctAnswer: "How cache memory updates Main Memory"
+        question: "The register that stores temporary results of memory operations is:",
+        options: ["MDR", "MAR", "PC", "IR"],
+        correctAnswer: "MDR"
       },
       {
         type: "mcq",
-        question: "What is pipelining in computer architecture?",
-        options: ["A technique of executing multiple instructions sequentially without overlap", "A technique of overlapping the execution stages of multiple instructions to increase throughput", "Cooling the CPU with liquid pipes", "Bypassing the cache memory"],
-        correctAnswer: "A technique of overlapping the execution stages of multiple instructions to increase throughput"
+        question: "The main goal of pipelining is to increase:",
+        options: ["Instruction latency", "Instruction throughput", "Memory capacity", "Disk bandwidth"],
+        correctAnswer: "Instruction throughput"
       },
       {
         type: "mcq",
-        question: "Pipelining decreases the execution time of an individual instruction.",
-        options: ["True", "False"],
-        correctAnswer: "False"
+        question: "Pipeline efficiency decreases when:",
+        options: ["Clock speed increases", "Hazards occur", "Memory size increases", "Registers increase"],
+        correctAnswer: "Hazards occur"
       },
       {
         type: "mcq",
-        question: "In a classic 5-stage RISC pipeline, what stage immediately follows the Instruction Fetch (IF) stage?",
-        options: ["Execute (EX)", "Memory Access (MEM)", "Instruction Decode (ID)", "Write Back (WB)"],
-        correctAnswer: "Instruction Decode (ID)"
+        question: "Which of the following causes a pipeline stall?",
+        options: ["Hazard", "Cache", "Register", "ALU"],
+        correctAnswer: "Hazard"
       },
       {
         type: "mcq",
-        question: "Which pipeline stage is responsible for writing the final result back into the register file?",
-        options: ["Instruction Fetch (IF)", "Execute (EX)", "Instruction Decode (ID)", "Write Back (WB)"],
-        correctAnswer: "Write Back (WB)"
+        question: "If a pipeline has 5 stages, ideally one instruction completes every:",
+        options: ["5 cycles", "1 cycle", "10 cycles", "2 cycles"],
+        correctAnswer: "1 cycle"
       },
       {
         type: "mcq",
-        question: "What is an instruction pipeline hazard?",
-        options: ["A physical short circuit in the CPU core", "A situation that prevents the next instruction from executing in its designated clock cycle", "A corrupted memory sector", "An intentional pause by the OS"],
-        correctAnswer: "A situation that prevents the next instruction from executing in its designated clock cycle"
+        question: "The pipeline latency equals:",
+        options: ["Number of instructions", "Number of pipeline stages", "Clock frequency", "Cache size"],
+        correctAnswer: "Number of pipeline stages"
       },
       {
         type: "mcq",
-        question: "A data hazard occurs when:",
-        options: ["Two instructions need the same hardware unit", "A branch instruction is encountered", "An instruction depends on the result of a previous instruction that has not yet completed", "The cache memory is full"],
-        correctAnswer: "An instruction depends on the result of a previous instruction that has not yet completed"
+        question: "Which stage performs arithmetic operations?",
+        options: ["Decode", "Execute", "Memory access", "Fetch"],
+        correctAnswer: "Execute"
       },
       {
         type: "mcq",
-        question: "How are control hazards (branch hazards) typically mitigated in modern pipelines?",
-        options: ["Data forwarding", "Branch prediction techniques", "Increasing L1 cache size", "Stopping the CPU"],
-        correctAnswer: "Branch prediction techniques"
+        question: "Pipeline performance improves when:",
+        options: ["Hazards increase", "Instruction independence increases", "Memory decreases", "Registers decrease"],
+        correctAnswer: "Instruction independence increases"
       },
       {
         type: "mcq",
-        question: "Forwarding (or bypassing) is a hardware technique primarily used to resolve which type of pipeline hazard?",
-        options: ["Structural hazards", "Control hazards", "Data hazards", "Voltage hazards"],
+        question: "An expanded pipeline divides stages into:",
+        options: ["Larger steps", "Smaller steps", "Random steps", "No steps"],
+        correctAnswer: "Smaller steps"
+      },
+      {
+        type: "mcq",
+        question: "Pipeline hazards reduce:",
+        options: ["Throughput", "Memory capacity", "Register speed", "Disk capacity"],
+        correctAnswer: "Throughput"
+      },
+      {
+        type: "mcq",
+        question: "Pipeline overlap means:",
+        options: ["Instructions execute sequentially", "Instructions execute simultaneously in stages", "Only one instruction executes", "Instructions are ignored"],
+        correctAnswer: "Instructions execute simultaneously in stages"
+      },
+      {
+        type: "mcq",
+        question: "RAW hazards occur when:",
+        options: ["A later instruction reads a value before it is written", "A later instruction writes before read", "Two instructions write same register", "Two instructions fetch memory"],
+        correctAnswer: "A later instruction reads a value before it is written"
+      },
+      {
+        type: "mcq",
+        question: "WAR hazards occur when:",
+        options: ["Write occurs before read", "Read occurs before write", "Write occurs twice", "Read occurs twice"],
+        correctAnswer: "Write occurs before read"
+      },
+      {
+        type: "mcq",
+        question: "WAW hazards occur when:",
+        options: ["Two writes occur in wrong order", "Two reads occur", "Memory fails", "Cache fails"],
+        correctAnswer: "Two writes occur in wrong order"
+      },
+      {
+        type: "mcq",
+        question: "Which hazard type represents true dependency?",
+        options: ["RAW", "WAR", "WAW", "Structural"],
+        correctAnswer: "RAW"
+      },
+      {
+        type: "mcq",
+        question: "Register renaming helps resolve:",
+        options: ["WAW and WAR hazards", "RAW hazards", "Interrupts", "Branch hazards"],
+        correctAnswer: "WAW and WAR hazards"
+      },
+      {
+        type: "mcq",
+        question: "Data forwarding reduces:",
+        options: ["Structural hazards", "Data hazards", "Interrupts", "Exceptions"],
         correctAnswer: "Data hazards"
       },
       {
         type: "mcq",
-        question: "In pipelining, what is the term for inserting a delay or 'no-operation' to safely resolve a hazard?",
-        options: ["Stalling / Inserting a Bubble", "Overclocking", "Branching", "Vectoring"],
-        correctAnswer: "Stalling / Inserting a Bubble"
+        question: "Data hazards mainly occur when:",
+        options: ["Instructions share data dependencies", "Memory is full", "Registers overflow", "Cache misses"],
+        correctAnswer: "Instructions share data dependencies"
       },
       {
         type: "mcq",
-        question: "What defines a superscalar architecture?",
-        options: ["It runs at a super high clock frequency", "It can dynamically issue and execute multiple instructions per clock cycle using multiple execution units", "It uses exclusively scalar variables", "It does not use cache memory"],
-        correctAnswer: "It can dynamically issue and execute multiple instructions per clock cycle using multiple execution units"
+        question: "Pipeline interlocking is used to:",
+        options: ["Prevent hazards", "Increase cache size", "Reduce registers", "Increase interrupts"],
+        correctAnswer: "Prevent hazards"
       },
       {
         type: "mcq",
-        question: "Superscalar processors implement Instruction Level Parallelism (ILP) dynamically in hardware.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "Forwarding sends data directly from:",
+        options: ["ALU output to next stage", "Memory to disk", "Cache to disk", "Register to keyboard"],
+        correctAnswer: "ALU output to next stage"
       },
       {
         type: "mcq",
-        question: "A superscalar pipeline typically features multiple parallel execution units for integer, floating-point, and memory operations.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "RAW hazards are the most common in:",
+        options: ["Pipelined processors", "Disk controllers", "Memory modules", "Interrupt controllers"],
+        correctAnswer: "Pipelined processors"
       },
       {
         type: "mcq",
-        question: "What is the primary difference between standard pipelining and superscalar execution?",
-        options: ["Pipelining overlaps stages of 1 instruction per cycle; superscalar issues multiple instructions simultaneously per cycle", "Pipelining is software-based; superscalar is hardware-based", "Pipelining is faster than superscalar", "There is no difference"],
-        correctAnswer: "Pipelining overlaps stages of 1 instruction per cycle; superscalar issues multiple instructions simultaneously per cycle"
+        question: "Branch hazards arise from:",
+        options: ["Data dependency", "Control dependency", "Memory dependency", "Disk dependency"],
+        correctAnswer: "Control dependency"
       },
       {
         type: "mcq",
-        question: "In order execution is strictly required in all modern superscalar processors.",
-        options: ["True", "False"],
-        correctAnswer: "False"
+        question: "A branch instruction changes:",
+        options: ["Data register", "PC value", "MAR value", "MDR value"],
+        correctAnswer: "PC value"
       },
       {
         type: "mcq",
-        question: "What does 'Out-of-order execution' allow a superscalar processor to do?",
-        options: ["Bypass stalled instructions and execute independent instructions waiting in the queue", "Execute programs backward", "Ignore data hazards completely", "Turn off unused pipeline stages"],
-        correctAnswer: "Bypass stalled instructions and execute independent instructions waiting in the queue"
+        question: "Branch prediction attempts to:",
+        options: ["Predict instruction results", "Predict next instruction path", "Predict register values", "Predict memory access"],
+        correctAnswer: "Predict next instruction path"
       },
       {
         type: "mcq",
-        question: "To achieve maximum performance, superscalar processors rely heavily on complex hardware to detect instruction dependencies on the fly.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "Branch penalty refers to:",
+        options: ["Delay caused by branch instructions", "Register overflow", "Memory failure", "Cache miss"],
+        correctAnswer: "Delay caused by branch instructions"
       },
       {
         type: "mcq",
-        question: "What does ILP stand for in computer architecture?",
-        options: ["Instruction Level Processing", "Instruction Level Parallelism", "Internal Logic Pipeline", "Integrated Loop Prediction"],
-        correctAnswer: "Instruction Level Parallelism"
+        question: "Which method executes the instruction immediately after a branch?",
+        options: ["Delayed branch", "Branch stall", "Forwarding", "Prediction"],
+        correctAnswer: "Delayed branch"
       },
       {
         type: "mcq",
-        question: "ILP refers to the hardware and software design techniques used to execute multiple independent instructions simultaneously.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "Branch Target Buffer stores:",
+        options: ["Previous branch targets", "Memory blocks", "Registers", "Interrupts"],
+        correctAnswer: "Previous branch targets"
       },
       {
         type: "mcq",
-        question: "Which of the following severely limits the amount of ILP a processor can exploit?",
-        options: ["Large cache size", "High clock speed", "True data dependencies between instructions", "Too many registers"],
-        correctAnswer: "True data dependencies between instructions"
+        question: "Speculative execution works with:",
+        options: ["Branch prediction", "Interrupts", "Exceptions", "Cache"],
+        correctAnswer: "Branch prediction"
       },
       {
         type: "mcq",
-        question: "Loop unrolling is a software compiler technique used primarily to:",
-        options: ["Save hard drive space", "Reduce power consumption", "Expose more ILP by reducing loop overhead and increasing independent instructions", "Prevent cache misses"],
-        correctAnswer: "Expose more ILP by reducing loop overhead and increasing independent instructions"
+        question: "Control hazards mainly affect:",
+        options: ["Instruction fetch stage", "Memory stage", "Write-back stage", "Decode stage"],
+        correctAnswer: "Instruction fetch stage"
       },
       {
         type: "mcq",
-        question: "Unlike thread-level parallelism, ILP is primarily concerned with finding parallelism within a single sequential thread.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "Branch misprediction results in:",
+        options: ["Pipeline flush", "Memory reset", "Cache clear", "Register reset"],
+        correctAnswer: "Pipeline flush"
       },
       {
         type: "mcq",
-        question: "Very Long Instruction Word (VLIW) architectures rely on the hardware at runtime to find ILP.",
-        options: ["True", "False"],
-        correctAnswer: "False"
+        question: "Flushing a pipeline means:",
+        options: ["Clearing incorrect instructions", "Clearing registers", "Clearing memory", "Clearing disk"],
+        correctAnswer: "Clearing incorrect instructions"
       },
       {
         type: "mcq",
-        question: "What does RISC stand for?",
-        options: ["Rapid Instruction Standard Computer", "Reduced Instruction Set Computer", "Reorganized Instruction Set Computer", "Reliable Instruction System Code"],
-        correctAnswer: "Reduced Instruction Set Computer"
+        question: "Static prediction does NOT rely on:",
+        options: ["Runtime information", "Compiler hints", "Fixed rules", "Instruction structure"],
+        correctAnswer: "Runtime information"
       },
       {
         type: "mcq",
-        question: "What does CISC stand for?",
-        options: ["Complex Instruction Set Computer", "Computed Instruction Sequence Code", "Centralized Instruction Set Computer", "Compiled Instruction Set Code"],
-        correctAnswer: "Complex Instruction Set Computer"
+        question: "Dynamic prediction uses:",
+        options: ["Hardware tables", "Compiler rules", "Fixed assumptions", "Manual prediction"],
+        correctAnswer: "Hardware tables"
       },
       {
         type: "mcq",
-        question: "Which CPU architecture typically utilizes highly uniform, fixed-length instructions?",
-        options: ["CISC", "RISC", "Both", "Neither"],
+        question: "Two-bit predictors are used in:",
+        options: ["Dynamic branch prediction", "Static prediction", "Interrupt systems", "Cache systems"],
+        correctAnswer: "Dynamic branch prediction"
+      },
+      {
+        type: "mcq",
+        question: "Branch history tables store:",
+        options: ["Past branch outcomes", "Memory addresses", "Register values", "Cache lines"],
+        correctAnswer: "Past branch outcomes"
+      },
+      {
+        type: "mcq",
+        question: "Dynamic predictors improve:",
+        options: ["Accuracy of branch guesses", "Cache size", "Register count", "Memory capacity"],
+        correctAnswer: "Accuracy of branch guesses"
+      },
+      {
+        type: "mcq",
+        question: "Static prediction is usually decided:",
+        options: ["At compile time", "During execution", "After execution", "At runtime hardware"],
+        correctAnswer: "At compile time"
+      },
+      {
+        type: "mcq",
+        question: "Dynamic prediction requires:",
+        options: ["Extra hardware logic", "No hardware", "Only software", "Disk storage"],
+        correctAnswer: "Extra hardware logic"
+      },
+      {
+        type: "mcq",
+        question: "Branch prediction reduces:",
+        options: ["Control hazards", "Data hazards", "Structural hazards", "Memory hazards"],
+        correctAnswer: "Control hazards"
+      },
+      {
+        type: "mcq",
+        question: "Dynamic prediction adapts to:",
+        options: ["Program behavior", "Memory size", "Disk usage", "Register count"],
+        correctAnswer: "Program behavior"
+      },
+      {
+        type: "mcq",
+        question: "Prediction accuracy directly affects:",
+        options: ["Pipeline performance", "Memory capacity", "Disk speed", "Register size"],
+        correctAnswer: "Pipeline performance"
+      },
+      {
+        type: "mcq",
+        question: "Loop buffers store:",
+        options: ["Frequently repeated instructions", "Memory data", "Interrupts", "Registers"],
+        correctAnswer: "Frequently repeated instructions"
+      },
+      {
+        type: "mcq",
+        question: "Loop buffers reduce:",
+        options: ["Instruction fetch delay", "Register usage", "Disk usage", "Interrupt handling"],
+        correctAnswer: "Instruction fetch delay"
+      },
+      {
+        type: "mcq",
+        question: "Interrupts are generated by:",
+        options: ["External devices", "ALU", "Registers", "Cache"],
+        correctAnswer: "External devices"
+      },
+      {
+        type: "mcq",
+        question: "Exceptions are generated by:",
+        options: ["CPU execution errors", "Keyboard input", "Mouse movement", "Disk access"],
+        correctAnswer: "CPU execution errors"
+      },
+      {
+        type: "mcq",
+        question: "An interrupt causes the CPU to:",
+        options: ["Temporarily stop current program", "Shut down", "Reset memory", "Clear registers"],
+        correctAnswer: "Temporarily stop current program"
+      },
+      {
+        type: "mcq",
+        question: "ARM processors follow which architecture?",
+        options: ["RISC", "CISC", "VLIW", "Superscalar only"],
         correctAnswer: "RISC"
       },
       {
         type: "mcq",
-        question: "Which architecture is characterized by a large number of complex, variable-length instructions?",
-        options: ["RISC", "CISC", "VLIW", "ARM"],
-        correctAnswer: "CISC"
+        question: "A key RISC principle is:",
+        options: ["Simple instructions", "Complex instructions", "Variable instructions only", "Random instructions"],
+        correctAnswer: "Simple instructions"
       },
       {
         type: "mcq",
-        question: "RISC processors rely heavily on which architectural features to achieve high performance?",
-        options: ["Complex microcode and few registers", "Pipelining and a large bank of general-purpose registers", "Direct memory-to-memory operations", "Slow clock speeds"],
-        correctAnswer: "Pipelining and a large bank of general-purpose registers"
+        question: "Load/store architecture means:",
+        options: ["Only load/store access memory", "All instructions access memory", "Arithmetic instructions access memory", "Cache handles memory"],
+        correctAnswer: "Only load/store access memory"
       },
       {
         type: "mcq",
-        question: "In a pure RISC architecture, accessing memory is typically restricted to which specific types of instructions?",
-        options: ["Add and Subtract", "Multiply and Divide", "Load and Store", "Push and Pop"],
-        correctAnswer: "Load and Store"
+        question: "RISC processors typically have:",
+        options: ["Many registers", "Few registers", "No registers", "External registers"],
+        correctAnswer: "Many registers"
       },
       {
         type: "mcq",
-        question: "CISC processors emphasize doing more work per instruction, while RISC emphasizes executing simpler instructions at a faster rate.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "ARM instructions are typically:",
+        options: ["Fixed length", "Variable length", "Random length", "No length"],
+        correctAnswer: "Fixed length"
       },
       {
         type: "mcq",
-        question: "Intel's classic x86 architecture is traditionally classified as:",
-        options: ["RISC", "CISC", "VLIW", "EPIC"],
-        correctAnswer: "CISC"
+        question: "An interrupt vector table contains:",
+        options: ["Addresses of interrupt handlers", "Memory blocks", "Registers", "Cache lines"],
+        correctAnswer: "Addresses of interrupt handlers"
       },
       {
         type: "mcq",
-        question: "Modern ARM processors, used in most smartphones, are fundamentally based on which architecture?",
-        options: ["CISC", "RISC", "x86", "Quantum"],
-        correctAnswer: "RISC"
+        question: "Each interrupt vector corresponds to:",
+        options: ["A specific interrupt type", "A memory block", "A register", "A pipeline stage"],
+        correctAnswer: "A specific interrupt type"
       },
       {
         type: "mcq",
-        question: "What is the primary function of Direct Memory Access (DMA)?",
-        options: ["To increase CPU clock speed", "To allow I/O devices to transfer data directly to/from memory without continuous CPU intervention", "To manage cache misses", "To predict pipeline branches"],
-        correctAnswer: "To allow I/O devices to transfer data directly to/from memory without continuous CPU intervention"
+        question: "When an interrupt occurs, the CPU:",
+        options: ["Looks up the vector table entry", "Clears memory", "Resets registers", "Stops execution"],
+        correctAnswer: "Looks up the vector table entry"
       },
       {
         type: "mcq",
-        question: "DMA significantly improves overall system performance by freeing up the CPU to do other work during large data transfers.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "Interrupt service routines are stored in:",
+        options: ["Memory", "Registers", "Cache only", "Disk"],
+        correctAnswer: "Memory"
       },
       {
         type: "mcq",
-        question: "During an active DMA transfer, the CPU must actively execute the individual data transfer instructions.",
-        options: ["True", "False"],
-        correctAnswer: "False"
+        question: "After servicing an interrupt, the CPU:",
+        options: ["Returns to the interrupted program", "Resets the system", "Clears registers", "Stops program"],
+        correctAnswer: "Returns to the interrupted program"
       },
       {
         type: "mcq",
-        question: "Which hardware component acts as the bridge that manages the bus logic between an I/O device and memory during a DMA transfer?",
-        options: ["The ALU", "The DMA Controller (DMAC)", "The Program Counter", "The Cache Controller"],
-        correctAnswer: "The DMA Controller (DMAC)"
+        question: "The interrupt vector number identifies:",
+        options: ["Interrupt handler address", "Register index", "Memory block", "Cache line"],
+        correctAnswer: "Interrupt handler address"
       },
       {
         type: "mcq",
-        question: "What is 'Cycle Stealing' in the context of DMA?",
-        options: ["The CPU stealing cycles from the OS", "A hacker stealing CPU processing time", "The DMA controller taking over the system bus for one or more clock cycles to transfer data", "Deleting old cache data"],
-        correctAnswer: "The DMA controller taking over the system bus for one or more clock cycles to transfer data"
+        question: "The vector table enables:",
+        options: ["Fast interrupt handling", "Memory expansion", "Register expansion", "Cache optimization"],
+        correctAnswer: "Fast interrupt handling"
       },
       {
         type: "mcq",
-        question: "In the context of hardware interrupts, what is an Interrupt Vector Table?",
-        options: ["A graphical table displaying CPU usage", "A memory structure that stores the starting addresses of specific Interrupt Service Routines (ISRs)", "A list of running applications", "A database of all CPU registers"],
-        correctAnswer: "A memory structure that stores the starting addresses of specific Interrupt Service Routines (ISRs)"
+        question: "Interrupt vector tables are usually stored in:",
+        options: ["Main memory", "Disk", "Registers", "Cache"],
+        correctAnswer: "Main memory"
       },
       {
         type: "mcq",
-        question: "When a hardware interrupt occurs, the CPU uses the unique interrupt vector number to look up the correct handler routine address in the vector table.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        question: "Interrupt handling typically saves:",
+        options: ["CPU state", "Disk data", "Cache lines", "Keyboard buffer"],
+        correctAnswer: "CPU state"
       },
       {
         type: "mcq",
-        question: "What is the main advantage of using a Vector Table for interrupts?",
-        options: ["It compresses the size of the operating system", "It allows the CPU to quickly branch to the correct handler without polling multiple devices to see who interrupted", "It prevents all pipeline hazards", "It increases cache hits"],
-        correctAnswer: "It allows the CPU to quickly branch to the correct handler without polling multiple devices to see who interrupted"
-      },
-      {
-        type: "mcq",
-        question: "Which of the following processors typically utilizes a highly complex Instruction Decode pipeline stage to translate instructions into smaller micro-operations?",
-        options: ["A pure early RISC processor", "A modern x86 CISC processor", "A basic DMA controller", "An ALU"],
-        correctAnswer: "A modern x86 CISC processor"
+        question: "The main advantage of interrupt vectors is:",
+        options: ["Direct jump to handler", "Reduced memory", "Increased disk speed", "Reduced registers"],
+        correctAnswer: "Direct jump to handler"
       }
     ]
   },
