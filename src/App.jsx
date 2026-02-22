@@ -1579,7 +1579,7 @@ export default function App() {
     <div className="p-6 sm:p-8 animate-in fade-in duration-500">
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Select a Course</h2>
-        <p className="text-slate-400 text-sm sm:text-base">Choose a subject to begin your quiz</p>
+        <p className="text-slate-400 text-sm sm:text-base">Choose a course to begin your quiz</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
