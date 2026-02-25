@@ -13,6 +13,7 @@ const courseData = {
     description: "HTML Forms, CSS Layouts, Responsive Design & XML",
     icon: Globe,
     gradient: "from-cyan-500 to-blue-600",
+    isCompleted: true,
     questions: [
       {
         type: "mcq",
@@ -375,7 +376,266 @@ const courseData = {
             options: ["True", "False"],
             correctAnswer: "True"
           },
-// ... existing database questions ...
+          {
+            question: "To properly design a relational database, which elements must be identified? (Select 3)",
+            options: ["The purpose of the database", "The fields required", "The UI color scheme", "The queries to be generated"],
+            correctAnswer: ["The purpose of the database", "The fields required", "The queries to be generated"]
+          },
+          {
+            question: "What is required to establish a relationship between two tables?",
+            options: ["A common field", "A matching macro", "A junction form", "A shared query"],
+            correctAnswer: "A common field"
+          },
+          {
+            question: "A field represents a category or type of data used to organize database information.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "If two tables do not share a common key but must be connected, what should be created?",
+            options: ["A query link", "A junction table", "An external relationship", "A split form"],
+            correctAnswer: "A junction table"
+          },
+          {
+            question: "Which option represents a valid type of query join?",
+            options: ["Inner join", "Outer link", "Cross macro", "Table merge"],
+            correctAnswer: "Inner join"
+          },
+          {
+            question: "Which tab is used to import data from another Access database?",
+            options: ["External Data", "Home", "Create", "Database Tools"],
+            correctAnswer: "External Data"
+          },
+          {
+            question: "Which formats can Microsoft Access export data to? (Select 4)",
+            options: ["Microsoft Word Merge", "XML file", "Text file", "PowerPoint presentation", "Adobe Photoshop PSD file"],
+            correctAnswer: ["Microsoft Word Merge", "XML file", "Text file", "PowerPoint presentation"]
+          },
+          {
+            question: "Access allows the creation of Word mail merges using Access data.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "Where do you go to further define data types or formatting for a field?",
+            options: ["Properties", "Macros", "Relationships", "Forms"],
+            correctAnswer: "Properties"
+          },
+          {
+            question: "Which control is used to display fixed, unchanging text on a form or report?",
+            options: ["Text box", "Label", "Button", "Combo box"],
+            correctAnswer: "Label"
+          },
+          {
+            question: "An inner join returns only records with matching values in both tables.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "What are good sources of existing data for beginning database design? (Select 3)",
+            options: ["A sketch of the final output", "Electronic documents", "A random number generator", "Paper documents"],
+            correctAnswer: ["A sketch of the final output", "Electronic documents", "Paper documents"]
+          },
+          {
+            question: "In a left outer join, excluded records come from the primary table.",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            question: "Which control should be used to display text that is expected to change?",
+            options: ["Label", "Text box", "Image", "Line"],
+            correctAnswer: "Text box"
+          },
+          {
+            question: "A many-to-many relationship means one record links to many records in another table.",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            question: "Which three context-sensitive tabs appear in the Report Layout Tools? (Select 3)",
+            options: ["Design", "Arrange", "Format", "Review"],
+            correctAnswer: ["Design", "Arrange", "Format"]
+          },
+          {
+            question: "Third Normal Form focuses on creating lookup data that is maintained in a separate table.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "A query join exists only while the query is being executed.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "Second Normal Form involves identifying composite keys that act as both primary and foreign keys.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "Normalization aims to restructure tables to avoid data redundancy, not to allow multiple data types per field.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "Where can you find the Group and Sort feature when grouping data in a report?",
+            options: ["Design tab", "Home tab", "External Data tab", "Create tab"],
+            correctAnswer: "Design tab"
+          },
+          {
+            question: "The Join Properties dialog box defines how tables relate to each other in a query.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "Which actions are valid options in the Get External Data Wizard? (Select 3)",
+            options: ["Link to data by creating a linked table", "Import source data into a new table", "Delete the source file after import", "Append records to an existing table"],
+            correctAnswer: ["Link to data by creating a linked table", "Import source data into a new table", "Append records to an existing table"]
+          },
+          {
+            question: "Which type of control would you choose to present several pages as a single set?",
+            options: ["Tab Control", "Label", "Text Box", "Combo Box"],
+            correctAnswer: "Tab Control"
+          },
+          {
+            question: "Which of the following can you place on a switchboard? (Choose 3)",
+            options: ["Links to reports", "Links to other forms", "Control buttons", "Tables in Design View"],
+            correctAnswer: ["Links to reports", "Links to other forms", "Control buttons"]
+          },
+          {
+            question: "Where do you go for startup options on a current database?",
+            options: ["Access Options", "Database Tools", "View Menu", "Create Tab"],
+            correctAnswer: "Access Options"
+          },
+          {
+            question: "A switchboard is a form that opens up when you open a database.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "What is the name of the dialog box that allows you to add and remove switchboard pages?",
+            options: ["Switchboard Manager", "Page Layout", "Form Designer", "Navigation Pane"],
+            correctAnswer: "Switchboard Manager"
+          },
+          {
+            question: "Which of the following views allow you to modify a switchboard?",
+            options: ["Design View", "Datasheet View", "Layout View", "Print Preview"],
+            correctAnswer: "Design View"
+          },
+          {
+            question: "Which of the following are ways to implement security on a database? (Choose 3)",
+            options: ["Implementing a database password", "Hiding database objects", "Use a switchboard upon start up", "Disabling the keyboard"],
+            correctAnswer: ["Implementing a database password", "Hiding database objects", "Use a switchboard upon start up"]
+          },
+          {
+            question: "A split database is when the tables are in one table, but the queries reside in another.",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            question: "Which of the following is the primary purpose of the message bar?",
+            options: ["To tell you active content has been disabled", "To chat with other users", "To display error codes", "To show the current time"],
+            correctAnswer: "To tell you active content has been disabled"
+          },
+          {
+            question: "Which of the following reasons would make you set Trust Center options?",
+            options: ["To set trusted locations and options for databases", "To encrypt the entire hard drive", "To manage user passwords", "To connect to the internet"],
+            correctAnswer: "To set trusted locations and options for databases"
+          },
+          {
+            question: "The ACCDE file format is used when you convert your database to an executable file.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "The Database Documenter is an automated tool used to document every detail of your database schema.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "What is the purpose of the Object Dependencies pane? (Choose 2)",
+            options: ["To show objects that depend on you", "To show objects you depend on", "To delete unused tables", "To repair corrupted forms"],
+            correctAnswer: ["To show objects that depend on you", "To show objects you depend on"]
+          },
+          {
+            question: "Which of the following are valid types of external data sources? (Choose 3)",
+            options: ["Excel", "Access", "Project", "Paint"],
+            correctAnswer: ["Excel", "Access", "Project"]
+          },
+          {
+            question: "Which of the following are valid database maintenance options?",
+            options: ["Backup", "Defragment", "Compile", "Hibernate"],
+            correctAnswer: "Backup"
+          },
+          {
+            question: "Which of the following are valid modes used to open a database? (Choose 3)",
+            options: ["Exclusive", "Exclusive Read-Only", "Open Read-Only", "Open Write-Only"],
+            correctAnswer: ["Exclusive", "Exclusive Read-Only", "Open Read-Only"]
+          },
+          {
+            question: "Which of the following are valid types of macro actions? (Choose 3)",
+            options: ["Database objects", "Data entry operations", "System commands", "Hardware upgrades"],
+            correctAnswer: ["Database objects", "Data entry operations", "System commands"]
+          },
+          {
+            question: "When working in the Macro Builder window, what is the name of the command subset you choose from?",
+            options: ["Action Catalog", "Command Palette", "Task Pane", "Property Sheet"],
+            correctAnswer: "Action Catalog"
+          },
+          {
+            question: "When creating macros, you must have a solid knowledge of which of the following?",
+            options: ["VBA", "HTML", "Python", "C++"],
+            correctAnswer: "VBA"
+          },
+          {
+            question: "Macro code can be converted to ______.",
+            options: ["VBA", "SQL", "XML", "Java"],
+            correctAnswer: "VBA"
+          },
+          {
+            question: "Macros cannot be used to restrict data entry.",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            question: "Which of the following are examples of an input mask? (Choose 3)",
+            options: ["Phone Number", "Social Security Number", "Zip Code", "First Name"],
+            correctAnswer: ["Phone Number", "Social Security Number", "Zip Code"]
+          },
+          {
+            question: "Field ______ refers to using fields in the database table to constrain the data that is entered into them.",
+            options: ["Validation", "Verification", "Masking", "Formatting"],
+            correctAnswer: "Validation"
+          },
+          {
+            question: "Record validation is when you use an expression to check data before it is saved to the database.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "For a user to be prompted to enter a letter while creating an input mask, which of the following characters forces the user to enter a letter?",
+            options: ["L", "A", "0", "9"],
+            correctAnswer: "L"
+          },
+          {
+            question: "In which of the following views can you see a field’s properties?",
+            options: ["Design View", "Datasheet View", "Form View", "Layout View"],
+            correctAnswer: "Design View"
+          },
+          {
+            question: "Tab order is the order in which you navigate from field to field on a form during data entry.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            question: "Which control is used to draw around other controls to allow content to stand out?",
+            options: ["Rectangle", "Line", "Frame", "Border"],
+            correctAnswer: "Rectangle"
+          },
+          {
+            question: "Which of the following controls can display a Yes/No value? (Choose 3)",
+            options: ["Check Box", "Toggle Button", "Option Button", "Command Button"],
+            correctAnswer: ["Check Box", "Toggle Button", "Option Button"]
+          },
           {
             question: "You can split the detail section into separate pages by using insert page break.",
             options: ["True", "False"],
@@ -398,6 +658,7 @@ const courseData = {
     description: "Instruction Cycle, Pipelining, Hazards, & Interrupts",
     icon: Cpu,
     gradient: "from-purple-500 to-indigo-600",
+    isCompleted: true,
     questions: [
       {
         type: "mcq",
@@ -1206,6 +1467,7 @@ export default function App() {
   const [isGptModalOpen, setIsGptModalOpen] = useState(false);
   const [copiedField, setCopiedField] = useState(null);
   const [showPromptModal, setShowPromptModal] = useState(false);
+  const [completedCourseId, setCompletedCourseId] = useState(null);
 
   // Derived state for the active course and its questions
   const activeCourse = activeCourseId ? courseData[activeCourseId] : null;
@@ -1233,11 +1495,14 @@ export default function App() {
 
   const handleStartCourse = (courseId) => {
     const course = courseData[courseId];
-    setActiveCourseId(courseId);
     
     if (course.isFolder) {
+      setActiveCourseId(courseId);
       setCurrentScreen('sub_dashboard');
+    } else if (course.isCompleted) {
+      setCompletedCourseId(courseId);
     } else {
+      setActiveCourseId(courseId);
       setActiveSubModuleId(null);
       setCurrentQuestionIndex(0);
       setScore(0);
@@ -1246,6 +1511,19 @@ export default function App() {
       setWarning("");
       setCurrentScreen('quiz');
     }
+  };
+
+  const handleProceedToQuestions = () => {
+    const courseId = completedCourseId;
+    setCompletedCourseId(null);
+    setActiveCourseId(courseId);
+    setActiveSubModuleId(null);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setSelectedAnswers([]);
+    setIsAnswered(false);
+    setWarning("");
+    setCurrentScreen('quiz');
   };
 
   const handleStartSubModule = (subModule) => {
@@ -1734,6 +2012,31 @@ export default function App() {
               className="w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded-xl transition-all border border-slate-600 shadow-sm"
             >
               Got it
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Completed Course Modal */}
+      {completedCourseId && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-sm shadow-2xl shadow-blue-900/20 animate-in zoom-in-95 duration-200 relative flex flex-col items-center text-center">
+            <div className="p-4 bg-blue-500/20 rounded-full border border-blue-500/30 mb-4">
+              <Check className="text-blue-400" size={32} />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Course Completed!</h3>
+            <p className="text-slate-300 mb-6">You have completed the {courseData[completedCourseId].title} course.</p>
+            <button
+              onClick={handleProceedToQuestions}
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-md mb-3"
+            >
+              Click here to access questions
+            </button>
+            <button
+              onClick={() => setCompletedCourseId(null)}
+              className="w-full bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold px-6 py-3 rounded-xl transition-all border border-slate-600"
+            >
+              Cancel
             </button>
           </div>
         </div>
