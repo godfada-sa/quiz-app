@@ -363,276 +363,32 @@ const courseData = {
     description: "Access, SQL, Relational Models & Normalization",
     icon: Database,
     gradient: "from-emerald-500 to-teal-600",
-    questions: [
+    isFolder: true,
+    subModules: [
       {
-        question: "When using a mail merge between Word and Access, the merge fields come directly from Access data fields.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        id: 'database_alison',
+        title: "Alison MCQS",
+        description: "Previous Access & Relational Design Questions",
+        questions: [
+          {
+            question: "When using a mail merge between Word and Access, the merge fields come directly from Access data fields.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+// ... existing database questions ...
+          {
+            question: "You can split the detail section into separate pages by using insert page break.",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          }
+        ]
       },
       {
-        question: "To properly design a relational database, which elements must be identified? (Select 3)",
-        options: ["The purpose of the database", "The fields required", "The UI color scheme", "The queries to be generated"],
-        correctAnswer: ["The purpose of the database", "The fields required", "The queries to be generated"]
-      },
-      {
-        question: "What is required to establish a relationship between two tables?",
-        options: ["A common field", "A matching macro", "A junction form", "A shared query"],
-        correctAnswer: "A common field"
-      },
-      {
-        question: "A field represents a category or type of data used to organize database information.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "If two tables do not share a common key but must be connected, what should be created?",
-        options: ["A query link", "A junction table", "An external relationship", "A split form"],
-        correctAnswer: "A junction table"
-      },
-      {
-        question: "Which option represents a valid type of query join?",
-        options: ["Inner join", "Outer link", "Cross macro", "Table merge"],
-        correctAnswer: "Inner join"
-      },
-      {
-        question: "Which tab is used to import data from another Access database?",
-        options: ["External Data", "Home", "Create", "Database Tools"],
-        correctAnswer: "External Data"
-      },
-      {
-        question: "Which formats can Microsoft Access export data to? (Select 4)",
-        options: ["Microsoft Word Merge", "XML file", "Text file", "PowerPoint presentation", "Adobe Photoshop PSD file"],
-        correctAnswer: ["Microsoft Word Merge", "XML file", "Text file", "PowerPoint presentation"]
-      },
-      {
-        question: "Access allows the creation of Word mail merges using Access data.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "Where do you go to further define data types or formatting for a field?",
-        options: ["Properties", "Macros", "Relationships", "Forms"],
-        correctAnswer: "Properties"
-      },
-      {
-        question: "Which control is used to display fixed, unchanging text on a form or report?",
-        options: ["Text box", "Label", "Button", "Combo box"],
-        correctAnswer: "Label"
-      },
-      {
-        question: "An inner join returns only records with matching values in both tables.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "What are good sources of existing data for beginning database design? (Select 3)",
-        options: ["A sketch of the final output", "Electronic documents", "A random number generator", "Paper documents"],
-        correctAnswer: ["A sketch of the final output", "Electronic documents", "Paper documents"]
-      },
-      {
-        question: "In a left outer join, excluded records come from the primary table.",
-        options: ["True", "False"],
-        correctAnswer: "False"
-      },
-      {
-        question: "Which control should be used to display text that is expected to change?",
-        options: ["Label", "Text box", "Image", "Line"],
-        correctAnswer: "Text box"
-      },
-      {
-        question: "A many-to-many relationship means one record links to many records in another table.",
-        options: ["True", "False"],
-        correctAnswer: "False"
-      },
-      {
-        question: "Which three context-sensitive tabs appear in the Report Layout Tools? (Select 3)",
-        options: ["Design", "Arrange", "Format", "Review"],
-        correctAnswer: ["Design", "Arrange", "Format"]
-      },
-      {
-        question: "Third Normal Form focuses on creating lookup data that is maintained in a separate table.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "A query join exists only while the query is being executed.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "Second Normal Form involves identifying composite keys that act as both primary and foreign keys.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "Normalization aims to restructure tables to avoid data redundancy, not to allow multiple data types per field.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "Where can you find the Group and Sort feature when grouping data in a report?",
-        options: ["Design tab", "Home tab", "External Data tab", "Create tab"],
-        correctAnswer: "Design tab"
-      },
-      {
-        question: "The Join Properties dialog box defines how tables relate to each other in a query.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "Which actions are valid options in the Get External Data Wizard? (Select 3)",
-        options: ["Link to data by creating a linked table", "Import source data into a new table", "Delete the source file after import", "Append records to an existing table"],
-        correctAnswer: ["Link to data by creating a linked table", "Import source data into a new table", "Append records to an existing table"]
-      },
-      {
-        question: "Which type of control would you choose to present several pages as a single set?",
-        options: ["Tab Control", "Label", "Text Box", "Combo Box"],
-        correctAnswer: "Tab Control"
-      },
-      {
-        question: "Which of the following can you place on a switchboard? (Choose 3)",
-        options: ["Links to reports", "Links to other forms", "Control buttons", "Tables in Design View"],
-        correctAnswer: ["Links to reports", "Links to other forms", "Control buttons"]
-      },
-      {
-        question: "Where do you go for startup options on a current database?",
-        options: ["Access Options", "Database Tools", "View Menu", "Create Tab"],
-        correctAnswer: "Access Options"
-      },
-      {
-        question: "A switchboard is a form that opens up when you open a database.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "What is the name of the dialog box that allows you to add and remove switchboard pages?",
-        options: ["Switchboard Manager", "Page Layout", "Form Designer", "Navigation Pane"],
-        correctAnswer: "Switchboard Manager"
-      },
-      {
-        question: "Which of the following views allow you to modify a switchboard?",
-        options: ["Design View", "Datasheet View", "Layout View", "Print Preview"],
-        correctAnswer: "Design View"
-      },
-      {
-        question: "Which of the following are ways to implement security on a database? (Choose 3)",
-        options: ["Implementing a database password", "Hiding database objects", "Use a switchboard upon start up", "Disabling the keyboard"],
-        correctAnswer: ["Implementing a database password", "Hiding database objects", "Use a switchboard upon start up"]
-      },
-      {
-        question: "A split database is when the tables are in one table, but the queries reside in another.",
-        options: ["True", "False"],
-        correctAnswer: "False"
-      },
-      {
-        question: "Which of the following is the primary purpose of the message bar?",
-        options: ["To tell you active content has been disabled", "To chat with other users", "To display error codes", "To show the current time"],
-        correctAnswer: "To tell you active content has been disabled"
-      },
-      {
-        question: "Which of the following reasons would make you set Trust Center options?",
-        options: ["To set trusted locations and options for databases", "To encrypt the entire hard drive", "To manage user passwords", "To connect to the internet"],
-        correctAnswer: "To set trusted locations and options for databases"
-      },
-      {
-        question: "The ACCDE file format is used when you convert your database to an executable file.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "The Database Documenter is an automated tool used to document every detail of your database schema.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "What is the purpose of the Object Dependencies pane? (Choose 2)",
-        options: ["To show objects that depend on you", "To show objects you depend on", "To delete unused tables", "To repair corrupted forms"],
-        correctAnswer: ["To show objects that depend on you", "To show objects you depend on"]
-      },
-      {
-        question: "Which of the following are valid types of external data sources? (Choose 3)",
-        options: ["Excel", "Access", "Project", "Paint"],
-        correctAnswer: ["Excel", "Access", "Project"]
-      },
-      {
-        question: "Which of the following are valid database maintenance options?",
-        options: ["Backup", "Defragment", "Compile", "Hibernate"],
-        correctAnswer: "Backup"
-      },
-      {
-        question: "Which of the following are valid modes used to open a database? (Choose 3)",
-        options: ["Exclusive", "Exclusive Read-Only", "Open Read-Only", "Open Write-Only"],
-        correctAnswer: ["Exclusive", "Exclusive Read-Only", "Open Read-Only"]
-      },
-      {
-        question: "Which of the following are valid types of macro actions? (Choose 3)",
-        options: ["Database objects", "Data entry operations", "System commands", "Hardware upgrades"],
-        correctAnswer: ["Database objects", "Data entry operations", "System commands"]
-      },
-      {
-        question: "When working in the Macro Builder window, what is the name of the command subset you choose from?",
-        options: ["Action Catalog", "Command Palette", "Task Pane", "Property Sheet"],
-        correctAnswer: "Action Catalog"
-      },
-      {
-        question: "When creating macros, you must have a solid knowledge of which of the following?",
-        options: ["VBA", "HTML", "Python", "C++"],
-        correctAnswer: "VBA"
-      },
-      {
-        question: "Macro code can be converted to ______.",
-        options: ["VBA", "SQL", "XML", "Java"],
-        correctAnswer: "VBA"
-      },
-      {
-        question: "Macros cannot be used to restrict data entry.",
-        options: ["True", "False"],
-        correctAnswer: "False"
-      },
-      {
-        question: "Which of the following are examples of an input mask? (Choose 3)",
-        options: ["Phone Number", "Social Security Number", "Zip Code", "First Name"],
-        correctAnswer: ["Phone Number", "Social Security Number", "Zip Code"]
-      },
-      {
-        question: "Field ______ refers to using fields in the database table to constrain the data that is entered into them.",
-        options: ["Validation", "Verification", "Masking", "Formatting"],
-        correctAnswer: "Validation"
-      },
-      {
-        question: "Record validation is when you use an expression to check data before it is saved to the database.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "For a user to be prompted to enter a letter while creating an input mask, which of the following characters forces the user to enter a letter?",
-        options: ["L", "A", "0", "9"],
-        correctAnswer: "L"
-      },
-      {
-        question: "In which of the following views can you see a field’s properties?",
-        options: ["Design View", "Datasheet View", "Form View", "Layout View"],
-        correctAnswer: "Design View"
-      },
-      {
-        question: "Tab order is the order in which you navigate from field to field on a form during data entry.",
-        options: ["True", "False"],
-        correctAnswer: "True"
-      },
-      {
-        question: "Which control is used to draw around other controls to allow content to stand out?",
-        options: ["Rectangle", "Line", "Frame", "Border"],
-        correctAnswer: "Rectangle"
-      },
-      {
-        question: "Which of the following controls can display a Yes/No value? (Choose 3)",
-        options: ["Check Box", "Toggle Button", "Option Button", "Command Button"],
-        correctAnswer: ["Check Box", "Toggle Button", "Option Button"]
-      },
-      {
-        question: "You can split the detail section into separate pages by using insert page break.",
-        options: ["True", "False"],
-        correctAnswer: "True"
+        id: 'database_i',
+        title: "Database I",
+        description: "Core SQL & Relational Models (Upcoming)",
+        isComingSoon: true,
+        questions: []
       }
     ]
   },
@@ -1435,8 +1191,9 @@ const courseData = {
 
 export default function App() {
   // Navigation State
-  const [currentScreen, setCurrentScreen] = useState('dashboard'); // 'dashboard', 'quiz', 'results'
+  const [currentScreen, setCurrentScreen] = useState('dashboard'); // 'dashboard', 'quiz', 'results', 'sub_dashboard'
   const [activeCourseId, setActiveCourseId] = useState(null);
+  const [activeSubModuleId, setActiveSubModuleId] = useState(null);
   
   // Quiz State
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -1445,18 +1202,21 @@ export default function App() {
   const [isAnswered, setIsAnswered] = useState(false);
   const [warning, setWarning] = useState("");
 
-  // ChatGPT Modal State
+  // Modals State
   const [isGptModalOpen, setIsGptModalOpen] = useState(false);
   const [copiedField, setCopiedField] = useState(null);
+  const [showPromptModal, setShowPromptModal] = useState(false);
 
   // Derived state for the active course and its questions
   const activeCourse = activeCourseId ? courseData[activeCourseId] : null;
-  const currentQuestion = activeCourse ? activeCourse.questions[currentQuestionIndex] : null;
+  const activeQuestions = activeCourse?.isFolder && activeSubModuleId 
+    ? activeCourse.subModules.find(m => m.id === activeSubModuleId).questions 
+    : activeCourse?.questions;
+  const currentQuestion = activeQuestions ? activeQuestions[currentQuestionIndex] : null;
 
   // --- Actions ---
 
   const handleCopy = (text, field) => {
-    // Using document.execCommand for iframe compatibility
     const textArea = document.createElement("textarea");
     textArea.value = text;
     document.body.appendChild(textArea);
@@ -1472,7 +1232,28 @@ export default function App() {
   };
 
   const handleStartCourse = (courseId) => {
+    const course = courseData[courseId];
     setActiveCourseId(courseId);
+    
+    if (course.isFolder) {
+      setCurrentScreen('sub_dashboard');
+    } else {
+      setActiveSubModuleId(null);
+      setCurrentQuestionIndex(0);
+      setScore(0);
+      setSelectedAnswers([]);
+      setIsAnswered(false);
+      setWarning("");
+      setCurrentScreen('quiz');
+    }
+  };
+
+  const handleStartSubModule = (subModule) => {
+    if (subModule.isComingSoon) {
+      setShowPromptModal(true);
+      return;
+    }
+    setActiveSubModuleId(subModule.id);
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswers([]);
@@ -1483,17 +1264,15 @@ export default function App() {
 
   const handleOptionToggle = (option) => {
     if (isAnswered) return;
-    setWarning(""); // Clear warning on interaction
+    setWarning(""); 
     
     const isMulti = Array.isArray(currentQuestion.correctAnswer);
     
     if (isMulti) {
       const maxSelections = currentQuestion.correctAnswer.length;
       if (selectedAnswers.includes(option)) {
-        // Deselect
         setSelectedAnswers(selectedAnswers.filter(a => a !== option));
       } else {
-        // Select, but limit to max allowed
         if (selectedAnswers.length < maxSelections) {
           setSelectedAnswers([...selectedAnswers, option]);
         } else {
@@ -1501,7 +1280,6 @@ export default function App() {
         }
       }
     } else {
-      // Single select replaces the current selection
       setSelectedAnswers([option]); 
     }
   };
@@ -1514,7 +1292,6 @@ export default function App() {
       }
     } else {
       const isMulti = Array.isArray(currentQuestion.correctAnswer);
-      
       if (isMulti) {
         const requiredCount = currentQuestion.correctAnswer.length;
         if (selectedAnswers.length < requiredCount) {
@@ -1526,7 +1303,6 @@ export default function App() {
     
     setIsAnswered(true);
     
-    // Grade the answer
     let isCorrect = false;
     if (currentQuestion.type === 'text') {
       const typed = selectedAnswers[0]?.toLowerCase().trim() || "";
@@ -1535,7 +1311,6 @@ export default function App() {
     } else {
       const isMulti = Array.isArray(currentQuestion.correctAnswer);
       if (isMulti) {
-        // Sort to safely compare arrays regardless of selection order
         const sortedSelected = [...selectedAnswers].sort();
         const sortedCorrect = [...currentQuestion.correctAnswer].sort();
         isCorrect = sortedSelected.length === sortedCorrect.length && 
@@ -1549,7 +1324,7 @@ export default function App() {
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestionIndex + 1 < activeCourse.questions.length) {
+    if (currentQuestionIndex + 1 < activeQuestions.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedAnswers([]);
       setIsAnswered(false);
@@ -1568,9 +1343,14 @@ export default function App() {
     setCurrentScreen('quiz');
   };
 
-  const handleReturnToDashboard = () => {
-    setActiveCourseId(null);
-    setCurrentScreen('dashboard');
+  const handleBackNavigation = () => {
+    if ((currentScreen === 'quiz' || currentScreen === 'results') && activeCourse?.isFolder) {
+      setCurrentScreen('sub_dashboard');
+    } else {
+      setActiveCourseId(null);
+      setActiveSubModuleId(null);
+      setCurrentScreen('dashboard');
+    }
   };
 
   // --- Render Functions ---
@@ -1591,7 +1371,6 @@ export default function App() {
               onClick={() => handleStartCourse(course.id)}
               className="group text-left bg-slate-800 hover:bg-slate-750 border border-slate-700 hover:border-slate-500 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden"
             >
-              {/* Subtle background glow on hover */}
               <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${course.gradient} opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-500`}></div>
               
               <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${course.gradient} mb-4 shadow-lg`}>
@@ -1601,7 +1380,43 @@ export default function App() {
               <p className="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">{course.description}</p>
               
               <div className="flex items-center text-sm font-semibold text-blue-400 group-hover:text-blue-300 transition-colors">
-                Start Quiz <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                {course.isFolder ? 'View Modules' : 'Start Quiz'} 
+                <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+
+  const renderSubDashboard = () => (
+    <div className="p-6 sm:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{activeCourse.title} Modules</h2>
+        <p className="text-slate-400 text-sm sm:text-base">Choose a specific section to begin</p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        {activeCourse.subModules.map((subModule) => {
+          const Icon = activeCourse.icon;
+          return (
+            <button
+              key={subModule.id}
+              onClick={() => handleStartSubModule(subModule)}
+              className="group text-left bg-slate-800 hover:bg-slate-750 border border-slate-700 hover:border-slate-500 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden"
+            >
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${activeCourse.gradient} opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-500`}></div>
+              
+              <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${activeCourse.gradient} mb-4 shadow-lg ${subModule.isComingSoon ? 'opacity-50' : ''}`}>
+                <Icon size={24} className="text-white" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-100 mb-1">{subModule.title}</h3>
+              <p className="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">{subModule.description}</p>
+              
+              <div className={`flex items-center text-sm font-semibold transition-colors ${subModule.isComingSoon ? 'text-slate-500' : 'text-blue-400 group-hover:text-blue-300'}`}>
+                {subModule.isComingSoon ? 'Coming Soon' : 'Start Quiz'} 
+                {!subModule.isComingSoon && <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />}
               </div>
             </button>
           );
@@ -1611,7 +1426,7 @@ export default function App() {
   );
 
   const renderQuiz = () => {
-    const progress = ((currentQuestionIndex) / activeCourse.questions.length) * 100;
+    const progress = ((currentQuestionIndex) / activeQuestions.length) * 100;
 
     return (
       <div className="animate-in slide-in-from-right-4 duration-300">
@@ -1627,7 +1442,7 @@ export default function App() {
           {/* Question Info */}
           <div className="flex justify-between items-center mb-6 text-xs sm:text-sm font-medium text-slate-400">
             <span className="bg-slate-700 px-3 py-1 rounded-full text-slate-200">
-              Q {currentQuestionIndex + 1} of {activeCourse.questions.length}
+              Q {currentQuestionIndex + 1} of {activeQuestions.length}
             </span>
             <span className="bg-slate-700 px-3 py-1 rounded-full text-slate-200">
               Score: {score}
@@ -1745,7 +1560,7 @@ export default function App() {
                 onClick={handleNextQuestion}
                 className={`flex items-center justify-center gap-2 bg-gradient-to-r ${activeCourse.gradient} text-white px-6 py-3 rounded-xl font-semibold transition-all hover:opacity-90 shadow-lg w-full sm:w-auto`}
               >
-                {currentQuestionIndex + 1 === activeCourse.questions.length ? 'Finish Course' : 'Next Question'}
+                {currentQuestionIndex + 1 === activeQuestions.length ? 'Finish Course' : 'Next Question'}
                 <ArrowRight size={20} />
               </button>
             )}
@@ -1756,13 +1571,17 @@ export default function App() {
   };
 
   const renderResults = () => {
-    const totalQuestions = activeCourse.questions.length;
+    const totalQuestions = activeQuestions.length;
     const percentage = Math.round((score / totalQuestions) * 100);
     
     let message = "Good effort! Keep studying.";
     if (percentage === 100) message = "Perfect! You've mastered this subject.";
     else if (percentage >= 80) message = "Excellent work!";
     else if (percentage >= 60) message = "Solid performance. A little more review will help!";
+
+    const subModuleTitle = activeCourse?.isFolder && activeSubModuleId 
+      ? activeCourse.subModules.find(m => m.id === activeSubModuleId).title 
+      : "";
 
     return (
       <div className="p-6 sm:p-10 text-center animate-in zoom-in-95 duration-500">
@@ -1775,7 +1594,9 @@ export default function App() {
           </div>
         </div>
         
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{activeCourse.title} Complete!</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+          {activeCourse.isFolder ? `${activeCourse.title}: ${subModuleTitle}` : activeCourse.title} Complete!
+        </h2>
         <p className="text-slate-400 mb-8">{message}</p>
         
         <div className="bg-slate-700/30 rounded-2xl p-6 mb-8 border border-slate-600/50 backdrop-blur-sm">
@@ -1796,16 +1617,29 @@ export default function App() {
             Retry Course
           </button>
           <button
-            onClick={handleReturnToDashboard}
+            onClick={handleBackNavigation}
             className={`flex-1 flex items-center justify-center gap-2 bg-gradient-to-r ${activeCourse.gradient} text-white px-5 py-3.5 rounded-xl font-semibold transition-all hover:opacity-90 shadow-lg`}
           >
             <Home size={18} />
-            Dashboard
+            {activeCourse?.isFolder ? 'Back to Modules' : 'Dashboard'}
           </button>
         </div>
       </div>
     );
   };
+
+  // Determine Title for Header
+  let headerTitle = "Student Portal";
+  if (currentScreen === 'sub_dashboard') {
+    headerTitle = `${activeCourse?.title} Modules`;
+  } else if (currentScreen === 'quiz' || currentScreen === 'results') {
+    if (activeCourse?.isFolder && activeSubModuleId) {
+      const sub = activeCourse.subModules.find(s => s.id === activeSubModuleId);
+      headerTitle = `${activeCourse.title} - ${sub.title}`;
+    } else {
+      headerTitle = activeCourse?.title;
+    }
+  }
 
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center p-4 font-sans text-slate-100">
@@ -1818,9 +1652,9 @@ export default function App() {
           <div className="w-24 sm:w-32 flex justify-start">
             {currentScreen !== 'dashboard' ? (
               <button 
-                onClick={handleReturnToDashboard}
+                onClick={handleBackNavigation}
                 className="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 transition-colors"
-                title="Back to Dashboard"
+                title="Go Back"
               >
                 <ChevronLeft size={20} />
               </button>
@@ -1844,8 +1678,8 @@ export default function App() {
             <div className={`p-2 rounded-lg ${currentScreen !== 'dashboard' ? `bg-gradient-to-br ${activeCourse?.gradient || 'from-blue-500 to-blue-600'}` : 'bg-blue-600'}`}>
               <BookOpen size={20} className="text-white" />
             </div>
-            <h1 className="text-lg sm:text-xl font-bold text-white tracking-wide">
-              {currentScreen === 'dashboard' ? 'Student Portal' : activeCourse?.title}
+            <h1 className="text-lg sm:text-xl font-bold text-white tracking-wide truncate max-w-[200px] sm:max-w-none">
+              {headerTitle}
             </h1>
           </div>
           
@@ -1869,6 +1703,7 @@ export default function App() {
         {/* Scrollable Content Area */}
         <div className="overflow-y-auto custom-scrollbar">
           {currentScreen === 'dashboard' && renderDashboard()}
+          {currentScreen === 'sub_dashboard' && renderSubDashboard()}
           {currentScreen === 'quiz' && renderQuiz()}
           {currentScreen === 'results' && renderResults()}
         </div>
@@ -1884,6 +1719,25 @@ export default function App() {
         />
         <span className="font-semibold tracking-wider text-sm">s_afful</span>
       </footer>
+
+      {/* Coming Soon Module Prompt */}
+      {showPromptModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-sm shadow-2xl shadow-emerald-900/20 animate-in zoom-in-95 duration-200 relative flex flex-col items-center text-center">
+            <div className="p-4 bg-emerald-500/20 rounded-full border border-emerald-500/30 mb-4">
+              <Database className="text-emerald-400" size={32} />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Coming Soon!</h3>
+            <p className="text-slate-300 mb-6">Questions are on the way.</p>
+            <button
+              onClick={() => setShowPromptModal(false)}
+              className="w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded-xl transition-all border border-slate-600 shadow-sm"
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* ChatGPT Credentials Modal */}
       {isGptModalOpen && (
