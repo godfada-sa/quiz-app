@@ -1924,14 +1924,14 @@ export default function App() {
       <div className="bg-slate-800 rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden border border-slate-700 flex flex-col max-h-[90vh]">
         
         {/* Dynamic Header */}
-        <div className="bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 text-center border-b border-slate-700/50 flex items-center justify-between sticky top-0 z-10">
+        <div className="bg-slate-800/95 backdrop-blur-md p-3 sm:p-5 border-b border-slate-700/50 flex items-center justify-between sticky top-0 z-10">
           
           {/* Left: Back Button or Spacer */}
-          <div className="w-24 sm:w-32 flex justify-start">
+          <div className="flex-1 flex justify-start min-w-0">
             {currentScreen !== 'dashboard' ? (
               <button 
                 onClick={handleBackNavigation}
-                className="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 transition-colors"
+                className="p-1.5 sm:p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 transition-colors shrink-0"
                 title="Go Back"
               >
                 <ChevronLeft size={20} />
@@ -1941,38 +1941,39 @@ export default function App() {
                 href="https://www.canva.com/brand/join?token=kMt3BN0TaL2FRGUA5n6NBA&brandingVariant=edu&referrer=team-invite"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 text-xs sm:text-sm font-medium transition-all duration-300 border border-purple-500/30 hover:border-purple-500/50 hover:shadow-[0_0_12px_rgba(168,85,247,0.2)] whitespace-nowrap"
+                className="group flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 text-xs sm:text-sm font-medium transition-all duration-300 border border-purple-500/30 hover:border-purple-500/50 hover:shadow-[0_0_12px_rgba(168,85,247,0.2)] whitespace-nowrap shrink-0"
               >
                 <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-purple-500/20 group-hover:bg-gradient-to-r group-hover:from-[#00C4CC] group-hover:to-[#7D2AE8] flex items-center justify-center shrink-0 transition-all duration-300">
                   <span className="text-purple-200 group-hover:text-white text-[9px] sm:text-[10px] font-bold">C</span>
                 </div>
-                <span>Canva Pro</span>
+                <span className="hidden sm:inline">Canva Pro</span>
+                <span className="sm:hidden">Canva</span>
               </a>
             )}
           </div>
           
           {/* Center: Title & Icon */}
-          <div className="flex items-center gap-3">
-            <div className={`p-2 rounded-lg ${currentScreen !== 'dashboard' ? `bg-gradient-to-br ${activeCourse?.gradient || 'from-blue-500 to-blue-600'}` : 'bg-blue-600'}`}>
-              <BookOpen size={20} className="text-white" />
+          <div className="flex items-center justify-center gap-2 sm:gap-3 px-2 max-w-[55%] sm:max-w-[60%] shrink-0">
+            <div className={`p-1.5 sm:p-2 shrink-0 rounded-lg ${currentScreen !== 'dashboard' ? `bg-gradient-to-br ${activeCourse?.gradient || 'from-blue-500 to-blue-600'}` : 'bg-blue-600'}`}>
+              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <h1 className="text-lg sm:text-xl font-bold text-white tracking-wide truncate max-w-[200px] sm:max-w-none">
+            <h1 className="text-sm sm:text-xl font-bold text-white tracking-wide truncate">
               {headerTitle}
             </h1>
           </div>
           
           {/* Right: ChatGPT Pro Button */}
-          <div className="w-24 sm:w-32 flex justify-end">
+          <div className="flex-1 flex justify-end min-w-0">
             {currentScreen === 'dashboard' && (
               <button 
                 onClick={() => setIsGptModalOpen(true)}
-                className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-200 text-xs sm:text-sm font-medium transition-all duration-300 border border-teal-500/30 hover:border-teal-500/50 hover:shadow-[0_0_12px_rgba(20,184,166,0.2)] whitespace-nowrap"
+                className="group flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-200 text-xs sm:text-sm font-medium transition-all duration-300 border border-teal-500/30 hover:border-teal-500/50 hover:shadow-[0_0_12px_rgba(20,184,166,0.2)] whitespace-nowrap shrink-0"
               >
                 <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-teal-500/20 group-hover:bg-[#10A37F] flex items-center justify-center shrink-0 transition-all duration-300">
                   <BrainCircuit size={10} className="text-teal-200 group-hover:text-white" />
                 </div>
                 <span className="hidden sm:inline">ChatGPT Pro</span>
-                <span className="sm:hidden">GPT Pro</span>
+                <span className="sm:hidden">GPT</span>
               </button>
             )}
           </div>
