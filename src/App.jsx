@@ -1258,410 +1258,145 @@ const courseData = {
           {
             type: "mcq",
             question: "What will be the output of the following program?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main() {
-    int length1 = 12, width1 = 12;
-    int length2 = 66, width2 = 45;
-
-    int area1 = length1 * width1;
-    int area2 = length2 * width2;
-
-    if(area1 > area2)
-        cout << "The first rectangle has a greater area.";
-    else
-        cout << "The second rectangle has a greater area.";
-
-    return 0;
-}`,
-            options: ["The first rectangle has a greater area", "Both rectangles have equal area", "The second rectangle has a greater area", "Compilation error"],
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int length1 = 12, width1 = 12;\n    int length2 = 66, width2 = 45;\n\n    int area1 = length1 * width1;\n    int area2 = length2 * width2;\n\n    if(area1 > area2)\n        cout << "The first rectangle has a greater area.";\n    else\n        cout << "The second rectangle has a greater area.";\n\n    return 0;\n}`,
+            options: [
+              "The first rectangle has a greater area",
+              "Both rectangles have equal area",
+              "The second rectangle has a greater area",
+              "Compilation error"
+            ],
             correctAnswer: "The second rectangle has a greater area"
           },
           {
             type: "mcq",
             question: "What is the output of the following code?",
-            codeSnippet: `#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    int i = 2;
-    string s = "2";
-
-    cout << s + i;
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    int i = 2;\n    string s = "2";\n\n    cout << s + i;\n    return 0;\n}`,
             options: ["4", "22", "Empty output", "Compilation error"],
-            correctAnswer: "Compilation error"
+            correctAnswer: "Empty output"
           },
           {
             type: "mcq",
             question: "What is the output of the following snippet?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main() {
-    short s = 1;
-    int i = 2;
-    long l = 3;
-    float f = 4.4;
-    double d = 6.6;
-
-    cout << s/i + f/i + d/s;
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    short s = 1;\n    int i = 2;\n    long l = 3;\n    float f = 4.4;\n    double d = 6.6;\n\n    cout << s/i + f/i + d/s;\n\n    return 0;\n}`,
             options: ["8", "8.8", "9", "7.7"],
             correctAnswer: "8.8"
           },
           {
             type: "mcq",
             question: "What will be printed by the following code?",
-            codeSnippet: `#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    string s = "0123456789";
-
-    cout << s.substr(3,7).substr(2).substr();
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string s = "0123456789";\n\n    cout << s.substr(3,7).substr(2).substr();\n\n    return 0;\n}`,
             options: ["3456789", "6789", "56789", "234567"],
             correctAnswer: "56789"
           },
           {
             type: "mcq",
             question: "What is the output of this program?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main() {
-    int i = 2;
-    float f = 5.8;
-
-    f = (int)f;
-    i = (float)i;
-
-    cout << f/i;
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int i = 2;\n    float f = 5.8;\n\n    f = (int)f;\n    i = (float)i;\n\n    cout << f/i;\n\n    return 0;\n}`,
             options: ["2", "2.5", "3", "5"],
             correctAnswer: "2.5"
           },
           {
             type: "mcq",
             question: "What is the result of the following code?",
-            codeSnippet: `#include <iostream>
-
-namespace SpaceA {
-    int A;
-}
-
-namespace SpaceB {
-    int A;
-}
-
-using namespace SpaceA, SpaceB;
-
-int main() {
-    SpaceA::A = SpaceB::A = 1;
-    std::cout << A + 1;
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\n\nnamespace SpaceA {\n    int A;\n}\n\nnamespace SpaceB {\n    int A;\n}\n\nusing namespace SpaceA, SpaceB;\n\nint main() {\n    SpaceA::A = SpaceB::A = 1;\n    std::cout << A + 1;\n    return 0;\n}`,
             options: ["1", "2", "3", "Compilation error"],
             correctAnswer: "Compilation error"
           },
           {
             type: "mcq",
             question: "What is the output of the following snippet?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main() {
-    int i = 2;
-    float f = 4.4;
-
-    cout << f % float(i);
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int i = 2;\n    float f = 4.4;\n\n    cout << f % float(i);\n\n    return 0;\n}`,
             options: ["0.4", "2.4", "Compilation error", "4"],
             correctAnswer: "Compilation error"
           },
           {
             type: "mcq",
             question: "What will the following code output?",
-            codeSnippet: `#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    string s1 = "Ab";
-    string s2 = "Abc";
-
-    cout << s1.compare(s1);
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string s1 = "Ab";\n    string s2 = "Abc";\n\n    cout << s1.compare(s1);\n\n    return 0;\n}`,
             options: ["-1", "1", "0", "Compilation error"],
             correctAnswer: "0"
           },
           {
             type: "mcq",
             question: "What is the output of the following program?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main() {
-    int *it[3];
-
-    for(int i = 0; i < 3; i++) {
-        it[i] = new int[i + 1];
-
-        for(int j = 0; j < i + 1; j++)
-            it[i][j] = 10 * i + j;
-    }
-
-    cout << it[2][2];
-
-    for(int i = 0; i < 3; i++)
-        delete [] it[i];
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int *it[3];\n\n    for(int i = 0; i < 3; i++) {\n        it[i] = new int[i + 1];\n\n        for(int j = 0; j < i + 1; j++)\n            it[i][j] = 10 * i + j;\n    }\n\n    cout << it[2][2];\n\n    for(int i = 0; i < 3; i++)\n        delete [] it[i];\n\n    return 0;\n}`,
             options: ["20", "21", "22", "23"],
             correctAnswer: "22"
           },
           {
             type: "mcq",
             question: "What will be printed by this program?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-namespace S1 {
-    int A = 1;
-}
-
-namespace S2 {
-    int A = 2;
-}
-
-int main() {
-
-    {
-        using namespace S1;
-        S2::A = A + 1;
-    }
-
-    {
-        using namespace S2;
-        S1::A = A + 1;
-    }
-
-    cout << S1::A << S2::A;
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nnamespace S1 {\n    int A = 1;\n}\n\nnamespace S2 {\n    int A = 2;\n}\n\nint main() {\n\n    {\n        using namespace S1;\n        S2::A = A + 1;\n    }\n\n    {\n        using namespace S2;\n        S1::A = A + 1;\n    }\n\n    cout << S1::A << S2::A;\n\n    return 0;\n}`,
             options: ["12", "23", "32", "33"],
             correctAnswer: "32"
           },
           {
             type: "mcq",
             question: "What is the output of the following code?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main() {
-    char t[3][3], *p = (char *)t;
-
-    for(int i = 0; i < 9; i++)
-        *p++ = 'a' + i;
-
-    cout << t[1][1];
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    char t[3][3], *p = (char *)t;\n\n    for(int i = 0; i < 9; i++)\n        *p++ = 'a' + i;\n\n    cout << t[1][1];\n}`,
             options: ["c", "d", "e", "f"],
             correctAnswer: "e"
           },
           {
             type: "mcq",
             question: "What is the output of the following snippet?",
-            codeSnippet: `#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    string s = "a";
-
-    cout << s + "b" + "c";
-}`,
+            codeSnippet: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string s = "a";\n\n    cout << s + "b" + "c";\n}`,
             options: ["abc", "acb", "ab", "Compilation error"],
             correctAnswer: "abc"
           },
           {
             type: "mcq",
             question: "What is the output of the following code?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-namespace S {
-    int A = 1;
-}
-
-namespace S {
-    int B = A + 2;
-}
-
-int main(void) {
-    S::A = S::A + 1;
-
-    {
-        using namespace S;
-        ++B;
-    }
-
-    cout << S::B << S::A;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nnamespace S {\n    int A = 1;\n}\n\nnamespace S {\n    int B = A + 2;\n}\n\nint main(void) {\n    S::A = S::A + 1;\n\n    {\n        using namespace S;\n        ++B;\n    }\n\n    cout << S::B << S::A;\n}`,
             options: ["32", "42", "33", "43"],
             correctAnswer: "42"
           },
           {
             type: "mcq",
             question: "What is printed on the screen?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    int i, k = 1;
-
-    for(i = 0; i < 3; i += 2)
-        k++;
-
-    cout << k;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int i, k = 1;\n\n    for(i = 0; i < 3; i += 2)\n        k++;\n\n    cout << k;\n}`,
             options: ["1", "2", "3", "4"],
             correctAnswer: "3"
           },
           {
             type: "mcq",
             question: "What is printed on the screen?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    int i = 1, k = i << 1;
-
-    switch(k) {
-
-        case 1:
-            i += 1;
-            break;
-
-        case 2:
-            i += 2;
-            break;
-
-        default:
-            i += 3;
-    }
-
-    cout << i;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int i = 1, k = i << 1;\n\n    switch(k) {\n\n        case 1:\n            i += 1;\n            break;\n\n        case 2:\n            i += 2;\n            break;\n\n        default:\n            i += 3;\n    }\n\n    cout << i;\n}`,
             options: ["2", "3", "4", "5"],
             correctAnswer: "3"
           },
           {
             type: "mcq",
             question: "What is the value of variable `i`?",
-            codeSnippet: `float x = 1.0 / 5.0;
-int i = x;`,
+            codeSnippet: `float x = 1.0 / 5.0;\nint i = x;`,
             options: ["1", "0", "5", "Compilation error"],
             correctAnswer: "0"
           },
           {
             type: "mcq",
             question: "What is printed by the following code?",
-            codeSnippet: `#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main()
-{
-    vector<double> arr = {1e-1, 1e0, 1e1};
-    double *ptr = arr.data() + 2;
-
-    cout << arr[1] - *ptr;
-}`,
+            codeSnippet: `#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main()\n{\n    vector<double> arr = {1e-1, 1e0, 1e1};\n    double *ptr = arr.data() + 2;\n\n    cout << arr[1] - *ptr;\n}`,
             options: ["-9", "9", "-10", "10"],
             correctAnswer: "-9"
           },
           {
             type: "mcq",
             question: "What is the output of the following snippet?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    short s = 1;
-    int i = 2;
-    float f = 4.;
-
-    cout << i/static_cast<float>(s) + i/2 + i/f;
-
-    return 0;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    short s = 1;\n    int i = 2;\n    float f = 4.;\n\n    cout << i/static_cast<float>(s) + i/2 + i/f;\n\n    return 0;\n}`,
             options: ["3", "3.5", "3.0", "4"],
             correctAnswer: "3.5"
           },
           {
             type: "mcq",
             question: "What is the output of the following code?",
-            codeSnippet: `#include <iostream>
-#include <string>
-
-using namespace std;
-
-int main()
-{
-    string s = "123";
-    s.append(s.substr(2)).push_back(s[s.length() - 2]);
-
-    cout << s;
-}`,
+            codeSnippet: `#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main()\n{\n    string s = "123";\n    s.append(s.substr(2)).push_back(s[s.length() - 2]);\n\n    cout << s;\n}`,
             options: ["12333", "1233", "12332", "12323"],
             correctAnswer: "12333"
           },
           {
             type: "mcq",
             question: "What is the output of the program?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-double eval(double x)
-{
-    return x / (.5 * x);
-}
-
-void use(double n)
-{
-    int v = 1 / n;
-
-    v = eval(v);
-
-    cout << v;
-}
-
-int main()
-{
-    use(1.f);
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\ndouble eval(double x)\n{\n    return x / (.5 * x);\n}\n\nvoid use(double n)\n{\n    int v = 1 / n;\n\n    v = eval(v);\n\n    cout << v;\n}\n\nint main()\n{\n    use(1.f);\n}`,
             options: ["0", "1", "2", "Compilation error"],
             correctAnswer: "2"
           },
@@ -1675,232 +1410,777 @@ int main()
           {
             type: "mcq",
             question: "What is the output of the following code?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    int a = 2, b = a >> 1;
-    int c = a >> b;
-    int d = 1 << c;
-    int e = d >> d;
-
-    cout << e;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int a = 2, b = a >> 1;\n    int c = a >> b;\n    int d = 1 << c;\n    int e = d >> d;\n\n    cout << e;\n}`,
             options: ["0", "1", "2", "4"],
             correctAnswer: "0"
           },
           {
             type: "mcq",
             question: "What is printed on the screen?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    int a = 2, b = a >> 1;
-    int c = b >> a;
-    int d = 1 << c;
-    int e = d << d;
-
-    cout << e;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int a = 2, b = a >> 1;\n    int c = b >> a;\n    int d = 1 << c;\n    int e = d << d;\n\n    cout << e;\n}`,
             options: ["1", "2", "4", "8"],
-            correctAnswer: "2"
+            correctAnswer: "4"
           },
           {
             type: "mcq",
             question: "What is the output of the following program?",
-            codeSnippet: `#include <iostream>
-#include <vector>
-
-using namespace std;
-
-void swap(float* x, float *y)
-{
-    float z = *x;
-    *x = *y;
-    *y = z;
-}
-
-int main()
-{
-    vector<float> t = {3., 2., 1.};
-
-    swap(&t[0], &t[2]);
-
-    cout << t[1];
-}`,
+            codeSnippet: `#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nvoid swap(float* x, float *y)\n{\n    float z = *x;\n    *x = *y;\n    *y = z;\n}\n\nint main()\n{\n    vector<float> t = {3., 2., 1.};\n\n    swap(&t[0], &t[2]);\n\n    cout << t[1];\n}`,
             options: ["1", "2", "3", "0"],
             correctAnswer: "2"
           },
           {
             type: "mcq",
             question: "What is the output of the following snippet?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    bool b1 = !true;
-    bool b2 = !b1 && false;
-    bool b3 = b2 || true;
-
-    if(b3)
-        cout << "true";
-    else
-        cout << "false";
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    bool b1 = !true;\n    bool b2 = !b1 && false;\n    bool b3 = b2 || true;\n\n    if(b3)\n        cout << "true";\n    else\n        cout << "false";\n}`,
             options: ["true", "false", "1", "Compilation error"],
             correctAnswer: "true"
           },
           {
             type: "mcq",
             question: "What is printed on the screen?",
-            codeSnippet: `#include <iostream>
-#include <string>
-
-using namespace std;
-
-string replicate(string s = "x", int r = 1)
-{
-    string t;
-
-    while(r--)
-        t += s;
-
-    return t;
-}
-
-int main()
-{
-    string pattern = "a";
-
-    cout << replicate(pattern);
-}`,
+            codeSnippet: `#include <iostream>\n#include <string>\n\nusing namespace std;\n\nstring replicate(string s = "x", int r = 1)\n{\n    string t;\n\n    while(r--)\n        t += s;\n\n    return t;\n}\n\nint main()\n{\n    string pattern = "a";\n\n    cout << replicate(pattern);\n}`,
             options: ["a", "aa", "x", "ax"],
             correctAnswer: "a"
           },
           {
             type: "mcq",
             question: "What is the output of the following snippet?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    int i = 2;
-    float f = 1;
-
-    cout << (static_cast<float>(i) >> 1);
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int i = 2;\n    float f = 1;\n\n    cout << (static_cast<float>(i) >> 1);\n}`,
             options: ["0", "1", "2", "Compilation error"],
             correctAnswer: "Compilation error"
           },
           {
             type: "mcq",
             question: "What is printed on the screen when the following code is run?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    int i = 1, k = i & 0;
-
-    do {
-        k++;
-        if(k > 1)
-            i = k;
-
-    } while(i < 2);
-
-    cout << k;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int i = 1, k = i & 0;\n\n    do {\n        k++;\n        if(k > 1)\n            i = k;\n\n    } while(i < 2);\n\n    cout << k;\n}`,
             options: ["0", "1", "2", "3"],
             correctAnswer: "2"
           },
           {
             type: "mcq",
             question: "What is the output of the following snippet?",
-            codeSnippet: `#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main()
-{
-    vector<char> text(5);
-
-    char *chr1 = text.data() + 2, *chr2 = chr1 + 2;
-
-    cout << chr2 - text.data();
-}`,
+            codeSnippet: `#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main()\n{\n    vector<char> text(5);\n\n    char *chr1 = text.data() + 2, *chr2 = chr1 + 2;\n\n    cout << chr2 - text.data();\n}`,
             options: ["2", "3", "4", "5"],
             correctAnswer: "4"
           },
           {
             type: "mcq",
             question: "What is the output of the following program?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int op(int i, int j = 1)
-{
-    return i * j;
-}
-
-int op(char a, char b)
-{
-    return b - a;
-}
-
-int op(float x, float y)
-{
-    return x / y;
-}
-
-int main()
-{
-    cout << op(2) << op('c', 'a') << op(4.F, 2.F);
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint op(int i, int j = 1)\n{\n    return i * j;\n}\n\nint op(char a, char b)\n{\n    return b - a;\n}\n\nint op(float x, float y)\n{\n    return x / y;\n}\n\nint main()\n{\n    cout << op(2) << op('c', 'a') << op(4.F, 2.F);\n}`,
             options: ["2-22", "22-2", "2-12", "222"],
             correctAnswer: "2-22"
           },
           {
             type: "mcq",
             question: "What is printed on the screen?",
-            codeSnippet: `#include <iostream>
-using namespace std;
-
-int main()
-{
-    int k = 3;
-
-    if(k > 0) {
-        if(k != 3)
-            k--;
-
-        if(k == 3)
-            k++;
-    }
-
-    if(k < 0) {
-        k = 5;
-    }
-
-    cout << k;
-}`,
+            codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int k = 3;\n\n    if(k > 0) {\n        if(k != 3)\n            k--;\n\n        if(k == 3)\n            k++;\n    }\n\n    if(k < 0) {\n        k = 5;\n    }\n\n    cout << k;\n}`,
             options: ["2", "3", "4", "5"],
             correctAnswer: "4"
           }
         ]
       },
       {
-        id: 'prog_passco',
+        id: 'prog_pasco',
         title: "Pasco",
         description: "Past Questions and Exams",
-        isComingSoon: true,
-        questions: []
+        questions: [
+          {
+            type: "mcq",
+            question: "Which of the following statements is correct?",
+            options: ["#include (iostream)", "#include[iostream]", "#include{iostream}", "#include<iostream>"],
+            correctAnswer: "#include<iostream>"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code snippet?",
+            codeSnippet: `int i = 0;\ndo{\n   cout << i << " ";\n   i++;\n} while (i < 5);`,
+            options: ["53210", "01234", "012345", "None of the above"],
+            correctAnswer: "01234"
+          },
+          {
+            type: "mcq",
+            question: "What is the data type of a C++ variable that can hold true or false values?",
+            options: ["Bool", "Char", "Double", "Int"],
+            correctAnswer: "Bool"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is an example of a constant in C++?",
+            options: ["const int x = 10;", "int const x = 10;", "int x = 10;", "x = 10;"],
+            correctAnswer: "const int x = 10;"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is a correct identifier in C++?",
+            options: ["$text_score2", "5text_score2", "Text.score2", "text_score2"],
+            correctAnswer: "text_score2"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following data types can store decimal values?",
+            options: ["Char", "Double", "Int", "String"],
+            correctAnswer: "Double"
+          },
+          {
+            type: "mcq",
+            question: "What is the data type used to store a single character in C++?",
+            options: ["Char", "Double", "Int", "Small int"],
+            correctAnswer: "Char"
+          },
+          {
+            type: "mcq",
+            question: "What is the difference between int and long data types in C++?",
+            options: ["int can store larger values than long", "Long can store larger values than int", "There is no difference", "They are the same data type"],
+            correctAnswer: "Long can store larger values than int"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following symbols is used to declare preprocessor directives in C++?",
+            options: ["#", "$", "*", "n"],
+            correctAnswer: "#"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code snippet?",
+            codeSnippet: `int a = 10;\nint b = 20;\nint c = (a > b) ? a : b;\ncout << c << endl;`,
+            options: ["0", "10", "20", "30"],
+            correctAnswer: "20"
+          },
+          {
+            type: "mcq",
+            question: "Every complete C++ statement ends with a",
+            options: ["# symbol", "ending brace", "period", "semicolon"],
+            correctAnswer: "semicolon"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following statements is not a valid assignment statement?",
+            options: ["12.0 = value;", "float totalScore = 7.45;", "letter = 'F';", "string display_message = \"Hello World\";"],
+            correctAnswer: "12.0 = value;"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following C++ code snippet?",
+            codeSnippet: `int x = 5;\nint y = 3;\nint z = x % y;\ncout << z << endl;`,
+            options: ["0", "1.6", "1.67", "2"],
+            correctAnswer: "2"
+          },
+          {
+            type: "mcq",
+            question: "What is the value of the code snippet below?",
+            codeSnippet: `int a = 5;\nif (a > 5 && a < 15) {\n   cout << "a is between 5 and 15";\n}`,
+            options: ["A is between 5 and 15", "Nothing will be displayed", "Syntax error", "None of the above"],
+            correctAnswer: "Nothing will be displayed"
+          },
+          {
+            type: "mcq",
+            question: "What is the value of x after the following statement runs?",
+            codeSnippet: `int a;\na = 28 % 8;`,
+            options: ["3.5", "4", "8", "28"],
+            correctAnswer: "4"
+          },
+          {
+            type: "mcq",
+            question: "For inserting a new line in a C++ program, which of the following statements can be used?",
+            options: ["\\n", "\\a", "\\v", "endl"],
+            correctAnswer: "endl"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is a loop statement?",
+            options: ["For", "If", "Switch", "Try-catch"],
+            correctAnswer: "For"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is the correct syntax to create a multi-line comment in C++?",
+            options: ["/ comment", "/ comment /", "/* comment */", "// comment"],
+            correctAnswer: "/* comment */"
+          },
+          {
+            type: "mcq",
+            question: "What is the value of the expression? [(19 - 3) * (2 + 2) / 4]",
+            options: ["4", "16", "32", "42"],
+            correctAnswer: "16"
+          },
+          {
+            type: "mcq",
+            question: "Choose the type of loop which is guaranteed to execute at least once.",
+            options: ["Do-while", "If-else", "Switch", "While"],
+            correctAnswer: "Do-while"
+          },
+          {
+            type: "mcq",
+            question: "What is the extension of a C++ source file?",
+            options: [".c", ".c++", ".cc", ".cpp"],
+            correctAnswer: ".cpp"
+          },
+          {
+            type: "mcq",
+            question: "What will be the value of the expression? 8 + 12 * 2 − 4",
+            options: ["16", "28", "36", "40"],
+            correctAnswer: "28"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output of the following code fragment?",
+            codeSnippet: `int x = 0;\n{\n   int x = 15;\n   cout << x << " and ";\n}\ncout << x << endl;`,
+            options: ["0 and 15", "15 and 15", "15 and 0", "15, 15"],
+            correctAnswer: "15 and 0"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is the correct syntax for a function declaration in C++?",
+            options: ["function_name { }", "function_name return-type(arguments);", "function_name(arguments){ }", "return_type function_name(arguments);"],
+            correctAnswer: "return_type function_name(arguments);"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output of the following code fragment?",
+            codeSnippet: `float y = 16;\ny /= 3;\ncout << y;`,
+            options: ["0", "5", "5.3", "16"],
+            correctAnswer: "5.3"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output of the following code fragment if `number` is 4?",
+            codeSnippet: `double number, half;\ncout << "enter a number and I will divide it \\n";\ncin >> number;\nhalf /= 2;\ncout << number;`,
+            options: ["2", "4", "0", "Error"],
+            correctAnswer: "Error"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output of the program below?",
+            codeSnippet: `int x = 1;\nswitch(x)\n{\ncase 1: cout << "One";\ncase 2: cout << " Two";\nbreak;\ncase 3: cout << " Three";\ndefault: cout << "default value";\n}\nreturn 0;`,
+            options: ["One", "OneTwo", "Two", "OneTwoThree"],
+            correctAnswer: "OneTwo"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output of the code fragment?",
+            codeSnippet: `long x, y, z;\nx = y = z = 4;\nx *= 2;\ny -= 1;\nz *= 3;\ncout << x << " " << y << " " << z << endl;`,
+            options: ["2 1 3", "4 1 3", "4 4 9", "6 3 12"],
+            correctAnswer: "6 3 12"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following statements is true for a void function?",
+            options: ["Nothing is returned", "The number zero is returned", "The value of void should be returned", "There cannot be a return statement"],
+            correctAnswer: "Nothing is returned"
+          },
+          {
+            type: "mcq",
+            question: "A group of statements such as the contents of a function is enclosed in",
+            options: ["braces {}", "brackets []", "parentheses ()", "All the above"],
+            correctAnswer: "braces {}"
+          },
+          {
+            type: "mcq",
+            question: "What will be output of the code fragment?",
+            codeSnippet: `int number = 1;\nwhile (number <= 5)\n{\n   cout << "Hello\\n";\n}`,
+            options: ["Hello", "Hello\\n", "Infinite loop; Hello will repeat endlessly", "Nothing will be displayed"],
+            correctAnswer: "Infinite loop; Hello will repeat endlessly"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is the correct format for a type cast expression?",
+            options: ["Data-type<static-cast>(value)", "static_cast<DataType>(value)", "static-cast<type-cast>(value)", "type-cast<DataType>(value)"],
+            correctAnswer: "static_cast<DataType>(value)"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following lines of code correctly reads a value from the keyboard and stores it in `val`?",
+            options: ["cin << \"val\";", "cin << val;", "cin >> \"val\";", "cin >> val;"],
+            correctAnswer: "cin >> val;"
+          },
+          {
+            type: "mcq",
+            question: "All the following are logical operators except",
+            options: ["!", "&&", "||", "<="],
+            correctAnswer: "<="
+          },
+          {
+            type: "mcq",
+            question: "If `temp = 18` and `min = 12`, what is the output of the following code fragment?",
+            codeSnippet: `if(temperature < 20 && min > 12)\n{\n   cout << "the temperature is in the danger zone";\n}\nelse{\n   cout << "the temperature is in the safe zone";\n}`,
+            options: ["Syntax error", "Temperature is in danger zone", "Temperature is in safe zone", "None of the above"],
+            correctAnswer: "Temperature is in safe zone"
+          },
+          {
+            type: "mcq",
+            question: "If `temp = 18` and `min = 18`, what is the output of the same code fragment?",
+            codeSnippet: `if(temperature < 20 && min > 12)\n{\n   cout << "the temperature is in the danger zone";\n}\nelse{\n   cout << "the temperature is in the safe zone";\n}`,
+            options: ["Syntax error", "Temperature is in danger zone", "Temperature is in safe zone", "None of the above"],
+            correctAnswer: "Temperature is in danger zone"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following are allowed in the third section of the `for` loop statement?",
+            options: ["x--", "x++", "i += 1", "All the above"],
+            correctAnswer: "All the above"
+          },
+          {
+            type: "mcq",
+            question: "Which expression evaluates to true when score = 45?",
+            options: ["score <= 50 OR score >= 100", "score >= 60 AND score <= 100", "score >= 50 AND score <= 100", "score >= 60 OR score >= 100"],
+            correctAnswer: "score <= 50 OR score >= 100"
+          },
+          {
+            type: "mcq",
+            question: "A loop that repeats endlessly because it has no terminating condition is called",
+            options: ["do while", "infinite", "nested", "while"],
+            correctAnswer: "infinite"
+          },
+          {
+            type: "mcq",
+            question: "Which is used to determine how often instructions inside a loop execute?",
+            options: ["Constant", "Counter variable", "Float", "Identifier"],
+            correctAnswer: "Counter variable"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output of the following code?",
+            codeSnippet: `int x = 5;\nif(x = 10)\n{\n   cout << "x is equal to 10";\n}\nelse\n{\n   cout << "x is not equal to 10";\n}`,
+            options: ["Compiler error", "Runtime error", "x is equal to 10", "x is not equal to 10"],
+            correctAnswer: "x is equal to 10"
+          },
+          {
+            type: "mcq",
+            question: "The task of looking at the original program, identifying mistakes, correcting code and recompiling is",
+            options: ["Compilation", "Debugging", "Deployment", "Programming"],
+            correctAnswer: "Debugging"
+          },
+          {
+            type: "mcq",
+            question: "Output of the following C++ code",
+            codeSnippet: `int a, b, c;\na = 5; \nb = 8;\nc = (a < b) ? a : b;\ncout << c;`,
+            options: ["3", "5", "8", "13"],
+            correctAnswer: "5"
+          },
+          {
+            type: "mcq",
+            question: "What is the value of `m`?",
+            codeSnippet: `float m;\nm = 15 / 2;\ncout << m;`,
+            options: ["2", "7", "7.5", "15"],
+            correctAnswer: "7"
+          },
+          {
+            type: "mcq",
+            question: "Valid variable name in C++",
+            options: ["2variable", "variable2", "variable 2", "variable-2"],
+            correctAnswer: "variable2"
+          },
+          {
+            type: "mcq",
+            question: "Result of operation",
+            codeSnippet: `bool a = false;\nbool b = true;\nbool c = !(a || b) && true;`,
+            options: ["error", "false", "true", "undefined"],
+            correctAnswer: "false"
+          },
+          {
+            type: "mcq",
+            question: "Executing statements repeatedly is called",
+            options: ["for loop", "iteration", "selection", "sequence"],
+            correctAnswer: "iteration"
+          },
+          {
+            type: "mcq",
+            question: "Multiple arguments in a function are separated by",
+            options: ["braces", "colon", "comma", "semicolon"],
+            correctAnswer: "comma"
+          },
+          {
+            type: "mcq",
+            question: "Output of code fragment",
+            codeSnippet: `int Y = 10;\nif(Y = 15)\n{\ncout << "Y is greater than 15";\ncout << "end here";\n}\nelse\n{\ncout << Y;\n}`,
+            options: ["10", "Y", "Y is greater than 15 end here", "Y is less than 15"],
+            correctAnswer: "Y"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following are valid case statements in a switch? Case ______",
+            options: ["'xy';", "1:", "2.5;", "x > 5;"],
+            correctAnswer: "1:"
+          },
+          {
+            type: "mcq",
+            question: "Why are comments used in a program?",
+            options: ["Help others read and understand the program", "Make the program run faster", "Remove errors in the program during compilation", "Speed up the compilation process"],
+            correctAnswer: "Help others read and understand the program"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is not a valid data type in C++?",
+            options: ["Double long", "Float", "Int", "Boolean"],
+            correctAnswer: "Double long"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is the correct escape sequence used for new line?",
+            options: ["\\n", "\\endl", "\\r", "\\t"],
+            correctAnswer: "\\n"
+          },
+          {
+            type: "mcq",
+            question: "What will be the value of the following code fragment if `x = 10`?",
+            codeSnippet: `if(x < 20)\n   if(x < 10)\n      cout << "number is less than 10";\n   else\n      cout << "number is large";`,
+            options: ["Nothing will display", "Number is large", "Number is less than 10", "Syntax error"],
+            correctAnswer: "Number is large"
+          },
+          {
+            type: "mcq",
+            question: "What will be the value of the following code fragment if `x = 21`?",
+            codeSnippet: `if(x < 20)\n   if(x < 10)\n      cout << "number is less than 10";\n   else\n      cout << "number is large";`,
+            options: ["Nothing will display", "Number is large", "Number is less than 10", "Syntax error"],
+            correctAnswer: "Nothing will display"
+          },
+          {
+            type: "mcq",
+            question: "What will be the value of the following code fragment if `x = 5`?",
+            codeSnippet: `if(x < 20)\n   if(x < 10)\n      cout << "number is less than 10";\n   else\n      cout << "number is large";`,
+            options: ["Nothing will display", "Number is large", "Number is less than 10", "Syntax error"],
+            correctAnswer: "Number is less than 10"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is the correct function from which the execution of a C++ program starts?",
+            options: ["header()", "main()", "new()", "pow()"],
+            correctAnswer: "main()"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code fragment?",
+            codeSnippet: `int x = 5;\n\nif (x < 10) {\n   cout << "x is less than 10";\n}\nelse if (x < 20) {\n   cout << "x is less than 20";\n}\nelse {\n   cout << "x is greater than or equal to 20";\n}`,
+            options: ["Compilation error", "x is greater than or equal to 20", "x is less than 10", "x is less than 20"],
+            correctAnswer: "x is less than 10"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code fragment?",
+            codeSnippet: `int i = 1;\n\ndo{\n   cout << i << endl;\n   i++;\n} while (i <= 4);`,
+            options: ["123", "1234", "Compilation error", "Runtime error"],
+            correctAnswer: "1234"
+          },
+          {
+            type: "mcq",
+            question: "What will be the value of `y` after the following code executes?",
+            codeSnippet: `double y = 9;\n\ny += 2.0 * 4.0;\ny -= 3.0;`,
+            options: ["5.0", "8.0", "9.0", "11.0"],
+            correctAnswer: "11.0"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the code fragment below?",
+            codeSnippet: `int a = 10;\ncout << ++a;`,
+            options: ["10", "11", "12", "Not defined"],
+            correctAnswer: "11"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output if `x = 2`?",
+            codeSnippet: `int x;\n\nswitch (x)\n{\ncase 0: cout << "x is 15"; break;\ncase 1: cout << "x is 25"; break;\ncase 2: cout << "x is 35"; break;\ncase 3: cout << "x is 40"; break;\ndefault: cout << "x is 0";\n}`,
+            options: ["x is 15", "x is 25", "x is 35", "x is 40"],
+            correctAnswer: "x is 35"
+          },
+          {
+            type: "mcq",
+            question: "What will be the output if `x = 5`?",
+            codeSnippet: `int x;\n\nswitch (x)\n{\ncase 0: cout << "x is 15"; break;\ncase 1: cout << "x is 25"; break;\ncase 2: cout << "x is 35"; break;\ncase 3: cout << "x is 40"; break;\ndefault: cout << "x is 0";\n}`,
+            options: ["x is 0", "x is 25", "x is 35", "x is 40"],
+            correctAnswer: "x is 0"
+          },
+          {
+            type: "mcq",
+            question: "What will be the value of `x`?",
+            codeSnippet: `int a, b = 20;\na = 90 / b;`,
+            options: ["4.0", "4", "4.5", "Compilation error"],
+            correctAnswer: "4"
+          },
+          {
+            type: "mcq",
+            question: "Which operator has the highest precedence in `* / %` ?",
+            options: ["%", "*", "/", "They all have the same precedence"],
+            correctAnswer: "They all have the same precedence"
+          },
+          {
+            type: "mcq",
+            question: "What will be the value of `A`? Given `b = 64`",
+            codeSnippet: `A = sqrt(b);`,
+            options: ["0", "4", "8", "32"],
+            correctAnswer: "8"
+          },
+          {
+            type: "mcq",
+            question: "What is the result of the expression? `true && false || true`",
+            options: ["0", "1", "False", "True"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "Result of the expression: `!(false || true) && true`",
+            options: ["0", "1", "False", "True"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "What is the result of the following expression? `false || !(true && true)`",
+            options: ["0", "1", "False", "True"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "If a function does not return a value, its return type is",
+            options: ["double", "int", "main", "void"],
+            correctAnswer: "void"
+          },
+          {
+            type: "mcq",
+            question: "Which of the following is used to terminate the function declaration in C++?",
+            options: ["()", ":", ";", "{}"],
+            correctAnswer: ";"
+          },
+          {
+            type: "mcq",
+            question: "Which function terminates the execution of a program?",
+            options: ["end()", "endl", "exit()", "main()"],
+            correctAnswer: "exit()"
+          },
+          {
+            type: "mcq",
+            question: "The functions `pow()` and `sqrt()` are found in which include file?",
+            options: ["cmath", "cstdlib", "iostream", "regular"],
+            correctAnswer: "cmath"
+          },
+          {
+            type: "mcq",
+            question: "The statement that causes a function to execute is referred to as",
+            options: ["function call", "function definition", "function name", "return type"],
+            correctAnswer: "function call"
+          },
+          {
+            type: "mcq",
+            question: "If a function does not return a value, its return type is",
+            options: ["double", "float", "int", "void"],
+            correctAnswer: "void"
+          },
+          {
+            type: "mcq",
+            question: "Which eliminates the need to place a function definition before calls are made?",
+            options: ["definition", "header", "name", "prototype"],
+            correctAnswer: "prototype"
+          },
+          {
+            type: "mcq",
+            question: "Values passed to a function are known as",
+            options: ["arguments", "parameters", "reference variables", "values"],
+            correctAnswer: "arguments"
+          },
+          {
+            type: "mcq",
+            question: "What is the value of `x` after the following code executes?",
+            codeSnippet: `int x = 10;\n\nif(++x > 10){\n   x = 18;\n}`,
+            options: ["0", "10", "11", "18"],
+            correctAnswer: "18"
+          },
+          {
+            type: "mcq",
+            question: "Output of code fragment",
+            codeSnippet: `int x = 5;\n\nswitch(x)\n{\ncase 1:\ncout << "x is 1";\nbreak;\n\ncase 2:\ncout << "x is 2";\nbreak;\n\ndefault:\ncout << "x is not 1 or 2";\n}`,
+            options: ["syntax error", "x is 1", "x is 2", "x is not 1 or 2"],
+            correctAnswer: "x is not 1 or 2"
+          },
+          {
+            type: "mcq",
+            question: "Which is not a valid parameter passing mechanism in C++?",
+            options: ["name", "pointer", "reference", "value"],
+            correctAnswer: "name"
+          },
+          {
+            type: "mcq",
+            question: "Which boolean expression tests if `x` is between 5 and 20?",
+            options: ["(5 ≤ x ≤ 20)", "(5 ≤ x || x ≤ 20)", "(x >= 5 && x <= 20)", "(x <= 5 || x >= 20)"],
+            correctAnswer: "(x >= 5 && x <= 20)"
+          },
+          {
+            type: "mcq",
+            question: "Return type of a function in C++",
+            options: ["Float", "Int", "Void", "All of the above"],
+            correctAnswer: "All of the above"
+          },
+          {
+            type: "mcq",
+            question: "Output of code snippet",
+            codeSnippet: `void printName(string name)\n{\ncout << "My name is " << name;\n}\n\nprintName("Betty");`,
+            options: ["\"Betty\"", "Betty", "My name is Betty", "My name is name"],
+            correctAnswer: "My name is Betty"
+          },
+          {
+            type: "mcq",
+            question: "Unary operator means the operator takes",
+            options: ["no value", "one operand", "two operands", "none"],
+            correctAnswer: "one operand"
+          },
+          {
+            type: "mcq",
+            question: "In C++, an empty string is denoted by",
+            options: ["\"\"", "'0'", "0", "0;"],
+            correctAnswer: "\"\""
+          },
+          {
+            type: "mcq",
+            question: "A variable in C++ cannot be used",
+            options: ["before it is declared", "if value less than 10", "if integer type", "none"],
+            correctAnswer: "before it is declared"
+          },
+          {
+            type: "mcq",
+            question: "The `return 0` statement indicates",
+            options: ["program ended successfully", "control returns to OS", "program terminated execution", "All of them"],
+            correctAnswer: "All of them"
+          },
+          {
+            type: "mcq",
+            question: "Which include file contains `sqrt()`, `fabs()`, and `pow()`?",
+            options: ["cmath", "cstdlib", "iostream", "regular"],
+            correctAnswer: "cmath"
+          },
+          {
+            type: "mcq",
+            question: "What value is returned?",
+            codeSnippet: `int myfunction()\n{\n   int value = 35;\n   return value += 15;\n}`,
+            options: ["35", "40", "45", "50"],
+            correctAnswer: "50"
+          },
+          {
+            type: "mcq",
+            question: "Multiple arguments in a function are separated by",
+            options: ["colons", "commas", "periods", "semicolons"],
+            correctAnswer: "commas"
+          },
+          {
+            type: "mcq",
+            question: "Which keyword lets the compiler determine the variable type from initialization?",
+            options: ["auto", "const", "static_cast", "switch"],
+            correctAnswer: "auto"
+          },
+          {
+            type: "mcq",
+            question: "Output of program",
+            codeSnippet: `cout << pow(3,2) << endl;`,
+            options: ["3", "6", "9", "16"],
+            correctAnswer: "9"
+          },
+          {
+            type: "mcq",
+            question: "Output of code fragment",
+            codeSnippet: `int test(int a, int b)\n{\nreturn a / b;\n}\n\nint test(int a, int b, int c)\n{\nreturn a * b * c;\n}\n\ncout << test(5,3) << " and " << test(1,2,3);`,
+            options: ["1 and 7", "1.7 and 6", "5,3 and 1,2,3", "1 and 6"],
+            correctAnswer: "1 and 6"
+          },
+          {
+            type: "mcq",
+            question: "Automatic conversion of an operand to another data type is called",
+            options: ["demotion", "promotion", "type coercion", "type conversion"],
+            correctAnswer: "type coercion"
+          },
+          {
+            type: "mcq",
+            question: "Output of code fragment",
+            codeSnippet: `int a = 3, b = 2, c = 5;\n\nif (a > b)\na = 4;\n\nif (b > c)\na = 5;\n\nelse\na = 6;\n\ncout << a;`,
+            options: ["3", "4", "5", "6"],
+            correctAnswer: "6"
+          },
+          {
+            type: "mcq",
+            question: "Proper loop condition if loop should quit when `x < 10` and `y > 3`",
+            options: ["(x < 10 && y > 3)", "(x >= 10 && y <= 3)", "(x >= 10 || y <= 3)", "(x > 10 || y < 3)"],
+            correctAnswer: "(x >= 10 && y <= 3)"
+          },
+          {
+            type: "mcq",
+            question: "(Num1 == 1) OR (Num2 == 2) AND (Num1 == Num2)",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "(Num1 == 1) OR (Num2 != 2) OR (Num1 == Num2)",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "(Num1 == 1) AND (Num2 > 2) AND (Num1 <= Num2)",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "((Num1 < 1) OR (Num2 == 2)) AND (Num1 == Num2)",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "Functions cannot call other functions",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "The case statement works only when the test expression is integer, character, or constant",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "The break statement is used in an if/else statement to exit",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "A function’s local variable exists even after the function executes",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "A global variable cannot be accessed by functions defined after it",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "A loop must always contain code to make the condition false",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "Variables defined inside braces have global scope",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          },
+          {
+            type: "mcq",
+            question: "Overloaded functions have the same name but different parameter lists",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "A variable cannot be used before it is defined",
+            options: ["True", "False"],
+            correctAnswer: "True"
+          },
+          {
+            type: "mcq",
+            question: "The while loop is a conditional pretest loop",
+            options: ["True", "False"],
+            correctAnswer: "False"
+          }
+        ]
       }
     ]
   }
