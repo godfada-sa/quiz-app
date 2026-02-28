@@ -365,6 +365,7 @@ const courseData = {
     icon: Database,
     gradient: "from-emerald-500 to-teal-600",
     isFolder: true,
+    isCompleted: true,
     subModules: [
       {
         id: 'database_alison',
@@ -1247,303 +1248,659 @@ const courseData = {
     description: "C++ Operators, Loops, & Control Structures",
     icon: Code,
     gradient: "from-orange-500 to-red-600",
-    questions: [
+    isFolder: true,
+    subModules: [
       {
-        type: "mcq",
-        question: "Which operator is used to compare two values for equality in C++?",
-        options: ["=", "==", "===", "<>"],
-        correctAnswer: "=="
+        id: 'prog_edube',
+        title: "Edube",
+        description: "Edube Platform Questions",
+        questions: [
+          {
+            type: "mcq",
+            question: "What will be the output of the following program?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main() {
+    int length1 = 12, width1 = 12;
+    int length2 = 66, width2 = 45;
+
+    int area1 = length1 * width1;
+    int area2 = length2 * width2;
+
+    if(area1 > area2)
+        cout << "The first rectangle has a greater area.";
+    else
+        cout << "The second rectangle has a greater area.";
+
+    return 0;
+}`,
+            options: ["The first rectangle has a greater area", "Both rectangles have equal area", "The second rectangle has a greater area", "Compilation error"],
+            correctAnswer: "The second rectangle has a greater area"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code?",
+            codeSnippet: `#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int i = 2;
+    string s = "2";
+
+    cout << s + i;
+    return 0;
+}`,
+            options: ["4", "22", "Empty output", "Compilation error"],
+            correctAnswer: "Compilation error"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following snippet?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main() {
+    short s = 1;
+    int i = 2;
+    long l = 3;
+    float f = 4.4;
+    double d = 6.6;
+
+    cout << s/i + f/i + d/s;
+
+    return 0;
+}`,
+            options: ["8", "8.8", "9", "7.7"],
+            correctAnswer: "8.8"
+          },
+          {
+            type: "mcq",
+            question: "What will be printed by the following code?",
+            codeSnippet: `#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s = "0123456789";
+
+    cout << s.substr(3,7).substr(2).substr();
+
+    return 0;
+}`,
+            options: ["3456789", "6789", "56789", "234567"],
+            correctAnswer: "56789"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of this program?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 2;
+    float f = 5.8;
+
+    f = (int)f;
+    i = (float)i;
+
+    cout << f/i;
+
+    return 0;
+}`,
+            options: ["2", "2.5", "3", "5"],
+            correctAnswer: "2.5"
+          },
+          {
+            type: "mcq",
+            question: "What is the result of the following code?",
+            codeSnippet: `#include <iostream>
+
+namespace SpaceA {
+    int A;
+}
+
+namespace SpaceB {
+    int A;
+}
+
+using namespace SpaceA, SpaceB;
+
+int main() {
+    SpaceA::A = SpaceB::A = 1;
+    std::cout << A + 1;
+    return 0;
+}`,
+            options: ["1", "2", "3", "Compilation error"],
+            correctAnswer: "Compilation error"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following snippet?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 2;
+    float f = 4.4;
+
+    cout << f % float(i);
+
+    return 0;
+}`,
+            options: ["0.4", "2.4", "Compilation error", "4"],
+            correctAnswer: "Compilation error"
+          },
+          {
+            type: "mcq",
+            question: "What will the following code output?",
+            codeSnippet: `#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s1 = "Ab";
+    string s2 = "Abc";
+
+    cout << s1.compare(s1);
+
+    return 0;
+}`,
+            options: ["-1", "1", "0", "Compilation error"],
+            correctAnswer: "0"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following program?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main() {
+    int *it[3];
+
+    for(int i = 0; i < 3; i++) {
+        it[i] = new int[i + 1];
+
+        for(int j = 0; j < i + 1; j++)
+            it[i][j] = 10 * i + j;
+    }
+
+    cout << it[2][2];
+
+    for(int i = 0; i < 3; i++)
+        delete [] it[i];
+
+    return 0;
+}`,
+            options: ["20", "21", "22", "23"],
+            correctAnswer: "22"
+          },
+          {
+            type: "mcq",
+            question: "What will be printed by this program?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+namespace S1 {
+    int A = 1;
+}
+
+namespace S2 {
+    int A = 2;
+}
+
+int main() {
+
+    {
+        using namespace S1;
+        S2::A = A + 1;
+    }
+
+    {
+        using namespace S2;
+        S1::A = A + 1;
+    }
+
+    cout << S1::A << S2::A;
+
+    return 0;
+}`,
+            options: ["12", "23", "32", "33"],
+            correctAnswer: "32"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main() {
+    char t[3][3], *p = (char *)t;
+
+    for(int i = 0; i < 9; i++)
+        *p++ = 'a' + i;
+
+    cout << t[1][1];
+}`,
+            options: ["c", "d", "e", "f"],
+            correctAnswer: "e"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following snippet?",
+            codeSnippet: `#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s = "a";
+
+    cout << s + "b" + "c";
+}`,
+            options: ["abc", "acb", "ab", "Compilation error"],
+            correctAnswer: "abc"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+namespace S {
+    int A = 1;
+}
+
+namespace S {
+    int B = A + 2;
+}
+
+int main(void) {
+    S::A = S::A + 1;
+
+    {
+        using namespace S;
+        ++B;
+    }
+
+    cout << S::B << S::A;
+}`,
+            options: ["32", "42", "33", "43"],
+            correctAnswer: "42"
+          },
+          {
+            type: "mcq",
+            question: "What is printed on the screen?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i, k = 1;
+
+    for(i = 0; i < 3; i += 2)
+        k++;
+
+    cout << k;
+}`,
+            options: ["1", "2", "3", "4"],
+            correctAnswer: "3"
+          },
+          {
+            type: "mcq",
+            question: "What is printed on the screen?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i = 1, k = i << 1;
+
+    switch(k) {
+
+        case 1:
+            i += 1;
+            break;
+
+        case 2:
+            i += 2;
+            break;
+
+        default:
+            i += 3;
+    }
+
+    cout << i;
+}`,
+            options: ["2", "3", "4", "5"],
+            correctAnswer: "3"
+          },
+          {
+            type: "mcq",
+            question: "What is the value of variable `i`?",
+            codeSnippet: `float x = 1.0 / 5.0;
+int i = x;`,
+            options: ["1", "0", "5", "Compilation error"],
+            correctAnswer: "0"
+          },
+          {
+            type: "mcq",
+            question: "What is printed by the following code?",
+            codeSnippet: `#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    vector<double> arr = {1e-1, 1e0, 1e1};
+    double *ptr = arr.data() + 2;
+
+    cout << arr[1] - *ptr;
+}`,
+            options: ["-9", "9", "-10", "10"],
+            correctAnswer: "-9"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following snippet?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    short s = 1;
+    int i = 2;
+    float f = 4.;
+
+    cout << i/static_cast<float>(s) + i/2 + i/f;
+
+    return 0;
+}`,
+            options: ["3", "3.5", "3.0", "4"],
+            correctAnswer: "3.5"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code?",
+            codeSnippet: `#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string s = "123";
+    s.append(s.substr(2)).push_back(s[s.length() - 2]);
+
+    cout << s;
+}`,
+            options: ["12333", "1233", "12332", "12323"],
+            correctAnswer: "12333"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the program?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+double eval(double x)
+{
+    return x / (.5 * x);
+}
+
+void use(double n)
+{
+    int v = 1 / n;
+
+    v = eval(v);
+
+    cout << v;
+}
+
+int main()
+{
+    use(1.f);
+}`,
+            options: ["0", "1", "2", "Compilation error"],
+            correctAnswer: "2"
+          },
+          {
+            type: "mcq",
+            question: "What is the value of `k`?",
+            codeSnippet: `int k = 2 % 3 + 5 % 3;`,
+            options: ["1", "2", "3", "4"],
+            correctAnswer: "4"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following code?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 2, b = a >> 1;
+    int c = a >> b;
+    int d = 1 << c;
+    int e = d >> d;
+
+    cout << e;
+}`,
+            options: ["0", "1", "2", "4"],
+            correctAnswer: "0"
+          },
+          {
+            type: "mcq",
+            question: "What is printed on the screen?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 2, b = a >> 1;
+    int c = b >> a;
+    int d = 1 << c;
+    int e = d << d;
+
+    cout << e;
+}`,
+            options: ["1", "2", "4", "8"],
+            correctAnswer: "2"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following program?",
+            codeSnippet: `#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void swap(float* x, float *y)
+{
+    float z = *x;
+    *x = *y;
+    *y = z;
+}
+
+int main()
+{
+    vector<float> t = {3., 2., 1.};
+
+    swap(&t[0], &t[2]);
+
+    cout << t[1];
+}`,
+            options: ["1", "2", "3", "0"],
+            correctAnswer: "2"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following snippet?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    bool b1 = !true;
+    bool b2 = !b1 && false;
+    bool b3 = b2 || true;
+
+    if(b3)
+        cout << "true";
+    else
+        cout << "false";
+}`,
+            options: ["true", "false", "1", "Compilation error"],
+            correctAnswer: "true"
+          },
+          {
+            type: "mcq",
+            question: "What is printed on the screen?",
+            codeSnippet: `#include <iostream>
+#include <string>
+
+using namespace std;
+
+string replicate(string s = "x", int r = 1)
+{
+    string t;
+
+    while(r--)
+        t += s;
+
+    return t;
+}
+
+int main()
+{
+    string pattern = "a";
+
+    cout << replicate(pattern);
+}`,
+            options: ["a", "aa", "x", "ax"],
+            correctAnswer: "a"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following snippet?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i = 2;
+    float f = 1;
+
+    cout << (static_cast<float>(i) >> 1);
+}`,
+            options: ["0", "1", "2", "Compilation error"],
+            correctAnswer: "Compilation error"
+          },
+          {
+            type: "mcq",
+            question: "What is printed on the screen when the following code is run?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i = 1, k = i & 0;
+
+    do {
+        k++;
+        if(k > 1)
+            i = k;
+
+    } while(i < 2);
+
+    cout << k;
+}`,
+            options: ["0", "1", "2", "3"],
+            correctAnswer: "2"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following snippet?",
+            codeSnippet: `#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    vector<char> text(5);
+
+    char *chr1 = text.data() + 2, *chr2 = chr1 + 2;
+
+    cout << chr2 - text.data();
+}`,
+            options: ["2", "3", "4", "5"],
+            correctAnswer: "4"
+          },
+          {
+            type: "mcq",
+            question: "What is the output of the following program?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int op(int i, int j = 1)
+{
+    return i * j;
+}
+
+int op(char a, char b)
+{
+    return b - a;
+}
+
+int op(float x, float y)
+{
+    return x / y;
+}
+
+int main()
+{
+    cout << op(2) << op('c', 'a') << op(4.F, 2.F);
+}`,
+            options: ["2-22", "22-2", "2-12", "222"],
+            correctAnswer: "2-22"
+          },
+          {
+            type: "mcq",
+            question: "What is printed on the screen?",
+            codeSnippet: `#include <iostream>
+using namespace std;
+
+int main()
+{
+    int k = 3;
+
+    if(k > 0) {
+        if(k != 3)
+            k--;
+
+        if(k == 3)
+            k++;
+    }
+
+    if(k < 0) {
+        k = 5;
+    }
+
+    cout << k;
+}`,
+            options: ["2", "3", "4", "5"],
+            correctAnswer: "4"
+          }
+        ]
       },
       {
-        type: "text",
-        question: "Fill in the blank to increase the value of the variable 'x' by 1: x____;",
-        correctAnswer: ["++"]
-      },
-      {
-        type: "mcq",
-        question: "How do you write an \"else if\" statement in C++?",
-        options: ["elseif", "else if", "elif", "if else"],
-        correctAnswer: "else if"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to execute a block of code if 'x' is equal to 'y': if (x ____ y) { cout << \"Yes\"; }",
-        correctAnswer: ["=="]
-      },
-      {
-        type: "mcq",
-        question: "Which statement is used to execute some code if there is no case match in a switch statement?",
-        options: ["else", "default", "finally", "catch"],
-        correctAnswer: "default"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to stop the execution of more cases inside a switch block: case 1: cout << \"One\"; ____;",
-        correctAnswer: ["break"]
-      },
-      {
-        type: "mcq",
-        question: "Which C++ loop is guaranteed to execute at least one time, even if the condition is false?",
-        options: ["for loop", "while loop", "do/while loop", "foreach loop"],
-        correctAnswer: "do/while loop"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to create a standard while loop: ____ (i < 5) { cout << i; i++; }",
-        correctAnswer: ["while", "while "]
-      },
-      {
-        type: "mcq",
-        question: "What is the correct syntax to create a for loop in C++ that loops 5 times?",
-        options: ["for (int i = 0; i < 5; i++)", "for (i = 0; i <= 5)", "for int i = 1 to 5", "loop (5)"],
-        correctAnswer: "for (int i = 0; i < 5; i++)"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to specify that a condition is true if x is NOT equal to y: if (x ____ y)",
-        correctAnswer: ["!=", "not="]
-      },
-      {
-        type: "mcq",
-        question: "Which operator is used to multiply numbers in C++?",
-        options: ["*", "%", "x", "#"],
-        correctAnswer: "*"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to divide x by y: x ____ y;",
-        correctAnswer: ["/"]
-      },
-      {
-        type: "mcq",
-        question: "Which operator is used to find the remainder of a division?",
-        options: ["/", "%", "mod", "div"],
-        correctAnswer: "%"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to assign the value 10 to variable x: x ____ 10;",
-        correctAnswer: ["="]
-      },
-      {
-        type: "mcq",
-        question: "What is the logical AND operator in C++?",
-        options: ["&&", "||", "!", "and"],
-        correctAnswer: "&&"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to specify that a condition is true if x is greater than y: if (x ____ y)",
-        correctAnswer: [">"]
-      },
-      {
-        type: "mcq",
-        question: "What is the logical OR operator in C++?",
-        options: ["&&", "||", "!", "or"],
-        correctAnswer: "||"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to add 5 to x using the addition assignment operator: x ____ 5;",
-        correctAnswer: ["+="]
-      },
-      {
-        type: "mcq",
-        question: "Which operator is known as the ternary operator?",
-        options: ["? :", "++", "::", "->"],
-        correctAnswer: "? :"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank for the logical NOT operator: ____(x == y)",
-        correctAnswer: ["!"]
-      },
-      {
-        type: "mcq",
-        question: "How do you start an if statement in C++?",
-        options: ["if (x > y)", "if x > y then", "if x > y", "if x > y:"],
-        correctAnswer: "if (x > y)"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to execute code when an 'if' condition is false: ____ { cout << \"False\"; }",
-        correctAnswer: ["else"]
-      },
-      {
-        type: "mcq",
-        question: "What is the correct way to start a switch block?",
-        options: ["switch (x) {", "switch x {", "switch {x}", "switch [x] {"],
-        correctAnswer: "switch (x) {"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to start a switch statement for a variable named 'day': ____ (day) { }",
-        correctAnswer: ["switch"]
-      },
-      {
-        type: "mcq",
-        question: "Can you use a string variable as the direct expression in a C++ switch statement?",
-        options: ["Yes", "No"],
-        correctAnswer: "No"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank: Each case in a switch statement should usually end with a ____ statement.",
-        correctAnswer: ["break"]
-      },
-      {
-        type: "mcq",
-        question: "What happens if you omit the break statement in a C++ switch case?",
-        options: ["Syntax error", "It stops executing", "It falls through to the next case", "Program crashes"],
-        correctAnswer: "It falls through to the next case"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to check if x is less than or equal to y: if (x ____ y)",
-        correctAnswer: ["<="]
-      },
-      {
-        type: "mcq",
-        question: "Short hand if...else is also known as:",
-        options: ["Ternary Operator", "Elvis Operator", "Binary Operator", "Switch Operator"],
-        correctAnswer: "Ternary Operator"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to define a case block for the value 1: ____ 1:",
-        correctAnswer: ["case"]
-      },
-      {
-        type: "mcq",
-        question: "Which keyword is used to skip the current iteration of a loop and continue to the next one?",
-        options: ["skip", "break", "continue", "next"],
-        correctAnswer: "continue"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to stop a loop completely before its condition naturally becomes false: ____;",
-        correctAnswer: ["break"]
-      },
-      {
-        type: "mcq",
-        question: "Which loop evaluates its condition at the very end of the loop body?",
-        options: ["for", "while", "do...while", "foreach"],
-        correctAnswer: "do...while"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The syntax for a for loop is: for (statement 1; statement 2; statement 3). Which statement is executed every time AFTER the loop body runs? Statement ____",
-        correctAnswer: ["3", "three"]
-      },
-      {
-        type: "mcq",
-        question: "What is the purpose of Statement 1 in a C++ for loop (e.g., for(int i=0; ...)?",
-        options: ["Executes code after the loop", "Defines the loop condition", "Executed one time before the loop starts", "Increments the counter"],
-        correctAnswer: "Executed one time before the loop starts"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. A loop inside of another loop is called a ____ loop.",
-        correctAnswer: ["nested"]
-      },
-      {
-        type: "mcq",
-        question: "If the condition in a standard 'while' loop is false initially, how many times will the loop body execute?",
-        options: ["1", "0", "Infinite", "Depends on the compiler"],
-        correctAnswer: "0"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. To run a block of code a specific, known number of times, it is often best to use a ____ loop.",
-        correctAnswer: ["for"]
-      },
-      {
-        type: "mcq",
-        question: "Which of the following creates an infinite loop in C++?",
-        options: ["for(;;)", "while(true)", "Both of the above", "Neither"],
-        correctAnswer: "Both of the above"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to decrement variable x by 1: x____;",
-        correctAnswer: ["--"]
-      },
-      {
-        type: "mcq",
-        question: "What does the `<=` operator mean?",
-        options: ["Less than", "Equal to", "Less than or equal to", "Greater than or equal to"],
-        correctAnswer: "Less than or equal to"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to multiply variable x by 5 using assignment shorthand: x ____ 5;",
-        correctAnswer: ["*="]
-      },
-      {
-        type: "mcq",
-        question: "Which of the following operators has the highest standard precedence?",
-        options: ["+", "-", "*", "="],
-        correctAnswer: "*"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. To explicitly override standard operator precedence, you use ____.",
-        correctAnswer: ["parentheses", "()", "( )"]
-      },
-      {
-        type: "mcq",
-        question: "What will be the boolean result of `true && false`?",
-        options: ["true", "false", "1", "-1"],
-        correctAnswer: "false"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. The boolean result of `true || false` is ____.",
-        correctAnswer: ["true", "1"]
-      },
-      {
-        type: "mcq",
-        question: "Can multiple variables be initialized in the first statement of a for loop?",
-        options: ["Yes", "No"],
-        correctAnswer: "Yes"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to check if x is greater than or equal to y: if (x ____ y)",
-        correctAnswer: [">="]
-      },
-      {
-        type: "mcq",
-        question: "Which data type is returned by all relational and logical operators in C++?",
-        options: ["int", "string", "bool", "char"],
-        correctAnswer: "bool"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to divide x by 2 using assignment shorthand: x ____ 2;",
-        correctAnswer: ["/="]
-      },
-      {
-        type: "mcq",
-        question: "What is the value of `x` after this code runs? `int x = 10; x += 5;`",
-        options: ["5", "10", "15", "50"],
-        correctAnswer: "15"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank. In C++, any non-zero integer value evaluated in an if-statement condition is considered ____.",
-        correctAnswer: ["true", "True"]
-      },
-      {
-        type: "mcq",
-        question: "What does the single equals sign '=' do in C++?",
-        options: ["Checks for equality", "Assigns a value", "Compares types", "Divides values"],
-        correctAnswer: "Assigns a value"
-      },
-      {
-        type: "text",
-        question: "Fill in the blank to start a do/while loop: ____ { cout << \"Hi\"; } while(x < 5);",
-        correctAnswer: ["do"]
+        id: 'prog_passco',
+        title: "Passco",
+        description: "Past Questions and Exams",
+        isComingSoon: true,
+        questions: []
       }
     ]
   }
@@ -1595,11 +1952,11 @@ export default function App() {
   const handleStartCourse = (courseId) => {
     const course = courseData[courseId];
     
-    if (course.isFolder) {
+    if (course.isCompleted) {
+      setCompletedCourseId(courseId);
+    } else if (course.isFolder) {
       setActiveCourseId(courseId);
       setCurrentScreen('sub_dashboard');
-    } else if (course.isCompleted) {
-      setCompletedCourseId(courseId);
     } else {
       setActiveCourseId(courseId);
       setActiveSubModuleId(null);
@@ -1614,15 +1971,21 @@ export default function App() {
 
   const handleProceedToQuestions = () => {
     const courseId = completedCourseId;
+    const course = courseData[courseId];
     setCompletedCourseId(null);
     setActiveCourseId(courseId);
-    setActiveSubModuleId(null);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setSelectedAnswers([]);
-    setIsAnswered(false);
-    setWarning("");
-    setCurrentScreen('quiz');
+    
+    if (course.isFolder) {
+      setCurrentScreen('sub_dashboard');
+    } else {
+      setActiveSubModuleId(null);
+      setCurrentQuestionIndex(0);
+      setScore(0);
+      setSelectedAnswers([]);
+      setIsAnswered(false);
+      setWarning("");
+      setCurrentScreen('quiz');
+    }
   };
 
   const handleStartSubModule = (subModule) => {
@@ -1736,7 +2099,7 @@ export default function App() {
     <div className="p-6 sm:p-8 animate-in fade-in duration-500">
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Select a Course</h2>
-        <p className="text-slate-400 text-sm sm:text-base">Choose a course to begin your quiz</p>
+        <p className="text-slate-400 text-sm sm:text-base">Choose a subject to begin your quiz</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -1770,7 +2133,7 @@ export default function App() {
   const renderSubDashboard = () => (
     <div className="p-6 sm:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{activeCourse.title} Modules</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{activeCourse.title}</h2>
         <p className="text-slate-400 text-sm sm:text-base">Choose a specific section to begin</p>
       </div>
 
@@ -1826,13 +2189,24 @@ export default function App() {
             </span>
           </div>
 
-          {/* Question Text */}
+          {/* Question Text & Code Snippet */}
           <div className="mb-6 sm:mb-8">
             <h2 className="text-lg sm:text-xl font-semibold text-white leading-relaxed">
               {currentQuestion.question}
             </h2>
+            
+            {/* New Code Snippet Renderer */}
+            {currentQuestion.codeSnippet && (
+              <div className="mt-4 p-4 sm:p-5 bg-[#0d1117] rounded-xl border border-slate-700/50 shadow-inner overflow-x-auto relative group">
+                <div className="absolute top-0 right-0 px-2 py-1 bg-slate-800 text-[10px] text-slate-400 rounded-bl-lg rounded-tr-xl font-mono uppercase tracking-wider border-b border-l border-slate-700/50">C++</div>
+                <pre className="text-sm sm:text-base font-mono text-[#569cd6] leading-relaxed whitespace-pre-wrap sm:whitespace-pre">
+                  <code>{currentQuestion.codeSnippet}</code>
+                </pre>
+              </div>
+            )}
+
             {currentQuestion.type !== 'text' && Array.isArray(currentQuestion.correctAnswer) && currentQuestion.correctAnswer.length > 1 && (
-              <p className="text-blue-400 text-sm mt-2 font-medium">
+              <p className="text-blue-400 text-sm mt-4 font-medium">
                 (Select {currentQuestion.correctAnswer.length} answers)
               </p>
             )}
@@ -2008,7 +2382,7 @@ export default function App() {
   // Determine Title for Header
   let headerTitle = "Student Portal";
   if (currentScreen === 'sub_dashboard') {
-    headerTitle = `${activeCourse?.title} Modules`;
+    headerTitle = activeCourse?.title;
   } else if (currentScreen === 'quiz' || currentScreen === 'results') {
     if (activeCourse?.isFolder && activeSubModuleId) {
       const sub = activeCourse.subModules.find(s => s.id === activeSubModuleId);
