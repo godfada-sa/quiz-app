@@ -1897,7 +1897,7 @@ int main()
       },
       {
         id: 'prog_passco',
-        title: "Passco",
+        title: "Pasco",
         description: "Past Questions and Exams",
         isComingSoon: true,
         questions: []
